@@ -33,12 +33,28 @@
         </div>
         
         <div class="container">
-            <a class="title" href="/projects.html" style="font-size:14pt;line-height:0px;font-family:'Droid Sans'">Projects</a>
-        </div>
-        
-        <div class="container">
             <a class="title" href="/blog.html" style="font-size:14pt;line-height:0px;font-family:'Droid Sans'">Blog</a>
         </div>
         
+        <div class="container">
+            <a class="title" href="#" style="font-size:14pt;line-height:0px;font-family:'Droid Sans'" onclick="toggle_visibility('show');">Projects</a>
+        </div>
+        
+            <div class="menu" id ="show" >
+				<a href="/ocean.html" style="font-size:14pt;line-height:40px;font-family:'Droid Sans'">Ocean Wave Energy Harvesting</a> <br>
+				<a href="/solar.html" style="font-size:14pt;line-height:40px;font-family:'Droid Sans'">Solar Energy Harvesting</a> <br>
+				<a href="/art.html" style="font-size:14pt;line-height:40px;font-family:'Droid Sans'">Art and Sewing</a>
+            </div>
 	</body>
+    
+    <script type="text/javascript">
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if(e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
+        }
+    </script>
+        
 </html>

@@ -51,7 +51,16 @@ li {
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 40px;
+}
+
+.menu {
+	width: 300px;
+    text-align: center;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
 	margin-bottom: 40px;
+    margin-top: 20px;
 }
 
 h1 {
