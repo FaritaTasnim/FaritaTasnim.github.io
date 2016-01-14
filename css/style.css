@@ -77,6 +77,12 @@ li {
     display: none
 }
 
+.vertcentered {
+    position: relative;
+    top: 50%;
+	transform: translateY(-60%);
+}
+
 h1 {
 	font-size: 30pt;
 	margin-left: auto;
@@ -95,28 +101,4 @@ h2 {
 	line-height: 40px;
 	font-family: 'Source Sans Pro';
     text-align: center;
-}
-
-img{
-	display: inline-table;
-	margin-left: auto;
-	/*padding: 0px 15px;*/
-	padding: 0px 30px;
-	margin-right: auto;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	border: 1px solid #ebebeb;
-	margin: 0px;
-	/*-webkit-transition: border .1s ease-in-out;*/
-	-webkit-transition: opacity .1s ease-in-out;
-	opacity: .7;
-	width:215px;
-}
-
-img:hover {
-	opacity: 1;
-	width:215px;
-	/*border: 1px solid #000;*/
-	/*-webkit-transition: border .1s ease-in-out;*/
-	-webkit-transition: opacity .1s ease-in-out;
 }
