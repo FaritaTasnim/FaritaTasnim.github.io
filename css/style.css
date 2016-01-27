@@ -53,8 +53,17 @@ li {
 	margin-top: 40px;
 }
 
+a.link {
+    color: #3366BB
+}
+
+.video {
+    margin-top: 20px;
+}
+
 .frontpage {
 	margin-top: 100px;
+    text-align: center;
 }
 
 .blog {
