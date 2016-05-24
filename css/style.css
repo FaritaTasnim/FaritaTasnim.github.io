@@ -115,3 +115,13 @@ h2 {
 	font-family: 'Source Sans Pro';
     text-align: center;
 }
+
+h3 {
+	font-size: 15pt;
+	margin-left: auto;
+	margin-top: 10px;
+	margin-bottom: 0px;
+	line-height: 40px;
+	font-family: 'Source Sans Pro';
+    text-align: center;
+}
