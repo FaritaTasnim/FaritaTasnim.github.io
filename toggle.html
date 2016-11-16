@@ -1,0 +1,22 @@
+<!-- Replace your-device-ID-goes-here with your actual device ID
+and replace your-access-token-goes-here with your actual access token-->
+<!DOCTYPE>
+<html>
+  <body>
+  <center>
+  <br>
+  <br>
+  <br>
+  <form action="https://api.particle.io/v1/devices/27003a000b51343334363138/toggle?access_token=bb46e9a97836708e41b3a4f21d5e1ccd356a9edd" method="POST">
+    Tell your device what to do!<br>
+    <br>
+    <input type="radio" name="args" value="unlock">Unlock the box!
+    <br>
+    <input type="radio" name="args" value="lock">Lock the box!
+    <br>
+    <br>
+    <input type="submit" value="Do it!">
+  </form>
+  </center>
+  </body>
+</html>
