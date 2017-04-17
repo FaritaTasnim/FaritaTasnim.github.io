@@ -5,7 +5,6 @@ $(document).ready(function () {
     "use strict";
     var img1 = "<IMG SRC='/images/dg.png' STYLE='WIDTH:7px; HEIGHT:7px'>";
     
-    $("body").append("<div class='centered'>");
     end();
     $("body").append("<br>");
     mid();
@@ -13,7 +12,6 @@ $(document).ready(function () {
     mid();
     $("body").append("<br>");
     end();
-    $("body").append("</div>");
 });
 
 function end () {
