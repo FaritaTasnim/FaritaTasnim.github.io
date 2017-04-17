@@ -7,7 +7,8 @@ $(document).ready(function () {
     
    for (var d=0; d < 2; d++){
         for (var c=0; c < 10; c++){
-            $("body").append("     ");
+            $("body").append("\u00A0");
+            $("body").append("\u00A0");
             for (var b=0; b < 5; b++){
                     $("body").append("  " + img1);
                 }
