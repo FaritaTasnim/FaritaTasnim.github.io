@@ -9,6 +9,7 @@ $(document).ready(function () {
         for (var c=0; c < 10; c++){
             $("body").append("\u00A0");
             $("body").append("\u00A0");
+            $("body").append("\u00A0");
             for (var b=0; b < 5; b++){
                     $("body").append("  " + img1);
                 }
