@@ -23,13 +23,18 @@ $(document).ready(function () {
     
     //$("div").append("<p>"+tag+"</p>");
     
+    $(".hole").mouseover(function(){
+        $(".hole").attr('src','/images/highlight.png');
+        $(".hole").attr('style','WIDTH:7px; HEIGHT:7px');
+    });
+    
     //use adjacency lists
     //replace images with svg's
 });
 
 
 function end () {
-    var img1 = "<IMG SRC='/images/dg.png'"+"ID='"+tag+"' STYLE='WIDTH:7px; HEIGHT:7px'>";
+    var img1 = "<IMG SRC='/images/dg.png' CLASS = 'hole' "+"ID='"+tag+"' STYLE='WIDTH:7px; HEIGHT:7px'>";
     //var hole = draw.circle(7);
     var img2 = "<IMG SRC='/images/plus.png' STYLE='WIDTH:7px; HEIGHT:7px'>";
     var img3 = "<IMG SRC='/images/minus.png' STYLE='WIDTH:7px; HEIGHT:7px'>";
