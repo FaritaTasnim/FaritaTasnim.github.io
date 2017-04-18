@@ -17,6 +17,9 @@ $(document).ready(function () {
     $("div").append("<br>");
     
     end();
+    
+    var allImages = document.getElementsByTagName('img');
+    $("div").append(allImages);
 });
 
 
