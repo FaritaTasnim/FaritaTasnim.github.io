@@ -19,7 +19,7 @@ $(document).ready(function () {
     
     end();
     
-    $("div").append(allImages);
+    $("div").append("<p>"+allImages+ "</p>");
 });
 
 
