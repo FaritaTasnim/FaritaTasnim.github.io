@@ -22,9 +22,11 @@ $(document).ready(function () {
 
 function end () {
     var img1 = "<IMG SRC='/images/dg.png' STYLE='WIDTH:7px; HEIGHT:7px'>";
+    var img2 = "<IMG SRC='/images/plus.png' STYLE='WIDTH:7px; HEIGHT:7px'>";
+    var img3 = "<IMG SRC='/images/minus.png' STYLE='WIDTH:7px; HEIGHT:7px'>";
     for (var d=0; d < 2; d++){
-        if (d==0) $("div").append("+");
-        else $("div").append("_");
+        if (d==0) $("div").append(img2);
+        else $("div").append(img3);
         for (var b=0; b < 5; b++){
             $("div").append("\u00A0" + img1);
         }
