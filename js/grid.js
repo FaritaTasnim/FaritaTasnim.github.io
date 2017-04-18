@@ -3,7 +3,6 @@
 
 $(document).ready(function () {
     "use strict";
-    var allImages = document.getElementsByTagName('img');
 
     end();
     
@@ -18,8 +17,6 @@ $(document).ready(function () {
     $("div").append("<br>");
     
     end();
-    
-    $("div").append("<p>"+allImages+ "</p>");
 });
 
 
