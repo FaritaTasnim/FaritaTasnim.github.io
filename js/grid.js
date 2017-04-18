@@ -37,12 +37,11 @@ $(document).ready(function () {
             else arr[x][y] = 0;    
         }    
     }
-    
-    for(var x = 0; x < 840; x++){
-        for(var y = 0; y < 840; y++){ 
-            $("div").append("<p>" +x+ " " +y+ " " +arr[x][y]+ "</p>");
-        }
-    }
+
+    $("div").append("<p>"+arr[100][292]+"</p>");
+    $("div").append("<p>"+arr[292][100]+"</p>");
+    $("div").append("<p>"+arr[100][101]+"</p>");
+    $("div").append("<p>"+arr[101][100]+"</p>");
 });
 
 
