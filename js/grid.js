@@ -19,6 +19,8 @@ $(document).ready(function () {
     $("div").append("<br>");
     
     end();
+    
+    $("div").append("<p>"+tag+"</p>");
 });
 
 
