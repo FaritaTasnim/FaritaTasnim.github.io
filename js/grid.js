@@ -20,7 +20,15 @@ $(document).ready(function () {
     
     end();
     
-    $("div").append("<p>"+tag+"</p>");
+    //$("div").append("<p>"+tag+"</p>");
+    
+    var arr = [];
+    for(var x = 0; x < 840; x++){
+        arr[x] = [];    
+        for(var y = 0; y < 840; y++){ 
+            arr[x][y] = 0;    
+        }    
+    }
 });
 
 
