@@ -2,10 +2,10 @@
 /*global $, jQuery, alert*/
 
 var tag = 0;
-//var draw = SVG('container');
     
 $(document).ready(function () {
     "use strict";
+    //var draw = SVG('container');
 
     end();
     
@@ -21,11 +21,11 @@ $(document).ready(function () {
     
     end();
     
-    //$("div").append("<p>"+tag+"</p>");
-    
-    $(".hole").mouseover(function(){
-        $(".hole").attr('src','/images/highlight.png');
-        $(".hole").attr('style','WIDTH:7px; HEIGHT:7px');
+    $('img').bind('mouseenter mouseleave', function() {
+        $(this).attr({
+            src: $(this).attr('data-other-src') 
+            , 'data-other-src': $(this).attr('src') 
+        })
     });
     
     //use adjacency lists
@@ -34,7 +34,7 @@ $(document).ready(function () {
 
 
 function end () {
-    var img1 = "<IMG SRC='/images/dg.png' CLASS = 'hole' "+"ID='"+tag+"' STYLE='WIDTH:7px; HEIGHT:7px'>";
+    var img1 = "<IMG data-other-src='/images/highlight.png' SRC='/images/dg.png' "+"ID='"+tag+"' STYLE='WIDTH:7px; HEIGHT:7px'>";
     //var hole = draw.circle(7);
     var img2 = "<IMG SRC='/images/plus.png' STYLE='WIDTH:7px; HEIGHT:7px'>";
     var img3 = "<IMG SRC='/images/minus.png' STYLE='WIDTH:7px; HEIGHT:7px'>";
