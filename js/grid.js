@@ -32,7 +32,6 @@ $(document).ready(function () {
     //replace images with svg's
 });
 
-
 function end () {
     var img1 = "<IMG data-other-src='/images/highlight.png' SRC='/images/dg.png' "+"ID='"+tag+"' STYLE='WIDTH:7px; HEIGHT:7px'>";
     //var hole = draw.circle(7);
@@ -57,7 +56,7 @@ function end () {
 }
 
 function mid () {
-    var img1 = "<IMG SRC='/images/dg.png' STYLE='WIDTH:7px; HEIGHT:7px'>";
+    var img1 = "<IMG data-other-src='/images/highlight.png' SRC='/images/dg.png' "+"ID='"+tag+"' STYLE='WIDTH:7px; HEIGHT:7px'>";
     for (var j=0; j < 5; j++){
         for (var i=0; i < 64; i++){
             $("div").append("\u00A0" + img1);
