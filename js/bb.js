@@ -14,14 +14,13 @@ $(document).ready(function() {
     $.each(s.selectAll("circle").items, function() {
 
         this.mouseover(function() {
-            this.animate({
+            this.attr({
                 fill: "#ff0000"
-            }, 100);
+            });
         }).mouseout(function() {
-            this.stop();
-            this.animate({
+            this.attr({
                 fill: "#000000"
-            }, 500);
+            });
         }).click(function() {
             
         });
