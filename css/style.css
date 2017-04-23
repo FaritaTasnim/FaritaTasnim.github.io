@@ -126,6 +126,6 @@ h3 {
     text-align: center;
 }
 
-.hole{
-    
+.resistor{
+    position: absolute;
 }
