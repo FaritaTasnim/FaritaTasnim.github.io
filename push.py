@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import os, sys
 
 os.system('git pull origin master')
