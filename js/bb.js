@@ -1,6 +1,17 @@
 var tag = 0;
+var r_clicked = false;
+var currentResId = 0;
+var res_end_1;
+var res_end_2;
+var this_id;
+var id;
+var r_sel = 0;
+var to_move = -1;
 $(document).ready(function() {
-    var s = Snap(1000,2000);
+    var s = Snap(1000, 2000);
+    create_resistor(s);
+    var cap = Snap(100,100).attr({x:150,y:350});
+    s.add(cap);
     
     //grid
     end(s, 100, 50);
@@ -18,42 +29,29 @@ $(document).ready(function() {
             this.attr({
                 fill: "#ff0000"
             });
-            var sel = this.attr("id");
-            show_conn(s, sel, 0, 50);
-            show_conn(s, sel, 50, 100);
-            show_conn(s, sel, 730, 780);
-            show_conn(s, sel, 780, 830);
-            for (i=0; i < 126; i++){
-                show_conn(s, sel, 100+i*5, 105+i*5);
-            }
+            sel = this.attr("id");
+            show_all_conn(s, sel);
         }).mouseout(function() {
             this.attr({
                 fill: "#000000"
             });
-            var sel = this.attr("id");
-            hide_conn(s, sel, 0, 50);
-            hide_conn(s, sel, 50, 100);
-            hide_conn(s, sel, 730, 780);
-            hide_conn(s, sel, 780, 830);
-            for (i=0; i < 126; i++){
-                hide_conn(s, sel, 100+i*5, 105+i*5);
-            }
+            sel = this.attr("id");
+            hide_all_conn(s, sel);
         }).click(function() {
             
         });
     });
     
     //resistor    
-    resistor(s, 90, 350);
-    var r_clicked = false;
-    var t = new Snap.Matrix();
     document.onmousemove = getMouseXY;
     
-    $.each(s.selectAll("g").items, function() {
-        this.click(function() {
-            r_clicked = true;
-            var r_sel = resistor(s, 90, 350);
-        });
+    $("#r0").click(function() {
+        r_sel = resistor(s, 90, 350);
+        r_clicked = !r_clicked;
+    });
+    
+    $("*").click(function(){
+        console.log($(this).attr("id"));  
     });
     
     function getMouseXY(event) {
@@ -63,42 +61,29 @@ $(document).ready(function() {
         y = event.pageY;
         if (x < 0) x = 0;
         if (y < 0) y = 0; 
-
-        if (r_clicked){
-            moveResistor(1, x-100, y-390);
-            console.log();
-        }
+        
     }
 
 });
 
-function getResId(number) {
-    return "r" + number;
+function show_all_conn(s, sel){
+    show_conn(s, sel, 0, 50);
+    show_conn(s, sel, 50, 100);
+    show_conn(s, sel, 730, 780);
+    show_conn(s, sel, 780, 830);
+    for (i=0; i < 126; i++){
+        show_conn(s, sel, 100+i*5, 105+i*5);
+    }
 }
 
-function moveResistor(id, x, y) {
-    var res = $('#' + getResId(id));
-    res.attr({transform: "translate(" + x + "," + y + ")"});
-}
-
-var currentResId = 0;
-function resistor(s, x, y){
-    var wire_l = s.rect(x-17, y-2, 12, 4, 2).attr({fill: "#8d8c87"}),
-        wire_r = s.rect(x+25, y-2, 12, 4, 2).attr({fill: "#8d8c87"}),
-        el_l = s.ellipse(x, y, 7, 6).attr({fill: "#e5c883"}),
-        el_r = s.ellipse(x+20, y, 7, 6).attr({fill: "#e5c883"}),
-        r_mid = s.rect(x+2, y-5, 15, 10).attr({fill: "#e5c883"}),
-        r_l = s.rect(x-9, y-2, 4, 4).attr({fill: "#e5c883"}),
-        r_r = s.rect(x+25, y-2, 4, 4).attr({fill: "#e5c883"}),
-        b_1 = s.rect(x-1, y-6, 3, 12, 1).attr({fill: "#d01818"}),
-        b_2 = s.rect(x+5, y-5, 3, 10).attr({fill: "#d01818"}),
-        b_3 = s.rect(x+11, y-5, 3, 10).attr({fill: "#d01818"}),
-        b_4 = s.rect(x+19, y-6, 2, 12, 1).attr({fill: "#c5b358"}),
-        r = s.g(wire_l, wire_r, el_l, el_r, r_mid, r_l, r_r, b_1, b_2, b_3, b_4);
-    
-    r.attr({id: getResId(currentResId)});
-            
-    currentResId++;
+function hide_all_conn(s, sel){
+    hide_conn(s, sel, 0, 50);
+    hide_conn(s, sel, 50, 100);
+    hide_conn(s, sel, 730, 780);
+    hide_conn(s, sel, 780, 830);
+    for (i=0; i < 126; i++){
+        hide_conn(s, sel, 100+i*5, 105+i*5);
+    }
 }
 
 function show_conn(s, sel, lo, hi){
