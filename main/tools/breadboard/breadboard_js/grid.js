@@ -2,32 +2,32 @@
 /*global $, jQuery, alert*/
 
 var tag = 0;
-    
+
 $(document).ready(function () {
     "use strict";
     //var draw = SVG('container');
 
     end();
-    
+
     $("div").append("<br>");
-    
+
     mid();
-    
+
     $("div").append("<br>");
-    
+
     mid();
-    
+
     $("div").append("<br>");
-    
+
     end();
-    
+
     $('img').bind('mouseenter mouseleave', function() {
         $(this).attr({
-            src: $(this).attr('data-other-src') 
-            , 'data-other-src': $(this).attr('src') 
+            src: $(this).attr('data-other-src')
+            , 'data-other-src': $(this).attr('src')
         })
     });
-    
+
     //use adjacency lists
     //replace images with svg's
 });
