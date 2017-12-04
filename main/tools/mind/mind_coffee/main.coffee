@@ -1,3 +1,5 @@
+import 'circle.coffee'
+import 'element.coffee'
 $ ->
 	paper = Snap(1000, 2000)
 	x = 100 #or last saved state (how to)
