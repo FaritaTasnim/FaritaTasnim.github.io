@@ -13,4 +13,8 @@ class Element
 
 	drag: () ->
 		@obj.drag()
-	
+
+	changeColor: (color) ->
+		@obj.attr(fill: color)
+
+	showColorMenu: () ->
