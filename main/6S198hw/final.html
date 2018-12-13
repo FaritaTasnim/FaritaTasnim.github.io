@@ -48,7 +48,7 @@
 						<h4>Explaining Hanabi</h4>
 							<p class="indented"><i>State Spaces</i></p>
 	            <p class="indented">In reinforcement learning it is common to model games and optimization problems as Markov Decision Processes (MDP). MDPs are a probabilistic framework for modeling situations with discrete, unique states, with transition probabilities between different states.</p>
-							<div class="video"><img src = "../../../images/198a.jpg" style="width:500px;"></img></div>
+							<div class="video"><img src = "../../../images/198a.png" style="width:500px;"></img></div>
 							<p class="indented">Further, all states in an MDPs uphold the Markov Property. A Markov Property abiding state `s` is independent of all preceding state such that the next state, `s’`, is only based on `s`. How can we model Hanabi in a similar fashion? For Q-learning and DQN we can gloss over the details of transition probabilities (DQN and Q-Learning in general are model-free and do not learn a transition probability matrix) and focus instead on the states of the problem instead. We call this the state space, specifically the state space of Hanabi.</p>
 
 							<p class="indented"><i>Hanabi State Space</i></p>
@@ -69,7 +69,7 @@
 							<p class="indented"><i>Environment</i></p>
 	            <p class="indented">The environment, HanabiEnv, inherits from the OpenAI environment class. It will create a Hanabi game based on the number of players, max numeric card value, number of colors, and number of cards in a player’s hand. The community game state is a state tuple of the different states of a Hanabi game’s primitive components - that is, we independently manage a state for the deck, firework stack, discard pile, etcetera and the state combination of those parts form a community state. As previously mentioned, the private state (handled in player.py) is then joined with the communal state. Here is a diagram showing how the environment could evolve over time as a result of player actions:</p>
 
-							<div class="video"><img src = "../../../images/198b.jpg" style="width:500px;"></img></div>
+							<div class="video"><img src = "../../../images/198b.png" style="width:500px;"></img></div>
 
 							<p class="indented"><i>Player</i></p>
 	            <p class="indented">The player, Player, is a generic state-space manager for a player’s private observations. It is built in a generic way such that it does not have to be re-written for every agent that we write. Similar to the environment, the player (private) state is a state tuple of the different states of a player’s relevant observations - in this case, their possible hints, received hints, and (obfuscated) hand. A player is initialized with a player ID and a parameter determining the max size of their hand. Player’s will handle all internal game logic that results from one of the three actions an agent can take (1) playing, (2) discarding, and (3) hinting.</p>
@@ -87,15 +87,15 @@
 							<p class="indented"><i>Web Backend</i></p>
 	            <p class="indented">A Flask backend computes all the game logic and player actions. The game is initialized based on an OpenAI Gym compatible make configuration. The backend is composed of a HanabiEnv and as many Player classes as required by the configuration. The backend determines what kind of algorithm the intelligent agents will use during the game. Human actions are represented through a HumanAgent class that abstracts the client’s chosen actions in an environment-friendly fashion. After every human turn, there is an artificial waiting period for UX purposes before an agent move is automatically executed and handled. The backend environment essentially handles all Hanabi game logic and simply restores the community and player states to the frontend. There are debugging agents implemented in the Flask backend that execute predictable actions to test the React.js frontend. From a high level perspective, the system architecture looks like the diagram shown below. In the future it would be ideal to host this on the internet instead of locally. It may also be interesting to write a tensorflow.js agent as a fun exercise.</p>
 
-							<div class="video"><img src = "../../../images/198c.jpg" style="width:500px;"></img></div>
+							<div class="video"><img src = "../../../images/198c.png" style="width:500px;"></img></div>
 
 					<h3>Learning Algorithm</h3>
 						<p class="indented"><i>Overview</i></p>
             <p class="indented">The agent for Hanabi RL, through a neural network, learns implicit values associated with taking actions given the game state. The neural network, called a DQN (Deep Q Network), is approximating what is called the “Q-table,” where Q is a variable assigned canonically to values of taking actions in a reinforcement learning setting. We tried training two different DQN architectures. The first is a single neural network that attempts to translate the state space into the action space through five layers, and the second is a set of three neural networks that each translate the state space into the action space for one of three possible actions. Each of these architectures are outlined below. Whereas each of the inner layers of the network had ReLu activation, the final layer of each neural network consisted of an output layer with linear activation. The state space is a one hot vector consisting of a player’s state and the community state.</p>
 
-					<div class="video"><img src = "../../../images/198d.jpg" style="width:500px;"></img></div>
-					<div class="video"><img src = "../../../images/198e.jpg" style="width:500px;"></img></div>
-					<div class="video"><img src = "../../../images/198f.jpg" style="width:500px;"></img></div>
+					<div class="video"><img src = "../../../images/198d.jpeg" style="width:500px;"></img></div>
+					<div class="video"><img src = "../../../images/198e.jpeg" style="width:500px;"></img></div>
+					<div class="video"><img src = "../../../images/198f.jpeg" style="width:500px;"></img></div>
 
 						<p class="indented"><i>Reward</i></p>
 						<p class="indented">Another important component of training a deep Q network is its reward function. Ideally, we would provide the simplest reward function possible to avoid going down the rabbit hole of searching the large and complex space of possible reward functions. We decided to provide reward +1 for any move that resulted in a correctly placed card in the firework stacks. </p>
