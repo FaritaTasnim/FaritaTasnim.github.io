@@ -20,65 +20,100 @@
 
         <div class="blog" style="font-size:12pt;font-family:'Source Sans Pro'">
           <h3>Introduction</h3>
-            <p class="indented">Intro here</p>
+            <p class="indented">Reinforcement learning (RL) is a powerful machine learning tool in which an intelligent agent can learn a method, process, or strategy by iteratively building up a model of how to ‘act’ when presented with a given ‘state.’ It works on the basis of slowly updating the agent’s beliefs about how valuable different actions are given different states of the world. We wanted to apply reinforcement learning to a card game, Hanabi. Hanabi is particularly interesting because the other players are not your opponents, but your collaborators. You must work together with the other players in the game, where every person has limited information, and collaboratively build up stacks of cards ordered correctly by number. Thus, an AI that can play Hanabi is particularly exciting because it solves a multi-agent collaborative reinforcement learning problem. Throughout our explorations for the past six weeks, we designed our own environment based on an OpenAI Gym backbone and implemented our game-playing agents with different model architectures and reward schemas. Here we present the details of our experiments, along with our results and future outlook. All of our code for Hanabi-RL is provided on Github: https://github.com/whymauri/hanabi-rl.</p>
 
 					<h3>Environment Design</h3>
 						<h4>Explaining Hanabi</h4>
 							<p class="indented"><i>Game Summary</i></p>
-	            <p class="indented">blah</p>
+	            <p class="indented">Hanabi is a collaborative card game with up to 5 players on the same team working towards a common goal. In standard 5 player Hanabi, there are 4 cards per player. Each card has a number and a color, with the number being between 1 - 5 and the colors being red, yellow, green, blue, and white. The end-goal of the game is to place as many valid cards unto stacks, called “firework piles”. A stack is defined by its color and cards are placed onto a stack only if they are the same color as the top card and the next number. You start a stack by placing a card with its number = 1 and its color not already existing a stack.</p>
 
 							<p class="indented"><i>Limited Information</i></p>
-	            <p class="indented">blah</p>
+	            <p class="indented">The main caveat here is you cannot see your own cards. You can see everyone else’s cards, and the game operates under three main actions: (1) playing a card you own, (2) discarding a card you own, and (3) hinting about another player’s card. Further, you can only misplace up to three cards before forfeiting the game (this is tracked by three “bomb tokens). Every time you give a hint, you lose an “information token”, and there are eight information tokens. You can regain information tokens by discarding a card or by placing the last card necessary to complete a firework stack (a card with number = 5 in classic Hanabi).</p>
 
 							<p class="indented"><i>Actions</i></p>
-	            <p class="indented">blah</p>
+	            <p class="indented">Players play in clockwise order and you are not allowed to communicate about people’s cards beyond hinting. When you play, you draw a card from a communal deck of unplayed cards. Discards become public knowledge in a discard pile. Hints must be accurate, and they have a specific format. You can only hint about a specific color or number within the context of a teammate’s hand - when you hint about a card property, you must point out the position(s) of all card(s) matching that property. That is, you cannot hint that a card’s number and color are (blue, 2) in the same turn. You can also not hint that a card is blue in a player’s hand without pointing out any other blue cards they have, and the same applies for numerical hints. </p>
 
 							<p class="indented"><i>End Game</i></p>
-	            <p class="indented">blah</p>
+	            <p class="indented">There are three end conditions. (1) You misplay 3 cards and flip all bomb tokens, (2) you complete all possible fireworks stacks, or (3) you exhaust the communal deck and every player plays only one more turn. </p>
 
 							<p class="indented"><i>Deck</i></p>
-	            <p class="indented">blah</p>
+	            <p class="indented">In classic Hanabi there are five colors and five numbers. There are three 1’s of every color, one 5 of every color, and two of every other card. This makes the total deck size 50.</p>
 
 							<p class="indented"><i>Scoring</i></p>
-	            <p class="indented">blah</p>
+	            <p class="indented">The number of cards in firework stacks is the score of a completed Hanabi game. A max score is 25 in the classic game - an average team of novices will score around 16 - 19, experts will score 23+ consistently. The complete official rule-set can be found [here].</p>
 
 							<p class="indented"><i>Complexity</i></p>
-	            <p class="indented">blah</p>
+	            <p class="indented">For a reduced two-player game, there are 6.2 × 10^13 possible initial joint hands in Hanabi. In order to tackle this problem with a learning algorithm, we need a way to represent not only these initial states but all possible Hanabi game states. Ideally this would be generalizable for different Hanabi configurations, with either increased, standard, or reduced state-space complexities.</p>
 
 						<h4>Explaining Hanabi</h4>
 							<p class="indented"><i>State Spaces</i></p>
-	            <p class="indented">blah</p>
+	            <p class="indented">In reinforcement learning it is common to model games and optimization problems as Markov Decision Processes (MDP). MDPs are a probabilistic framework for modeling situations with discrete, unique states, with transition probabilities between different states.</p>
+							<div class="video"><img src = "/images/198a.jpg" style="width:500px;"></img></div>
+							<p class="indented">Further, all states in an MDPs uphold the Markov Property. A Markov Property abiding state `s` is independent of all preceding state such that the next state, `s’`, is only based on `s`. How can we model Hanabi in a similar fashion? For Q-learning and DQN we can gloss over the details of transition probabilities (DQN and Q-Learning in general are model-free and do not learn a transition probability matrix) and focus instead on the states of the problem instead. We call this the state space, specifically the state space of Hanabi.</p>
 
 							<p class="indented"><i>Hanabi State Space</i></p>
-	            <p class="indented">blah</p>
+	            <p class="indented">In Hanabi, the state space can be complicated to deal with because it is partially observable. That is, an agent cannot see the entire ground truth of Hanabi at any given state. Let P be the unique private observations of a Hanabi agent and C be the shared community state of all agents. The observed state of a Hanabi agent is (P x C → O) is what an agent can base their actions on. There can be learned beliefs about an agent’s hand, which forms the basis for advanced algorithms like the Bayesian Action Decoder. The exact details of this are discussed later.</p>
+
+							<p class="indented">Further, we wanted a framework that could effectively generate an accurate Hanabi state space for any sort of configuration we wanted to experiment with. Thankfully, the OpenAI Gym environment library has powerful tools for dealing with these sort of tricky state spaces.</p>
 
 						<h4>OpenAI Gym</h4>
-	            <p class="indented">blah</p>
+							<p class="indented"><i>Introducing Gym</i></p>
+	            <p class="indented">OpenAI Gym is OpenAI’s open-sourced framework for designing reinforcement learning environments. Gym has useful modular classes for defining state-spaces representations that are easily consumable by learning algorithms. Not just that, but it allows a general enough interface with the game state that vastly different algorithms can be based on the same environment - this is important for model iteration. An OpenAI Gym environment is composed of an observation returned to an intelligent agent, a reward associated with that state, and a user defined state space. There should also be an attribute for whether a game is finished and a method for resetting a game state.</p>
+
+							<p class="indented"><i>Motivation</i></p>
+	            <p class="indented">Since we had to create a Hanabi environment before starting on a learning algorithm, we needed to think about code maintainability and modularity. As previously stated, we wanted an easily modifiable environment that worked for different game initialization configurations. It should abstract away the actual mechanics of the game so we could focus on inference instead. We decided to leverage Gym for our project because of the convenient make functionality for environment initialization and the well laid out environment skeleton that OpenAI Gym provides.</p>
 
 						<h4>Player and Environment Structure</h4>
+							<p class="indented">Addressing Hanabi as a reinforcement learning problem required us to develop our own implementation of the Hanabi card game from scratch. </p>
+
 							<p class="indented"><i>Environment</i></p>
-	            <p class="indented">blah</p>
+	            <p class="indented">The environment, HanabiEnv, inherits from the OpenAI environment class. It will create a Hanabi game based on the number of players, max numeric card value, number of colors, and number of cards in a player’s hand. The community game state is a state tuple of the different states of a Hanabi game’s primitive components - that is, we independently manage a state for the deck, firework stack, discard pile, etcetera and the state combination of those parts form a community state. As previously mentioned, the private state (handled in player.py) is then joined with the communal state. Here is a diagram showing how the environment could evolve over time as a result of player actions:</p>
+
+							<div class="video"><img src = "/images/198b.jpg" style="width:500px;"></img></div>
 
 							<p class="indented"><i>Player</i></p>
-	            <p class="indented">blah</p>
+	            <p class="indented">The player, Player, is a generic state-space manager for a player’s private observations. It is built in a generic way such that it does not have to be re-written for every agent that we write. Similar to the environment, the player (private) state is a state tuple of the different states of a player’s relevant observations - in this case, their possible hints, received hints, and (obfuscated) hand. A player is initialized with a player ID and a parameter determining the max size of their hand. Player’s will handle all internal game logic that results from one of the three actions an agent can take (1) playing, (2) discarding, and (3) hinting.</p>
 
-							<p class="indented"><i>Cards and Hints</i></p>
-	            <p class="indented">blah</p>
+							<p class="indented"><i>Deck, Cards, and Hints</i></p>
+	            <p class="indented">Hanabi cards of type Card are implemented as Python classes with attributes for their color and value with minimal and pretty print representations. They are represented by termcolor wrappers to make console visualization easier. Decks are simple collections of cards generated and shuffled based on the Environment parameters. The Deck class handles all Deck management logic. Hints are generated every turn through a Hint class that analyzes the hands of non-playing agents.</p>
 
 						<h4>Visualizations and Interactive Play</h4>
-	            <p class="indented">blah</p>
+							<p class="indented"><i>Terminal Visualization</i></p>
+	            <p class="indented">There is a minimal visualization of Hanabi games for the terminal based on the minimal printing method for cards. This visualization engine allows a user to observe agent games as they occur and to review moves that have occurred. Though I have not added it to the codebase, we also have methods for storing and unpacking played game visualizations.</p>
+
+							<p class="indented"><i>Web Visualization</i></p>
+	            <p class="indented">A React.js frontend serves as a skeletal infrastructure for a Hanabi game. It has little to no logic other than what is needed to interpret general game states to form a visualization. The state for the React.js frontend is a reflexive copy of the game state of the backend handler. The frontend communicates to the backend through asynchronous HTTP get requests and is modular enough to handle up to 5 players comfortably on a standard laptop screen. There are specific components for the human player’s hand, the artificial agents’ hands, the discard pile, the firework stack, and the hint giving system. </p>
+
+							<p class="indented"><i>Web Backend</i></p>
+	            <p class="indented">A Flask backend computes all the game logic and player actions. The game is initialized based on an OpenAI Gym compatible make configuration. The backend is composed of a HanabiEnv and as many Player classes as required by the configuration. The backend determines what kind of algorithm the intelligent agents will use during the game. Human actions are represented through a HumanAgent class that abstracts the client’s chosen actions in an environment-friendly fashion. After every human turn, there is an artificial waiting period for UX purposes before an agent move is automatically executed and handled. The backend environment essentially handles all Hanabi game logic and simply restores the community and player states to the frontend. There are debugging agents implemented in the Flask backend that execute predictable actions to test the React.js frontend. From a high level perspective, the system architecture looks like the diagram shown below. In the future it would be ideal to host this on the internet instead of locally. It may also be interesting to write a tensorflow.js agent as a fun exercise.</p>
+
+							<div class="video"><img src = "/images/198c.jpg" style="width:500px;"></img></div>
 
 					<h3>Learning Algorithm</h3>
-            <p class="indented">Intro here</p>
+						<p class="indented"><i>Overview</i></p>
+            <p class="indented">The agent for Hanabi RL, through a neural network, learns implicit values associated with taking actions given the game state. The neural network, called a DQN (Deep Q Network), is approximating what is called the “Q-table,” where Q is a variable assigned canonically to values of taking actions in a reinforcement learning setting. We tried training two different DQN architectures. The first is a single neural network that attempts to translate the state space into the action space through five layers, and the second is a set of three neural networks that each translate the state space into the action space for one of three possible actions. Each of these architectures are outlined below. Whereas each of the inner layers of the network had ReLu activation, the final layer of each neural network consisted of an output layer with linear activation. The state space is a one hot vector consisting of a player’s state and the community state.</p>
+
+					<div class="video"><img src = "/images/198d.jpg" style="width:500px;"></img></div>
+					<div class="video"><img src = "/images/198e.jpg" style="width:500px;"></img></div>
+					<div class="video"><img src = "/images/198f.jpg" style="width:500px;"></img></div>
+
+						<p class="indented"><i>Reward</i></p>
+						<p class="indented">Another important component of training a deep Q network is its reward function. Ideally, we would provide the simplest reward function possible to avoid going down the rabbit hole of searching the large and complex space of possible reward functions. We decided to provide reward +1 for any move that resulted in a correctly placed card in the firework stacks. </p>
+
+						<p class="indented"><i>Epsilon-Greedy Training</i></p>
+						<p class="indented">Agents played moves in an epsilon-greedy fashion, where, with probability epsilon, and agent would play a random valid move. With probabily 1-epsilon, the agent would play the action with the highest value as predicted by the neural network so far. Each agent would store its move transitions (state n, move taken, reward, state n+1) in memory.  Rewards were added retroactively at the end of each game. The total number of correctly placed cards were tallied at the end of each game, and each agents’ memory was modified such that each of their moves during that game was given the final reward. The only exception was that playing a correct card added an extra reward of +1, and playing an incorrect card added a reward of -1. Each agent was then trained on minibatches of stored experiences in memory every n games. We chose n = 25 because of the tradeoff between speed and memory size.</p>
+
+						<p class="indented"><i>Tunable Parameters</i></p>
+						<p class="indented">The sprinkles atop the cake for our deep Q network were selecting a discount for expected future rewards (gamma = 0.95), learning rate (alpha = 0.01), epsilon (epsilon 1.0 with an epsilon decay every 25 games of 0.995). We used a simple squared loss function to update the neural network through backpropagation. These components of training were tweaked experimentally such that the implicit values did not explode, but seemingly approached higher scores over time.</p>
 
 					<h3>Experiments and Results</h3>
-            <p class="indented">Intro here</p>
+            <p class="indented">From our experiments, we found that training the model was extremely time consuming. With what time we had (approximately 2 weeks), we trained both types of DQN architectures described above. The triple NN architecture was trained for ~100,000 games on a full state-space two-player game (scored on average ~1.2/25, compared to a random agent which scored ~0.9/25, not a significant improvement). We expect that the triple NN would do better on a full state space and thus tried it there. It certainly trained faster. Unfortunately, we do think it needed to be trained for much longer (10^6 or more games) in order to see a significant improvement with the current architecture and reward. Alternatively, more layers could be added, or a different reward schema could be implemented. The single NN architecture was trained for ~50,000 games on a reduced state space two-player game (scored on average 3.8/9, compared to a random agent which scored ~2.3/9). Though this seemed like an exciting result, we realized that the NN had reached a local minima in which it figured out that if it alternated playing a card and discarding a card it would likely be able to play a few correct cards in the process, albeit while using up the discard pile very quickly. We again think that training for many more games, and potentially a slightly higher learning rate, would be useful in order to break out of this local minima of loss and toward the correct global minima which results in high score games.</p>
 
 					<h3>Bayesian Action Decoding</h3>
-						<p class="indented">Intro here</p>
+						<p class="indented">There have been other attempts at creating an AI that can play Hanabi, using vanilla RL, sometimes in combination with genetic algorithms. These attempts largely performed worse than human-level play. Hard-coded solutions like SmartBot play games with an average score of 23 out of a maximum score of 25. Other than that, were no other AI’s that could play Hanabi until... Funnily enough, during the last few weeks of our project implementation, Google Deepmind released a paper (https://arxiv.org/abs/1811.01458) that solved the 2 person Hanabi game remarkably efficiently using concepts from game theory and Bayesian belief-updating. They call their solution the Bayesian Action Decoder (BAD). For such a BAD algorithm, the results are actually quite good (haha). The main breakthrough of the paper is that each agent learns from the actions of others to iteratively build a model of public information as extrapolated by other players’ actions.</p>
 
-					<h3>Conclusin and Future Outlook</h3>
-            <p class="indented">Intro here</p>
+					<h3>Conclusion and Future Outlook</h3>
+            <p class="indented">This project was a lot of fun and we were very glad we explored it for our final project of 6.S198. We’d certainly like to thank Hal Abelson and Natalie Lao for teaching the class, Andy Tsai, who was our TA, and Feitong Yang, our industry mentor from Google Cambridge. They all gave us useful input over the past six weeks that helped us shape our project and make improvements upon our DQN architectures.</p>
 
         </div>
 
