@@ -1,7 +1,7 @@
 $ ->
 	paper = Snap(1000, 2000)
 
-#EXAMPLE OF SELECTING BITCH ASS HOE COMPONENTS
+#EXAMPLE OF SELECTING COMPONENTS
 # var textElems = s.selectAll('.text'),
 #         amount = 20/textElems.length;
 
