@@ -156,6 +156,12 @@ p {
     text-align: left;
 }
 
+li {
+  margin-top: 0em;
+  margin-bottom: 8px;
+
+}
+
 .centered {
     text-align: center;
 }
