@@ -13,25 +13,113 @@
 
 <body>
     <div class="frontpage">
-    <div class="blog" style="font-size:16pt;font-family:'Source Sans Pro'">
+    <div class="blog" style="font-size:12pt;font-family:'Source Sans Pro'">
         <h2>
             <a style="title" href="../papersums.html"><i class="fa fa-arrow-left"></i></a>
         </h2>
         <h3>Thermodynamic Cost and Benefit of Memory</h3>
+        <h4>Paper by Susanne Still, Summary and Illustrations by Farita Tasnim</h4>
+        
+        <p>&nbsp;</p>
 
-        <h4>Feels</h4>
-            <p>I thoroughly enjoyed reading this <span style="color:crimson"><i class="fas fa-grin-stars"></i><b> stunning</b></span> work by Susanne Still. The generality of the theoretical framework developed herein, as well as its uniqueness due to accounting for <span style="color:dodgerblue"><i class="fas fa-low-vision"></i><b> partial observability</b></span>, helped set the spark for many ideas in my mind, which I'll sprinkle through my summary below.</p>
+        <h5><i class="fas fa-heart"></i>&nbsp; Feels</h5>
+            <p>I thoroughly enjoyed reading this <span style="color:crimson"><i class="fas fa-grin-stars"></i><b> stunning</b></span> work by Susanne Still. The generality of the theoretical framework developed herein, as well as its uniqueness due to accounting for <span style="color:dodgerblue"><i class="fas fa-low-vision"></i><b> partial observability</b></span>, helped set the spark for many ideas in my mind, which I'll sprinkle throughout my summary below.</p>
 
         <p>&nbsp;</p>
 
-        <h4>In a Nutshell</h4>
-            <p>A theoretical framework for the thermodynamics of memories interacting with partially observable systems demonstrates that <span style="color:limegreen"><i class="fas fa-fire-extinguisher"></i><b>minimizing the lower bound of the dissipation</b></span> of such an information engine leads to an <span style="color:goldenrod"><i class="fas fa-table"></i><b> optimal data representation strategy</b></span> when available knowledge and system manipulability are limited.</p>
-
-
+        <h5><i class="fas fa-apple-alt"></i>&nbsp; In a Nutshell</h5>
+            <p>A theoretical framework for the thermodynamics of memories interacting with partially observable systems demonstrates that <span style="color:deepskyblue"><i class="fas fa-fire-extinguisher"></i><b>minimizing the lower bound of the dissipation</b></span> of such an information engine leads to an <span style="color:limegreen"><i class="fas fa-table"></i><b> optimal data representation strategy</b></span> when available knowledge and system manipulability are limited.</p>
 
         <p>&nbsp;</p>
 
-        <h4>Original Paper</h4>
+        <h5><i class="fas fa-dragon"></i>&nbsp; Szilard Engine</h5>
+        <p>A particle is trapped in a box with a partition in the middle. If an agent who is observing the system has knowledge of which half of the box the particle lies in, it can perform work extraction (of amount &nbsp;<img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;kT\ln{2}" title="\small kT\ln{2}" />) by isothermal expansion. However, models such as this <span style="color:crimson"><b>assume</b></span> that <b>(1) all agent choices are optimal</b> and <b>(2) all relevant degrees of freedom are observable</b>. This heavily <span style="color:crimson"><b>limits</b></span> the discussion of information engines to cases where all captured information can be converted into useful work. Most of the time <span style="color:dodgerblue"><b>in real systems, agents must act on partial knowledge</b></span> and predict quantities relevant to work extraction from the limited available data. Modeling this more realistic aspect of information engines would be useful for systems such as <span style="color:deeppink"><b>biomolecular machines</b></span> and <span style="color:deeppink"><b>engineered nanotechnology</b></span>. </p>
+
+            <h4><img src="anims/szilard.gif" alt="Szilard Engine" width="150px" height="auto"></h4>
+        
+        <p>&nbsp;</p>
+
+        <h5><i class="fas fa-fan"></i>&nbsp; General Information Engine Setup</h5>
+        <p>The following <span style="color:red"><b>conventions</b></span> are used:</p>
+        
+            <ul style="font-size:12pt;font-family:'Source Sans Pro'">
+                <li>The <b>cost of information acquisition and decision making are included in the energy accounting</b> (otherwise information can be viewed as fuel supplied from the outside).</li>
+                <li>The engine is <b>allowed to make use of temperature differences</b>.</li>
+                <li>Energy flows <i>into</i> a system are <b>positive</b>.</li>
+            </ul>
+            
+            <p>The information engine contains the following <span style="color:blue"><b>components</b></span>:</p>
+            <ul style="font-size:12pt;font-family:'Source Sans Pro'">
+                <li>A <b>partially observable system</b>, with microstate denoted by a random variable <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;Z" title="\small Z" /> with realizations <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;z&space;\in&space;Z" title="\small z \in Z" /></li>
+                <li>An <b>agent</b> implemented by another physical system which turnes measurements into a stable memory denoted by a random variable <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;M" title="\small M" /> with realizations <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;m&space;\in&space;M" title="\small m \in M" />. The memory is used to decide on a work extraction protocol.</li>
+                <li>A <b>work extraction device</b> that allows the agent to couple useful energy out of the system.</li>
+            </ul>
+        
+            <p>Each <span style="color:indigo"><b>cycle</b></span> <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;i" title="\small i" /> runs as follows:</p>
+        
+            <ul style="font-size:12pt;font-family:'Source Sans Pro'">
+                <li>From  <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;t^i_0" title="\small t^i_0" /> <i class="fas fa-arrow-right"></i> <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;t_1^i" title="\small t_1^i" />: The <span style="color:#FFC300"><b>agent performs measurement and writes it into memory</b></span>. This protocol changes external control parameters on the memory as a <span style="color:#FFC300"><b>f(observable data)</b></span>. During this process the engine is connected to a heat bath at temperature <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;T" title="\small T" />, and the average amount of work done on the memory is  <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;<W_M>" title="\small <W_M>" />, while  the average amount of heat dissipated is  <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;<-Q_M>" title="\small <-Q_M>" />. </li>
+                <li>From  <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;t_1^i" title="\small t_1^i" /> <i class="fas fa-arrow-right"></i> <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;t_2^i" title="\small t_2^i" />, the <span style="color:#FF5733"><b>temperature of the heat bath is adjusted</b></span> to temperature <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;T'" title="\small T'" />.</li>
+                <li>From  <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;t_2^i" title="\small t_2^i" /> <i class="fas fa-arrow-right"></i> <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;t_3^i" title="\small t_3^i" />, <span style="color:#C70039"><b>work extraction</b></span> occurs via a protocol that is a <span style="color:#C70039"><b>f(agent's memory state)</b></span>. During this process, the average amount of work extracted from the system is  <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;<-W_F>" title="\small <-W_F>" /> and the average heat absorved from the heat bath is  <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;<Q_E>" title="\small <Q_E>" />. After this process, the memory no longer has any exploitable correlations with the system.</li>
+                <li>From <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;t_3^i" title="\small t_3^i" /> <i class="fas fa-arrow-right"></i> <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;t_0^{i&plus;1}" title="\small t_0^{i+1}" />, the <span style="color:#900C3F"><b>system is prepared for the next cycle</b></span>, by a <span style="color:#900C3F"><b>protocol which is invariant across cycles</b></span>. This process is assumed to not require any work. In the example of the Szilard engine, this was removing the partition and re-inserting it into the middle of the box.</li>
+            </ul>
+        
+<!--        <p>&nbsp;</p>-->
+
+        <h5><i class="fas fa-atom"></i>&nbsp; Free Energy Changes</h5>
+        <p>The <span style="color:mediumvioletred"><b>free energy change</b></span> at a time <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;t" title="\small t" /> depends on the energy and entropy averaged over the joint distribution over the system states and memory states:</p>
+            <p class="centered"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;F_t&space;=&space;<E_t(m,z)>_{p_t(m,z)}&space;-&space;kTH_t" title="\small F_t = <E_t(m,z)>_{p_t(m,z)} - kTH_t" /></p>
+        
+        <p>where the <span style="color:hotpink"><b>Shannon entropy</b></span> is defined as: </p>
+            <p class="centered"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;H_t&space;=&space;-<\ln(p_t(m,z))>_{p_t(m,z)}" title="\small H_t = -<\ln(p_t(m,z))>_{p_t(m,z)}" /></p>
+        
+            <p>We further establish that: </p>
+            <p class="centered"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;\Delta&space;F_M&space;\equiv&space;F_{t_1}&space;-&space;F_{t_0}" title="\small \Delta F_M \equiv F_{t_1} - F_{t_0}" /></p>
+            <p class="centered"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;\Delta&space;F_M&space;=&space;\Delta&space;E_M&space;(=&space;W_M&plus;Q_M)&space;-kT\Delta&space;H_M" title="\small \Delta&space;F_M&space;=&space;\Delta E_M&space;(=&space;W_M&plus;Q_M)&space;-kT\Delta&space;H_M" /></p>
+        
+            <p class="centered"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;\Delta&space;F_E&space;\equiv&space;F_{t_3}&space;-&space;F_{t_2}" title="\small \Delta F_E \equiv F_{t_3} - F_{t_2}" /></p>
+            <p class="centered"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;\Delta&space;F_E&space;=&space;\Delta&space;E_E&space;(=&space;W_E&plus;Q_E)&space;-kT\Delta&space;H_E" title="\small \Delta&space;F_E&space;=&space;\Delta E_E&space;(=&space;W_E&plus;Q_E)&space;-kT\Delta&space;H_E" /></p>
+        
+        <p>&nbsp;</p>
+
+        <h5><i class="fas fa-chart-pie"></i>&nbsp; System Decomposition</h5>
+        <p>The system can be decomposed into <span style="color:yellowgreen"><b>observable (write-able into memory)</b></span> and non-observable components:</p>
+            <p class="centered"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;Z&space;=&space;(X,&space;\bar&space;X)" title="\small Z = (X, \bar X)" /></p>
+            
+        <p>The system can be decomposed into <span style="color:lightseagreen"><b>manipulable (relevant for work extraction)</b></span> and non-manipulable components:</p>
+            <p class="centered"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;Z&space;=&space;(Y,&space;\bar&space;Y)" title="\small Z = (Y, \bar Y)" /></p>
+        
+        <p>The <span style="color:orchid"><b>mutual information</b></span> &nbsp;<img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;I(X,Y)&space;\geq&space;0" title="\small I(X,Y) \geq 0" />&nbsp; in order to extract work.</p>
+        
+        <p>&nbsp;</p>
+        
+        <h5><i class="fas fa-wrench"></i>&nbsp; System Manipulation</h5>
+            <p>The system cannot be manipulated in a way that changes anything but &nbsp;<img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;y&space;\in&space;Y" title="\small y \in Y" />, i.e. the state of the non-manipulable components &nbsp;<img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;\bar&space;y&space;\in&space;\bar&space;Y" title="\small \bar y \in \bar Y" /> is unaffected by the state of the manipulable components and the state of the memory during the work extraction period.</p>
+            <p class="centered"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;p_{t_2}(\bar&space;y&space;\mid&space;y,m)&space;=&space;p_{t_3}(\bar&space;y&space;\mid&space;y,m)&space;=&space;p(\bar&space;y&space;\mid&space;y,m)" title="\small p_{t_2}(\bar y \mid y,m) = p_{t_3}(\bar y \mid y,m) = p(\bar y \mid y,m)" /></p>
+        
+        <p>&nbsp;</p>
+        
+        <h5><i class="fas fa-table"></i>&nbsp; Data Representation</h5>
+            <p>The <span style="color:salmon"><b>stochastic mapping (i.e. the data representation) &nbsp;<img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;p(m&space;\mid&space;x)" title="\small p(m \mid x)" />&nbsp; from observable data to memory state</b></span> is independent of unobservable data:</p>
+            <p class="centered"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{100}&space;\fn_jvn&space;\small&space;p_{t_1}(m&space;\mid&space;z)&space;=&space;p_{t_1}(m&space;\mid&space;x,&space;\bar&space;x)&space;=&space;p_{t_1}(m&space;\mid&space;x)&space;\equiv&space;p(m&space;\mid&space;x)" title="\small p_{t_1}(m \mid z) = p_{t_1}(m \mid x, \bar x) = p_{t_1}(m \mid x) \equiv p(m \mid x)" /></p>
+        
+        <p>&nbsp;</p>
+        
+        <h5><i class="fab fa-hive"></i>&nbsp; Marginal Distributions</h5>
+            <p>The <span style="color:darkkhaki"><b>marginal distributions for the system are invariant</b></span> to all changes performed on the system: </p>
+            <p class="centered"></p>
+            <p class="centered"></p>
+            <p class="centered"></p>
+        
+        <p>&nbsp;</p>
+        
+        <h5><i class="fas fa-chart-line"></i>&nbsp; Inference</h5>
+            <p></p>
+
+        <p>&nbsp;</p>
+
+        <h5><i class="fas fa-book-open"></i>&nbsp; Original Paper</h5>
+        <p>&nbsp;</p>
             <iframe src="Still_Memory.pdf" width="100%" height="600px"></iframe>
 
         <h2>
