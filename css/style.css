@@ -49,8 +49,8 @@ li {
 	height: auto;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 40px;
-    margin-bottom: 40px;
+	margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 a.link {
@@ -144,6 +144,16 @@ h5 {
 	line-height: 20px;
 	font-family: 'Source Sans Pro';
     text-align: left;
+}
+
+h6 {
+	font-size: 12pt;
+	margin-left: auto;
+	margin-top: 2px;
+	margin-bottom: 0px;
+	line-height: 20px;
+	font-family: 'Source Sans Pro';
+    text-align: center;
 }
 
 p {
