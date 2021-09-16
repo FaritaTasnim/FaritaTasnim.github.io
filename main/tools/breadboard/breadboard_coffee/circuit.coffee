@@ -1,4 +1,0 @@
-class Circuit
-	constructor:() ->
-
-	render: () -> 
