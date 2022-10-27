@@ -52,23 +52,23 @@
 
         <div class="container" style="font-size:16pt;line-height:40px;font-family:'Source Sans Pro'">
                 
-                <a class="title" onclick="toggle_visibility('about');"><i class="fas fa-eye"></i></a> 
+                <a class="title" style="cursor: pointer;" onclick="toggle_visibility('about');"><i class="fas fa-eye"></i></a> 
                     
                     &nbsp;|&nbsp;
             
-                <a class="title" onclick="toggle_visibility('research');"><i class="fas fa-seedling"></i></a>
+                <a class="title" style="cursor: pointer;" onclick="toggle_visibility('research');"><i class="fas fa-seedling"></i></a>
                 
                     &nbsp;|&nbsp;
                 
-                <a class="title" onclick="toggle_visibility('reading');"><i class="	fas fa-book-reader"></i></a>
+                <a class="title" style="cursor: pointer;" onclick="toggle_visibility('reading');"><i class="	fas fa-book-reader"></i></a>
                 
                     &nbsp;|&nbsp;
                 
-                <a class="title" onclick="toggle_visibility('writing');"><i class="fas fa-pen"></i></a>
+                <a class="title" style="cursor: pointer;" onclick="toggle_visibility('writing');"><i class="fas fa-pen"></i></a>
             
                     &nbsp;|&nbsp;
                 
-                <a class="title" onclick="toggle_visibility('building');"><i class="fas fa-tools"></i></a>
+                <a class="title" style="cursor: pointer;" onclick="toggle_visibility('building');"><i class="fas fa-tools"></i></a>
                 
                 
     
@@ -107,7 +107,68 @@
         <div class="container">
             <img src = "/images/footer.svg" style="width:500px;">
         </div>
+            
+        <div class="hidden_container" id = 'about'>
+            <img src = "/images/me_circle.jpg" style="width:150px;", id="img_left">
+            <p style="font-size:11pt;line-height:18px">I am currently a <b>PhD student</b> at the <a href="https://www.media.mit.edu/people/farita/overview/" target = "_blank"><b>MIT Media Lab</b></a> in the Responsive Environments Group, where I work with Prof. Joe Paradiso, and graduate fellow at the <a href="https://santafe.edu" target = "_blank"><b>Santa Fe Institute</b></a>, where I work with Prof. David Wolpert. <br> <br>Living systems are far-from-equilibrium systems consisting of many components that interact and share information among each other in a highly constrained fashion. My research aims to illuminate which properties (hypothesis: modularity, hierarchy, heterogeneity) of that network of component interactions explain the thermodynamic efficiency of the computations they perform. For example, a social network is a living system, for which polarization is a computation that transforms the states of the nodes from a collectively diverse distribution to an N-modal (e.g., bimodal) distribution. <br> <br>In my past lives, I have conducted research in high school for <a href="https://www.cee.org/news-events/press-media/eighty-three-high-school-students-selected-participate-31st-research"><b>alternative energy harvesting during the Research Science Institute (2014)</b></a> held at MIT, received a <b>B.S. in Electrical Engineering from MIT (2019)</b> (where I was a Putzen), as well as an <a href="https://dspace.mit.edu/handle/1721.1/140996" target = "_blank"><b>M.S. in Biomedical Engineering from the MIT Media Lab (2021)</b></a>. <br> <br> </p>
+<!--            <p style="font-size:11pt">Recent news:-->
+            <ul style="font-size:10pt;line-height:24px;list-style-type:none;">
+                
+                <li><a href="https://complexity.simplecast.com/episodes/94">10.20.2022 -- I was interviewed on SFI's Complexity Podcast -- "David Wolpert & Farita Tasnim on The Thermodynamics of Communication"</a></li>
+                
+            </ul>
+            <a class="title" style="cursor: pointer;font-size:16pt;" onclick="toggle_visibility('about');"><i class="fas fa-eye"></i></a> 
+            <p> <br> <br> </p>
+        </div>
+            
+        <div class="hidden_container" id = 'research'>
+            <p style="font-size:11pt;line-height:18px;text-align: center;">These are the wildebeasts currently being chased by the mellifluous buzzing of my neural circuits. <br>If you can't get in, it means you're not meant to. </p>
+            <ul style="font-size:10pt;line-height:24px;list-style-type:none;">
+                
+                <li><a href = "" target = "_blank">Hypotheses</a></li>
+                
+                <li><a href = "" target = "_blank">Stochastic thermodynamics of communication channels</a> &nbsp;|&nbsp; <a href = "" target = "_blank">arXiV</a></li>
+                
+                <li><a href = "" target = "_blank">Stochastic thermodynamics of composite processes</a> &nbsp;|&nbsp; <a href = "" target = "_blank">arXiV</a></li>
+                
+                <li><a href = "" target = "_blank">Thermodynamic speed limits for multiple co-evolving systems</a> &nbsp;|&nbsp; <a href = "http://128.84.21.203/abs/2107.12471" target = "_blank">arXiV</a></li>
+                
+                
+            </ul>
+            <a class="title" style="cursor: pointer;font-size:16pt;" onclick="toggle_visibility('research');"><i class="fas fa-seedling"></i></a> 
+            <p> <br> <br> </p>
+        </div>
+            
+            
+        <div class="hidden_container" id = 'reading'>
+            
+            <p style="font-size:11pt;line-height:18px;text-align: center;">PhD General Exam Reading List</p>
+            <ul style="font-size:10pt;line-height:24px;list-style-type:none;">
+                
+                <li><a href = "" target = "_blank"></a></li>
+                
+                
+            </ul>
+            
+            <a class="title" style="cursor: pointer;font-size:16pt;" onclick="toggle_visibility('reading');"><i class="fas fa-book-reader"></i></a> 
+            <p> <br> <br> </p>
+        </div>
+            
+            
+        <div class="hidden_container" id = 'writing'>
+            <p style="font-size:11pt;line-height:18px;text-align: center;">A simultaneous curse and blessing of human consciousness is that we try to fight the ephemerality of experience by encoding it in all kinds of language and communicating it with others. So, I do that sometimes in the form of <a href = "" target = "_blank"><b>poetry</b></a>, <a href = "" target = "_blank"><b>short stories</b></a>, <a href = "" target = "_blank"><b>general musings</b></a>, and <a href = "" target = "_blank"><b>drawings</b></a>. <br> <br> </p>
+            <a class="title" style="cursor: pointer;font-size:16pt;" onclick="toggle_visibility('writing');"><i class="fas fa-pen"></i></a> 
+            <p> <br> <br> </p>
+        </div>
+            
+            
+        <div class="hidden_container" id = 'building'>
+            <p style="font-size:11pt;line-height:18px;text-align: center;">Because it is immensely pleasurable to step out of my palace of theory buttressed with equations and logical sequences in order to construct tangible things, I build things, like a <a href = "" target = "_blank"><b>camper van</b></a> and <a href = "" target = "_blank"><b>plant fixtures</b></a>, among a variety of other shit, e.g., numerous beds and desks that I have no pictures of because before 2021, I hadn't yet begrudgingly acquiesced to modern society's "leave a paper trail or it didn't exist" mentality.<br> <br> </p>
+            <a class="title" style="cursor: pointer;font-size:16pt;" onclick="toggle_visibility('building');"><i class="fas fa-tools"></i></a> 
+            <p> <br> <br> </p>
+        </div>
 
+            
 
 
 <!--
