@@ -1,0 +1,167 @@
+
+<html lang="en">
+	<head>
+
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="content-script-type" content="text/javascript" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<meta http-equiv="content-language" content="nl" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<meta name="author" content="Farita Tasnim" />
+		<meta name="description" content="I'm Farita Tasnim, a researcher in the theoretical physics of living systems." />
+		<meta name="keywords" content="physics, living systems, physics of living systems, hardware, solutions, software, integration, products, energy, farita, tasnim" />
+		<link rel="icon" href="favicon.ico"/>
+		<link rel="shortcut icon" href="http://farita.me/favicon.ico" />
+
+		<title>Entropy</title>
+
+		<link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300'rel='stylesheet' type='text/css'>
+		<link href="/css/style.css" rel="stylesheet" />
+        <script src="https://kit.fontawesome.com/7c2f268794.js" crossorigin="anonymous"></script>
+        <script>
+            MathJax = {
+              tex: {
+                inlineMath: [['$', '$'], ['\\(~', '\\)']]
+              },
+              svg: {
+                fontCache: 'global'
+              }
+            };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+        
+	</head>
+    
+    
+	<body>
+        <div class="frontpage">
+            
+        <div class="container" style="font-size:16pt;line-height:16px;font-family:'Open Sans'"> 
+            
+        <br> <br>
+            
+        <br> <br>
+            
+        Entropy
+
+        </div>
+            
+            
+        <div class="container" style="font-size:11pt;line-height:16px;font-family:'Open Sans'">
+            
+            <br> <br>
+            
+            <p> A measure is something that quantifies some property of a system. It turns out that one of the most fundamental measures for a system, from a thermodynamic point of view, quantifies our uncertainty about the details of the system. Accordingly, there are a couple different ways to think about entropy. <br> <br> </p> 
+            
+            <p> Method #1 - Let's think about the number of ways a system could exist. Let's say we know a set $P$ of properties about a system.  <br> <br> </p> 
+            
+            <p> --- Q --- If we could imagine a bunch of different systems all with those same known properties but with differing specific details, do we have high or low uncertainty about the system? <br> <br>
+                
+                <input type="checkbox" value="A"> high uncertainty * <br> 
+
+                <input type="checkbox" value="B"> low uncertainty <br> <br>
+                
+            <p> --- Q --- Conversely, if we could only imagine a few ways that the system's specific details could differ under the set of known properties, do we have high or low uncertainty about the system?<br> <br>
+                
+                <input type="checkbox" value="A"> high uncertainty * <br> 
+
+                <input type="checkbox" value="B"> low uncertainty <br> <br>
+                
+            <p> --- Q --- And, what if we could only imagine one way that the system could exist under the set of known properties, how much uncertainty do we have about the system? Express your answer as a real number. [TODO: Incorporate textbox where people can type a number] <br> <br>
+    
+            <p> Yes exactly, if we know that there's only one way a system could exist, then we'd say it has $0$ uncertainty. <br> <br> </p> 
+            
+            <p> How could we express this value of uncertainty more clearly? We could write it as a function of the number $\Omega$ of different systems consistent with the set $P$ of properties we know. Based on the intuitive questions we just went through, this function $f(\Omega(P))$ must equal $0$ when $\Omega(P) = 1$, and it must increase as $\Omega(P)$ increases, but there are no other constraints on the specific values of $f(\Omega(P))$. <br> <br> </p> 
+            
+            <p> --- Q --- Which of the following is our best candidate for the function $f(\Omega(P))$? <br> <br>
+                
+                <input type="checkbox" value="A"> $\Omega(P) - 1$ <br>  <br>
+
+                <input type="checkbox" value="B"> $(\Omega(P))^2 - 1$ <br> <br>
+                
+                <input type="checkbox" value="C"> $k \ln (\Omega(P))$, where $k$ is any positive real constant * <br>  <br>
+
+                <input type="checkbox" value="D"> $(\Omega(P))^{1/2} - 1$ <br> <br>
+            
+            <p> Why don't we want any of the options that satisfy the constraint that $f(1) = 0$ by just subtracting 1? Because they constrain the function *too much*. They specify exact values of the uncertainty for a given value of $\Omega(P)$ that cannot change. Notice that in the questions we walked through above, we have a sense that $f$ must increase as $\Omega(P)$ increases, but we don't know about exact values. So if we use a function like $k \ln (\Omega(P))$, where $k$ is any positive real constant, then we meet the constraint that $f(1) = 0$, but by allowing flexibility in the value of k, the entire function can be squished or stretched - that is, the exact values of f(\Omega(P)) can be tuned to match what we actually can measure about reality. This measure of uncertainty, relating to how many ways different ways a system could exist, exactly matches up to the concept of entropy. Entropy is defined as $S = k \ln (\Omega(P))$. In the description of isolated chunks of matter in equilibrium, this $k$ is equal to Boltzmann's constant, and ties the description of the system down to actual joules of energy. When used to describe social systems, this $k$ is often taken to equal $1$, since its exact value doesn't matter when we are interested in understanding the conditions that lead to behavioral changes in the systems. Note that this definition of entropy makes use of the principle of equal a priori probability. It doesn't distinguish between any of the different specific ways that the system could exist - they all have the same likelihood of being the actual specific way that the system exists. So they are each given the same weight of $1$ when counted in $\Omega(P)$.  <br> <br> </p> 
+    
+            <p> Method #2 - The entropy of a system can also quantify the uncertainty of a system based on our probability distribution that the system is in different states.  <br> <br> </p> 
+            
+            <p> --- Q --- What if we are 100% sure that the system is in one state and not in any of the others? That distribution is called a delta distribution. What's the entropy of the system in this case, as a real number? [TODO: Incorporate textbox where people can type a number] <br> <br> </p> 
+            
+            <img src = "delta.png" style="width:600px;">
+            
+            <p> And what if we are completely unsure which state the system is in? We can only say that the system has a uniform distribution over all its possible states.<br> <br> </p> 
+            
+            <img src = "uniform.png" style="width:600px;">
+    
+            <p> --- Q --- If the system has M possible states, what's the entropy of the system in this case? Hint: This is similar to saying that the system has equal a priori probability of being in each of its states. <br> <br>
+                
+                <input type="checkbox" value="A"> $M$ <br> 
+
+                <input type="checkbox" value="B"> $\ln M$ * <br> 
+                
+                <input type="checkbox" value="C"> $M^2$ <br> 
+            
+            <p> --- Q --- Could there be probability distribution over states that has more entropy (uncertainty) than the uniform distribution? <br> <br>
+                
+                <input type="checkbox" value="A"> Yes <br> 
+
+                <input type="checkbox" value="B"> No * <br> 
+            
+            <p> Right, there can't be. To see this, let's start with the uniform distribution and consider what happens if we can move some of the probability mass from state $i$ to state $j$.  <br> <br> </p> 
+            
+            <img src = "entropy_decrease.png" style="width:600px;">
+    
+            <p> All of a sudden, we have decreased our uncertainty of the system because we now know that the system is more likely to be in state j than any other state, and less likely to be in state i than any other state. So any deviation from the uniform distribution will decrease the entropy. Conversely, let's start with the delta distribution and consider what happens if we can move some of the probability mass from state $i$ to state $j$. <br> <br> </p> 
+            
+            <img src = "entropy_increase.png" style="width:600px;">
+            
+            <p> Now, we have increased our uncertainty about the system, because there's a probability that the system is in state $j$. We are no longer 100% sure it is in state $i$. So any deviation from the delta distribution will increase the entropy. Therefore, given a set of states, we know the probability distributions that result in the the highest and lowest entropy of the system. Everything else is somewhere in the middle in terms of entropy. Think about it: Will a probability distribution with two equal peaks typically have more or less entropy than a probability  distribution with three equal peaks? That's right - less entropy because our options are focused on only two main possibilities instead of three. <br> <br> </p> 
+            
+            <p> --- Q --- In terms of a probability distribution $P$ over possible states of the system, what could be a valid function $S(p)$ for the entropy of the system? Let $p_x$ denote the probability that the system is in state $x$. Remember, we have the constraints that $S(\text{delta distribution}) = 0$ and $S(\text{uniform distribution over M states}) = \ln(M)$, and this is the maximum value the entropy could take. <br> <br>
+                
+                <input type="checkbox" value="A"> $k \sum_x \ln p_x$ <br> 
+
+                <input type="checkbox" value="B"> $k \sum_x - \ln p_x$ <br> 
+                
+                <input type="checkbox" value="C"> $k \sum_x p_x \ln p_x$ <br> 
+                
+                <input type="checkbox" value="C"> $k \sum_x - p_x \ln p_x$ *<br> <br>
+    
+            <p> Yes, this is the only function that meets all of our criteria! So $S = k \sum_x - p_x \ln p_x$. Note that if the probability of a state $y$ is equal to $0$ then $\ln p_y = - \infty$ but the value of the entropy doesn't tank to negative infinity because each term in the sum has a coefficient of the probability itself. So because $p_y = 0$, $p_y \ln p_y = 0$. Note that these two ways of quantifying entropy apply to different fundamental assumptions about the system. In Method #1, we knew some specific properties about the system but nothing else except for the number of ways the system could exist consistent with those specific properties. So we had no way to distinguish between those different ways the system could exist, and so we had to assign equal probability to all those ways - that's a uniform distribution over all those ways the system could exist. The entropy of a uniform distribution over $\Omega(P)$ possible states as we saw is $k \ln (\Omega(P))$. In Method #2, we took our general uncertainty a step further and said we actually know that there are different probabilities of being in the different possible states. So the distribution is not necessarily uniform over each of the possible ways the system could exist. And we dealt with that by weighting each state's contribution to the entropy in terms of the log of the probability that we think the system is in that state. Notice that $$S = k \sum_x - p_x \ln p_x = k \langle - \ln p_x \rangle_{p_x}$$ That is, the entropy is the *average* negative log probability that the system is in a given state. It's exactly a weighted average uncertainty.  <br> <br> </p> 
+            
+            <p> Entropy is regarded as one of the most mysterious concepts in physics. Now you see that it's not mysterious at all, except in the sense that it quantifies *how much mystery* enshrouds an observer's knowledge about a system. :) <br> <br> </p> 
+            
+            <p> <br> <br> </p> 
+    
+            <p> <br> <br> </p> 
+            
+            
+        </div>
+            
+    </div>
+
+
+    <script type="text/javascript">
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if(e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
+        }
+    </script>
+    
+        
+        
+    </body>
+
+</html>
+    

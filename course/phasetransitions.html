@@ -1,0 +1,203 @@
+
+<html lang="en">
+	<head>
+
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="content-script-type" content="text/javascript" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<meta http-equiv="content-language" content="nl" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<meta name="author" content="Farita Tasnim" />
+		<meta name="description" content="I'm Farita Tasnim, a researcher in the theoretical physics of living systems." />
+		<meta name="keywords" content="physics, living systems, physics of living systems, hardware, solutions, software, integration, products, energy, farita, tasnim" />
+		<link rel="icon" href="favicon.ico"/>
+		<link rel="shortcut icon" href="http://farita.me/favicon.ico" />
+
+		<title>Phase Transitions</title>
+
+		<link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300'rel='stylesheet' type='text/css'>
+		<link href="/css/style.css" rel="stylesheet" />
+        <script src="https://kit.fontawesome.com/7c2f268794.js" crossorigin="anonymous"></script>
+        <script>
+            MathJax = {
+              tex: {
+                inlineMath: [['$', '$'], ['\\(~', '\\)']]
+              },
+              svg: {
+                fontCache: 'global'
+              }
+            };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+        
+	</head>
+    
+    
+	<body>
+        <div class="frontpage">
+            
+        <div class="container" style="font-size:16pt;line-height:16px;font-family:'Open Sans'"> 
+            
+        <br> <br>
+            
+        <br> <br>
+            
+        Phase Transitions, like when cats can't agree on cucumbers
+
+        </div>
+            
+            
+        <div class="container" style="font-size:11pt;line-height:16px;font-family:'Open Sans'">
+            
+            <br> <br>
+            
+            <p> One of the most useful results of statistical physics is its ability to predict how large collections of homogeneous objects can exhibit wildly different states and properties under slightly different conditions. These different states / properties are called phases. Perhaps the most common example of this that we interact with every day of our lives is the phase behavior of water. If we raise the temperature of the environment of an ice cube even slightly above its freezing temperature, it will start to melt, change from the solid phase to the liquid phase. If we raise the temperature of the environment of a bowl of water above its boiling point, it will start to vaporize, i.e., change from the liquid phase to the solid phase. This boiling point (threshold temperature) decreases as we go higher in altitude (changing the partial pressure of water). So pressure and temperature are the knobs (also called control parameters) that adjust the phase behavior of a collection of $H_2 O$ molecules. Let's have a look at the phase diagram of water. <br> <br> </p> 
+            
+            <img src = "water_pt.png" style="width:600px;">
+            
+            <p> Let's say we're considering the behavior of a collection of water molecules. If we fix a pressure, we are looking at a line on this diagram. From the frame of statistical physics, what is going on in this collection of water molecules as we traverse this line from bottom to top (assuming that the collection is in equilibrium at every point)? Remember that at equilibrium the system will try to minimize energy and maximize entropy. As we vary the temperature knob, the relative weight of the energy minimization versus the effect of the entropy maximization will change. This amounts to minimizing the free energy, $A = E - TS$. $A$ decreases if $E$ decreases and $S$ increases. The minimization of free energy is what led us to the Boltzmann distribution, the probability distribution over energy levels in the system.  <br> <br> </p> 
+    
+            <p> At low temperature, $T$ is small, so the $TS$ term has little effect, so the solid phase allows the collection of water molecules to crystallize into fixed positions (low entropy, low energy). As we increase the temperature, the effect of the $TS$ term starts to kick in. Past a certain threshold of temperature, higher energy levels become accessible to the water molecules, and the only way for the system to minimize its free energy is if the entropy increases as well. This can happen if the water molecules are allowed to slide around each other, so that there are many possible configurations consistent with a certain value of the system energy. As we increase the temperature even higher, past yet another threshold, the water molecules can access very high levels of kinetic energy, and therefore spread quite far apart from each other. At high temperature, the $TS$ term overwhelms the $E$ term, and entropy maximization becomes the dominant force minimizing the free energy. There are more ways for the system to exist as a gas than any other phase, so that becomes the stable phase.  <br> <br> </p> 
+            
+            <p> Let's dive into another, quite striking example of phase transitions in the context of a population of cats. This model is often used to study opinion networks and voter networks in social science. It also illustrates how statistical "physics" is actually much more about statistics than about phyics. The "physics" part comes into play only when the random variables we're working with directly relate to measurable quantities for energy, pressure, volume etc. Aside from that, we can use any random variables we choose, and as long as the basic assumptions of equal a priori probability and ergodicity hold, we can safely apply the principles of statistical mechanics. <br> <br> </p> 
+            
+            <p> So, let's consider a nation consisting of a large population of $N$ cats, each of which either believes that they should or should not ban cucumbers in the country. <br> <br> </p> 
+            
+            <img src = "cat_country.png" style="width:600px;">
+    
+            <p> How could we come to know the average opinion of this cat nation where each cat takes an opinion on some binary issue (each cat can be “for” or “against”)? Let's say $N$ is so large we don't even know its exact value. Then it suffices to say that $N \to \infty$. If we knew every single cat's viewpoint, this would be easy - we could then just calculate the average directly. But what if all we know is 1) which pairs of cats influence each other (neighbors), 2) on average how indecisive each cat is in their opinion, and 3) that cats tend to minimize their 'friction', or overall disagreement with their neighbors? We are told that each cat interacts with four neighbors in such a way that we could place every cat on a perfect two dimensional grid.  <br> <br> </p> 
+            
+            <img src = "cat_2d_grid.png" style="width:800px;">
+            
+            <p> Here, if we say all green cats are 'for' cucumbers, and all brown cats are 'against', then we can see that the cat in the green circle above has low friction with its neighbors, since it agrees with all its neighbors, whereas the cat in the brown circle above has high friction with its neighbors, since it agrees with none of its neighbors. <br> <br> </p> 
+            
+            <p> Let’s see what we can figure out from this. First let’s assign an opinion variable $s_i$ to each cat $i$ in the country. The value of $s_i$ equals $+1$ for a cat that wants to continue to allow cucumbers ("for") and $-1$ for a cat that wants to ban cucumbers ("against"). Let's write the set of opinions of all the country's cats as ${s_i}$.  <br> <br> </p> 
+            
+            <p> --- Q --- Which of the following could serve as a good expression to characterize the amount of friction between two cats $i$ and $j$? Hint: We want the value of this expression to be a small (or negative) number when the two cats have the same opinion and a large number when the two cats have opposing opinions. <br> <br>
+                
+                <input type="checkbox" value="A"> $s_i + s_j$ <br> 
+
+                <input type="checkbox" value="B"> $s_i - s_j$ <br> 
+                
+                <input type="checkbox" value="C"> $s_i s_j$ <br> 
+                
+                <input type="checkbox" value="D"> $- s_i s_j$ *<br> 
+                
+                <input type="checkbox" value="E"> $s_i / s_j$ <br> 
+                
+                <input type="checkbox" value="F"> $- s_i / s_j$<br> <br>
+            
+            <p> --- Q --- Remember that cats try to minimize the friction they have with their neighbors, which means that if they change their opinion, they are biased to match the opinions of their neighbors. If each cat tries to minimize their friction, the entire group of cats would end up reducing its friction too, right? What’s an expression that characterizes the amount of friction in the entire group? <br> <br>
+                
+                <input type="checkbox" value="A">  $\sum_{i,j} - s_i s_j$ *<br> 
+
+                <input type="checkbox" value="B"> $\prod_{i,j} - s_i s_j$ <br> 
+                
+            <p> --- Q --- Let's say the fraction of cats with opinion ``for'' is $p_f$ and the fraction of cats with opinion ``against'' is $p_a = 1 - p_f$. If we know $\{p_f, p_a\}$, what formula gives us the value of the average opinion O of the entire group of cats? Hint: Remember that the average value (AKA expected value) of a variable $X$ is $\sum_{x \in X} x \, p(x)$. <br> <br>
+                
+                <input type="checkbox" value="A"> $p_f + p_a$ <br> 
+
+                <input type="checkbox" value="B"> $0.5(p_f + p_a)$ <br> 
+                
+                <input type="checkbox" value="C"> $p_f - p_a$ * <br> 
+                
+                <input type="checkbox" value="D"> $0.5(p_f - p_a)$ <br> <br> 
+            
+            <p> Right! Here $X = {1, -1}$ and the probability of picking a random cat from the group and observing each state is ${p_f, p_a}$. <br> <br> </p> 
+            
+            <p> --- Q --- What values of $\{p_f, p_a\}$ would minimize $H({s_i})$? Choose all that apply.  <br> <br>
+                
+                <input type="checkbox" value="A"> $\{.50, .50\}$ <br> 
+
+                <input type="checkbox" value="B"> $\{.75, .25\}$ <br> 
+                
+                <input type="checkbox" value="C"> $\{.25, .75\}$ <br> 
+                
+                <input type="checkbox" value="D"> $\{1.0, 0\}$ *<br> 
+                
+                <input type="checkbox" value="E"> $\{0, 1.0\}$ * <br> <br>
+    
+            <p> Exactly - the configurations in which the system has the lowest possible amount of friction are the ones in which everyone has the same opinion, whether 'for' or 'against'. But we know that cats are inherently indecisive and tend to change their opinion. So we are also given a measure of the average indecisiveness of each cat as a real number $I > 0$. The smaller that $I$ is, the less likely are cats to change their opinion. The larger that $I$ is, the more frequently cats change their opinions. Since this is a measure of indecisiveness, these changes in opinion may often go against their neighbor's opinions.  <br> <br> </p> 
+            
+            <p> So there are two opposing "forces" acting on each cat's opinion state. The first is that they try to minimize their friction, so they want to change their state to match their neighbors. The second is that they are inherently somewhat indecisive, and so they tend to waver between opinions. With both of these forces in play, the set of opinions for this group of cats is constantly changing. In analogy with what we learned before, "friction" is like the energy and indecisiveness is like the temperature or Grogu's irritability (it is the conjugate variable for the entropy of the country).  <br> <br> </p> 
+            
+            <p> This means that $\{p_f, p_a\}$ may also be constantly changing, and we'll never be able to answer our original question. However, we'll find that over time these fractions eventually settle down to fixed values! These fixed values represent the configurations ${s_i}$ that have the highest probability of occurring given the friction function and the value of the average indecisiveness, i.e., the configurations that minimize the free energy.  <br> <br> </p> 
+    
+            <p> Let's say the country is in a steady state "equilibrium". Based on what we learned about probability distributions over states based on free energy minimization (simultaneous energy minimization and entropy maximization), what is the probability distribution over the possible values of $\{s_i\}$? This probability distribution should look like the Boltzmann distribution, where the friction of the configuration $\{s_i\}$ represents the energy, and the $\beta$ is given by the inverse indecisiveness. Let's take $k$ to equal $1$ since the scaling doesn't matter to us. So the probability of a configuration $\{s_i\}$ is simply $$ P(\{s_i\}) = \frac{e^{-H(\{s_i\}) / I}}{\sum_{\{s_i\}} e^{-H(\{s_i\}) / I} } $$ <br> <br> </p> 
+            
+            <p> What's fascinating about the implications of the Boltzmann distribution for this cucumber-divided cat nation is what happens to the average opinion $O$ of the entire country as we vary the average indecisiveness $I$ of the cats. When $I \to 0$, the entropy of the system has vanishingly little effects, so energy minimization takes over. The weird thing is that, as you answered earlier, there are two different states that minimize the energy. One is where all the cats are for keeping cucumbers. The other is where all the cats are against cucumbers. So there are two stable states at $I = 0$ -- one where $O = -1$ and one where $O = 1$. This phenomenon, where there exists more than one state consistent with a certain energy level, is called a degeneracy. When $I \to \infty$, maximizing the entropy of the system dominates, and the configurations corresponding to the highest entropy will be most observed. <br> <br> </p> 
+            
+            <p> --- Q --- What values of $\{p_f, p_a\}$ would maximize the country's entropy? Choose all that apply.  <br> <br>
+                
+                <input type="checkbox" value="A"> $\{.50, .50\}$ * <br> 
+
+                <input type="checkbox" value="B"> $\{.75, .25\}$ <br> 
+                
+                <input type="checkbox" value="C"> $\{.25, .75\}$ <br> 
+                
+                <input type="checkbox" value="D"> $\{1.0, 0\}$ <br> 
+                
+                <input type="checkbox" value="E"> $\{0, 1.0\}$ <br> <br>
+            
+            <p> Yes exactly, because in the $N$th row of Pascal's triangle, the middle term is the highest! If we have $100$ cats and $50$ of them are 'for' and $50$ of them are 'against', this is the division consistent with the highest number of configurations $\{s_i\}$. That number is $\binom{100}{50}$. So when $I \to \infty$, $O = 0$. <br> <br> </p> 
+            
+            <p> But what happens to $O$ as we vary the value of I between these two extremes? Naively, we might expect that $O$ is a smooth function of $I$, something like this: <br> <br> </p> 
+            
+            <img src = "naive-O-I.png" style="width:600px;">
+    
+            <p> But in reality, something very different happens. Let's see what we can uncover by simulating the system according to a method called Markov Chain Monte Carlo (MCMC) simulation. This simulation technique evolves a randomly initialized system to its Boltzmann distribution with a very simple methodology. First, set the value of $I$ and $N$. To be as accurate as possible, we set $N$ to be as large a number as the computer we're using for simulation can handle. Initialize the opinion of each cat in the country to $-1$ or $+1$ according to any random distribution. In each step, pick a cat $i$ uniformly at random. Change the cat's opinion from its current opinion $s_i$ to the opposite opinion $-s_i$ based on how its friction would change as a result. This is like flipping an energy-weighted coin. Let $\sum_j$ denote the sum over the four neighbors of cat $i$. What's the probability that cat $i$ changes its opinion? $$\min \{ e^{-2 \sum_j s_j s_i / I}, 1 \}$$ <br> </p> 
+            
+            <p> Exactly - if we are trying to approach the Boltzmann distribution, it makes sense that we should set the probability of cat $i$ changing state to be equal to the ratio of probability of the system in the Boltzmann distribution before the state transition to the probability of the system in the Boltzmann distribution after the state transition. If the energy function drastically favors a flip (that is, if  $e^{-2 \sum_j s_j s_i / I} > 1$, then the probability of the flip is $1$). Finally we measure the value of the average opinion $O$. We keep repeating this step until we reach steady state. When $O$ doesn't change anymore as we take more steps, we know the system has reached its equilibrium Boltzmann distribution. (But it isn't always feasible to reach that stage, depending on the computational resources available for the simulation.) <br> <br> </p> 
+            
+            <p> We can repeat the simulation keeping $N$ fixed but varying $I$, and we can plot the final $O$ values as a function of $I$. The resulting plot looks like this.  <br> <br> </p> 
+            
+            <img src = "true-O-I.png" style="width:600px;">
+    
+            <p> So, instead of smooth curves, we see a bifurcation point at a threshold value of $I$! Above that point, the average opinion of the cats is $0$, so the population is evenly split between the two sides. Below that point, there is a sharp transition in which suddenly most of the cats hold one opinion instead of the other. Very interestingly, around the transition point, we start to see the formation of large clusters inside the group, where each cat in a cluster holds the same opinion. <br> <br> </p> 
+            
+            <p> To play around with the MCMC simulation, download and mess around with <a class="title" href="https://farita.me/images/MCMC_cats.ipynb" target = "_blank"><b>this Jupyter notebook</b></a>. To have fun with this model directly in the browser, please visit <a class="title" href="https://jupyter.org/try-jupyter/lab/" target = "_blank"><b>this site</b></a>. Then, in the top left corner, click File -> Open from URL. Type in this URL: https://farita.me/images/MCMC_cats.ipynb and hit "Enter" on your keyboard. Then, in the list of notebooks on the left side, double click on "MCMC_cats.ipynb". It will pull up the editable Python code for you to play around with. Enjoy! <br> <br> </p> 
+            
+            <p> Amazingly, the same phenomenon governs the sharp phase transition of a ferromagnetic from having $0$ magnetization to one of its two possible magnetized states (North-South or South-North). Instead of indecisiveness, the knob on that transition is the temperature.  <br> <br> </p> 
+            
+            <p> Although the time-series dynamics of the MCMC simulation do not realistically model the actual time-series dynamics of social groups, some of its broad-sweeping implications provide us interesting insight into the stable states of voter models. For example, <a class="title" href="https://www.nature.com/articles/s41567-019-0739-6" target = "_blank"><b>a recent paper</b></a> investigated what insight statistical physics could provide towards analyzing the increasing polarization in elections in the United States. <br> <br> </p> 
+    
+            <p> This concept of phase transitions is important because it helps us understand that systems consisting of large collections of subsystems may exhibit sharp changes in (average) behavior under certain slight changes in underlying conditions or parameters. Perhaps this kind of thinking, even if not these exact methods, could help us better understand the drastic tipping points we observe in all of the systems that surround us. Here are some examples of transitions that occur suddenly: <br> <br> </p> 
+            
+            <p> Someone is perfectly healthy and one month later they develop brain cancer. <br> <br> </p> 
+            
+            <p> An coastal ecosystem has been perfectly stable for thousands of years, and within a few years, all the coral bleaches and the ecosystem collapses. <br> <br> </p> 
+            
+            <p> A country's stock market has been fluctuating but relatively stable and on average steadily increasing for 10 years, and within 1 week, almost all of the stock prices plummet to a fraction of their previous value. <br> <br> </p> 
+    
+            <p> <br> <br> </p> 
+            
+            <p> <br> <br> </p> 
+            
+            
+        </div>
+            
+    </div>
+
+
+    <script type="text/javascript">
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if(e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
+        }
+    </script>
+    
+        
+        
+    </body>
+
+</html>
+    

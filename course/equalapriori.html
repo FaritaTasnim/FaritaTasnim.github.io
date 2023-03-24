@@ -1,0 +1,99 @@
+
+<html lang="en">
+	<head>
+
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="content-script-type" content="text/javascript" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<meta http-equiv="content-language" content="nl" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<meta name="author" content="Farita Tasnim" />
+		<meta name="description" content="I'm Farita Tasnim, a researcher in the theoretical physics of living systems." />
+		<meta name="keywords" content="physics, living systems, physics of living systems, hardware, solutions, software, integration, products, energy, farita, tasnim" />
+		<link rel="icon" href="favicon.ico"/>
+		<link rel="shortcut icon" href="http://farita.me/favicon.ico" />
+
+		<title>Equal a priori Probability</title>
+
+		<link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300'rel='stylesheet' type='text/css'>
+		<link href="/css/style.css" rel="stylesheet" />
+        <script src="https://kit.fontawesome.com/7c2f268794.js" crossorigin="anonymous"></script>
+        <script>
+            MathJax = {
+              tex: {
+                inlineMath: [['$', '$'], ['\\(~', '\\)']]
+              },
+              svg: {
+                fontCache: 'global'
+              }
+            };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+        
+	</head>
+    
+    
+	<body>
+        <div class="frontpage">
+            
+        <div class="container" style="font-size:16pt;line-height:16px;font-family:'Open Sans'"> 
+            
+        <br> <br>
+            
+        <br> <br>
+            
+        Assumption of equal a priori probability
+
+        </div>
+            
+            
+        <div class="container" style="font-size:11pt;line-height:16px;font-family:'Open Sans'">
+            
+            <br> <br>
+            
+            <p> Our system of interest is Grogu in a box, and we've assumed that Grogu has settled down to a steady state. Let's say that the box is closed (with holes, don't worry!) and unless we open the top of the box, we don't know what state Grogu is in. But! Let's say we know that in his steady state, Grogu can be in any one of 5 different values of energy, each associated with its own "macroscopic" state: <br> <br> </p> 
+            
+            <img src = "energies.png" style="width:800px;">
+    
+            <p> Grogu consists of a very large number of molecules. If Grogu is sleeping, and his right arm shifts 1 nanometer to the right, it doesn't change the fact that he's sleeping, and it doesn't change his overall energy levels. So for each energy level, Grogu could be in any one of a very large set of "microscopic" states, or exact positions and velocities of all his molecules.  <br> <br> </p> 
+            
+            <img src = "many_sleep.png" style="width:800px;">
+            
+            <p> We don't know Grogu's exact microscopic state, but in order to calculate the probability that he is in a given macroscopic state associated with some energy level, we will need to make a crucial assumption. We will assume that for a given energy level, every possible microscopic state consistent with that energy level has the same probability. This is called "equal a priori" probability. It is called that because a priori, we cannot assume that any one microscopic state is more likely than another if it is associated with the same energy value. When we don't have a reason to think that something is more likely than another, e.g., due to some other force acting on the system, the maximum we can do is assign equally likely probabilities to all outcomes with the same "value".  <br> <br> </p> 
+            
+            <p> For example, if we meet a random person and we want to know whether they prefer white shoes or black shoes, and we know nothing about whether the population of people this person came from tends to prefer white or black shoes, we'd say there's a 50% change they prefer white shoes and a 50% chance they prefer black shoes. In the same way, we don't know of any other relevant forces acting on Grogu's state that we know of that would prefer, e.g., one sleeping position over another sleeping position. So, we assign all microscopic states consistent with Grogu sleeping to have equal a priori probability. And we do the same for each of the other macroscopic states associated with each different energy level. <br> <br> </p> 
+    
+            <p> Under the hood, this assumption is at the heart of statistical physics. <br> <br> </p> 
+            
+            <p> <br> <br> </p> 
+            
+            <p> <br> <br> </p> 
+            
+            
+        </div>
+            
+    </div>
+
+
+    <script type="text/javascript">
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if(e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
+        }
+    </script>
+    
+        
+        
+    </body>
+
+</html>
+    

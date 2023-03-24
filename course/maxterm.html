@@ -1,0 +1,147 @@
+
+<html lang="en">
+	<head>
+
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="content-script-type" content="text/javascript" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<meta http-equiv="content-language" content="nl" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<meta name="author" content="Farita Tasnim" />
+		<meta name="description" content="I'm Farita Tasnim, a researcher in the theoretical physics of living systems." />
+		<meta name="keywords" content="physics, living systems, physics of living systems, hardware, solutions, software, integration, products, energy, farita, tasnim" />
+		<link rel="icon" href="favicon.ico"/>
+		<link rel="shortcut icon" href="http://farita.me/favicon.ico" />
+
+		<title>Maximum Term Method </title>
+
+		<link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300'rel='stylesheet' type='text/css'>
+		<link href="/css/style.css" rel="stylesheet" />
+        <script src="https://kit.fontawesome.com/7c2f268794.js" crossorigin="anonymous"></script>
+        <script>
+            MathJax = {
+              tex: {
+                inlineMath: [['$', '$'], ['\\(~', '\\)']]
+              },
+              svg: {
+                fontCache: 'global'
+              }
+            };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+        
+	</head>
+    
+    
+	<body>
+        <div class="frontpage">
+            
+        <div class="container" style="font-size:16pt;line-height:16px;font-family:'Open Sans'"> 
+            
+        <br> <br>
+            
+        <br> <br>
+            
+        Maximum Term Method
+
+        </div>
+            
+            
+        <div class="container" style="font-size:11pt;line-height:16px;font-family:'Open Sans'">
+            
+            <br> <br>
+            
+            <p> In statistical physics, we are often concerned with calculating logarithms of sums. In particular, we are interested in the values of the logarithm of a sum for which the number of terms in the sum goes to infinity. This tends to correspond with taking the limit that the number of systems in our ensemble goes to infinity.  <br> <br> </p> 
+            
+            <p> In this infinite-term limit, we will often replace the logarithm of the sum with the logarithm of the term in the sum with the greatest value, called the maximum term.  <br> <br> </p> 
+            
+            <p> --- Q --- Under what condition(s) do you think we could safely make this approximation? Select all that apply. <br> <br>
+                
+                <input type="checkbox" value="A"> there is a relationship between the number of terms in the sum and the value of each term in the sum * <br>
+
+                <input type="checkbox" value="B"> there is not a relationship between the number of terms in the sum and the value of each term in the sum <br>
+                
+                <input type="checkbox" value="C"> each term in the sum grows linearly with the number of terms in the sum <br>
+                
+                <input type="checkbox" value="D"> each term in the sum grows exponentially with the number of terms in the sum * <br>
+    
+            <p> Yes, there must be a relationship between the number of terms in the sum and the value of each term in the sum. If there weren't, then there would be no consistently predictable relationship between the parameters of the sum and its maximum term. Additionally, we need it to be the case that each term in the sum itself grows at least exponentially as the number of terms increases. If this were not the case, then a single term would not be able to vastly outweigh the other terms in the sum. Instead, a number of terms would hold the bulk of the weight of the sum. This number would grow as the number of terms in the sum grows.  <br> <br> </p> 
+            
+            <p> ILLUSTRATIONS TO DO: Exponential growth of variables with respect to some parameter means the greatest-value variable wins out as that parameter increases in value. This is actually very similar to the reasoning behind the theory of natural selection. Consider the biomass of all the COVID virus strains inside a given human as $C = \sum_i C_i$ where $C_i$ is the biomass of COVID strain $i$. At a given timestep, let's say the distribution looks like this: [all roughly equal except for one $i$] Each species multiplies in a way that its population grows exponentially with respect to time, subject to constraints on resources. So in generation 2, the distribution looks like this [$i$ holds even more weight] And in generation 3, [$i$ holds even more weight]. Until finally after enough time, the distribution will look like this [$i$ holds almost all the weight]. The dominant strain can then only change to some strain $j$ when conditions change, making $j$ more favorable to reproduce than $i$, which will exponentially grow $j$'s population and nearly wipe out $i$'s population. <br> <br> </p> 
+            
+            <p> Consider also Pascal's triangle. Each row in Pascal's triangle consists of $\binom{x}{i}$, and the sum of each row of Pascal's triangle. With each row of Pascal's triangle, the number of terms grows by 1. Additionally, each of the terms themselves grows. The fun way to construct Pascal's triangle is to calculate every term as the sum of the two parents right above it. As we get further down Pascal's triangle (increasing row number), how does the maximum term (the middle term) compare with the value of the total sum? Play around with this interactive to explore that: <br> <br> </p> 
+            
+            <iframe src="https://www.wolframcloud.com/obj/ad9630f0-465a-45c5-b58b-063584d353a1?_embed=iframe" width="800" height="600"></iframe> 
+            
+            <p> If the above embedding doesn't work, try going to the following <a class="title" href="https://www.wolframcloud.com/obj/ad9630f0-465a-45c5-b58b-063584d353a1?_embed=iframe" target = "_blank"><b>link</b></a>. You may have to log in to Wolfram. <br> <br> </p> 
+    
+            <p> But wait! If $x$ is odd, then there are two terms that hold exactly equal weight in accounting for the sum. Isn't that counter to what we said that one term would have to dominate in order to replace the logarithm of the sum with the logarithm of the maximum term? Well the crucial trick here is that we're interested in the *logarithms*. Note that even if $x \approx 2y$, $\ln x \approx \ln y + \ln 2$, due to the product rule for logarithms. So if $x,y \gg 2$, $\ln x \approx \ln y$. You'll notice in the interactive that the logarithm of the maximum term will pretty much equal the logarithm of the sum once the number of terms is high enough. <br> <br> </p> 
+            
+            <p> --- Q --- Let $x$ be some constant positive real number. To which of the following logarithms of sums do you think could we safely apply the maximum term method to? <br> <br>
+                
+                <input type="checkbox" value="A"> $\sum_{i=0}^m x$ <br> <br>
+
+                <input type="checkbox" value="B"> $\sum_{i=0}^m i$ <br> <br>
+                
+                <input type="checkbox" value="C"> $\sum_{i=0}^m ix$ <br> <br>
+                
+                <input type="checkbox" value="D"> $\sum_{i=0}^m x^i$ * <br> <br>
+                
+                <input type="checkbox" value="E"> $\sum_{i=0}^m \frac{m!x^i}{i!(m-i)!}$ * <br> <br>
+            
+            <p> As an example, consider the following function: $$S = \sum_{i=0}^m t_i = \sum_{i=0}^m \frac{m!*x^i}{i!(m-i)!}$$ Say that $m$ is on the order of $10^20$ and $x$ is on the order of $1$. (Notice how this sum resembles $\sum_n \Omega(n)$ from our ensemble of Grogus-in-boxes.) Let's see what happens when we consider the value of the logarithm of this sum as a function of its maximum-valued term. Do you know of a way to approximate a function around particular value of one of its parameters? It involves using how the value of the function varies as you deviate from that particular value of the parameter. Recall that this is called the 'Taylor series approximation' - a series of first-order, second-order, etc. deviations of the function in terms of first-order, second-order, etc. derivatives of the function with respect to that parameter. <br> <br> </p> 
+            
+            <p> Let's apply this to a function that equals the logarithm of the $i$th term in our sum, $\ln t_{i}$, expanded around $i = i^*$, the maximum term. $$\ln t_{i} \approx \ln t_{i^*} - (i - i^*) \frac{\partial \ln t_i}{\partial i}|_{i = i^*} + \frac{1}{2} (i - i^*)^2 \frac{\partial^2 \ln t_i}{\partial i^2}|_{i = i^*} \ldots $$ Remember that at the maximum value for a function with respect to a given parameter, the first derivative of the function with respect to that parameter equals $0$. This is because the value of the parameter which gives the maximum serves as a turning point. If you increase the parameter a little bit, the function decreases. o a little to the right, the derivative is negative. Similarly, if you decrease the parameter a little bit, the function also decreases. So also a little to the left, the derivative is positive. In order for this to be true, the only choice for the function at the maximizing value of the parameter is to be "flat", i.e., derivative of 0. So that means that $$\frac{\partial \ln t_i}{\partial i}|_{i = i^*} = 0 $$ so $$- \ln i^* + \ln (m - i^*) + \ln x = 0 $$ which gives that at the maximum term, $$x = \frac{i^*}{m - i^*}$$ which is equivalent to $$i^* = \frac{x*m}{1 + x}$$  <br> <br> </p> 
+            
+            <p> We can also simplify the Taylor series approximation as: $$\ln t_{i} \approx \ln t_{i^*} + \frac{1}{2} (i - i^*)^2 \frac{\partial^2 ln t_i}{\partial i^2}|_{i = i^*} \ldots$$ $$\approx \ln t_{i^*} + \frac{1}{2} (i - i^*)^2 (- \frac{1}{i^*} - \frac{1}{m-i^*}) \ldots$$ $$\approx \ln t_{i^*} - \frac{ (i - i^*)^2 (1+x)^2}{2xM} \ldots$$ Ignoring the higher order terms and solving for t_i, we can write $t_i$ as a distribution $$t_i = t_{i^*}e^{\frac{(i - i^*)^2}{2 \sigma^2}}$$ with mean $t_{i^*}$ and standard deviation  $\sigma = \frac{\sqrt{xm}}{1+x}$. This distribution looks like a Gaussian curve (AKA bell curve).  <br> <br> </p> 
+            
+            <img src = "maxterm_gaussian.png" style="width:400px;">
+            
+            <p> --- Q --- Let $x$ be some constant positive real number. To which of the following logarithms of sums do you think could we safely apply the maximum term method to? <br> <br>
+                
+                <input type="checkbox" value="A"> $i^*$ <br> 
+
+                <input type="checkbox" value="B"> $\sigma$ <br>
+                
+                <input type="checkbox" value="C"> $\frac{\sigma}{i^*} $ * <br> <br>
+            
+            <p> Yes - the ratio of the standard deviation to the mean provides a measure of how much the distribution of a variable typically varies with respect to its mean value. The value of this measure in terms of the variables x and m is $$\frac{\sigma}{i^*} = \frac{\sqrt{xm}}{xm} = (xm)^{-1/2}$$ <br> <br> </p> 
+    
+            <p> Aha, exactly, so as the number of terms in the sum grows, the distribution gets more and more sharply peaked! In the limit as m goes to infinity, what will the distribution look like? Visualize it in your head, then click the reveal button [TODO:incorporate reveal button]. <br> <br> </p> 
+            
+            <img src = "maxterm_delta.png" style="width:400px;">
+            
+            <p> Now you see why, as the number of terms in the sum increases, it makes sense to replace the logarithm of the sum with the logarithm of its maximum term. <br> <br> </p> 
+            
+            <p> <br> <br> </p> 
+            
+            <p> <br> <br> </p> 
+            
+            
+        </div>
+            
+    </div>
+
+
+    <script type="text/javascript">
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if(e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
+        }
+    </script>
+    
+        
+        
+    </body>
+
+</html>
+    

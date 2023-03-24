@@ -1,0 +1,93 @@
+
+<html lang="en">
+	<head>
+
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="content-script-type" content="text/javascript" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<meta http-equiv="content-language" content="nl" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<meta name="author" content="Farita Tasnim" />
+		<meta name="description" content="I'm Farita Tasnim, a researcher in the theoretical physics of living systems." />
+		<meta name="keywords" content="physics, living systems, physics of living systems, hardware, solutions, software, integration, products, energy, farita, tasnim" />
+		<link rel="icon" href="favicon.ico"/>
+		<link rel="shortcut icon" href="http://farita.me/favicon.ico" />
+
+		<title>Ergodicity</title>
+
+		<link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300'rel='stylesheet' type='text/css'>
+		<link href="/css/style.css" rel="stylesheet" />
+        <script src="https://kit.fontawesome.com/7c2f268794.js" crossorigin="anonymous"></script>
+        <script>
+            MathJax = {
+              tex: {
+                inlineMath: [['$', '$'], ['\\(~', '\\)']]
+              },
+              svg: {
+                fontCache: 'global'
+              }
+            };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+        
+	</head>
+    
+    
+	<body>
+        <div class="frontpage">
+            
+        <div class="container" style="font-size:16pt;line-height:16px;font-family:'Open Sans'"> 
+            
+        <br> <br>
+            
+        <br> <br>
+            
+        Ergodicity: time average equals ensemble average -- 
+
+        </div>
+            
+            
+        <div class="container" style="font-size:11pt;line-height:16px;font-family:'Open Sans'">
+            
+            <br> <br>
+            
+            <p> We need to make one more assumption that involves exchanging the role of time and the role of this imagined ensemble of systems, called ergodicity. Remember that we are considering Grogu in a box at steady state. Remember also that steady state means the system has evolved for infinite time. What the assumption of ergodicity allows us to do is as follows. Instead of considering only one system evolving for infinite time, we consider an infinitely large collection of systems (an ensemble) at a single point in time. We make a postulate that the time-averaged state for a single system that's evolved for infinite time equals the average state of this large ensemble of systems. The idea is that when the system evolves for such a long time, the steady state it reaches is characterized by the property that the amount of time it spends in any given state is equal to the probability of observing that state in a randomly-timed measurement. The intuitive trick we've made is to take this partitioning of time and to transform it into a partitioning of possible different systems. <br> <br> </p> 
+            
+            <p> So for Grogu in a closed box... Before we open the box, we don't know which state it is in, and we can imagine an infinitely large collection different scenarios for what exactly Grogu is doing inside the box. Grogu could be sleeping splayed out on its right side with paws outstretched, he could be sleeping rolled into a tiny ball, he could be scratching the box, he could be walking the perimeter of the box, etc... ad infinitum. That is, there are infinite number of "microscopic" (exact position of every molecule of Grogu inside the box) states of our system of interest. Let's hold our breath for a second and say Grogu never dies. If we observed Grogu over an infinitely long time and recorded which of the 5 macroscopic states / energy levels he was in at every nanosecond, we could calculate the probability that if we opened the box at any random point in time, that he is in any one of those states. To do this we calculate the amount of time Grogu spends sleeping as a fraction of the total amount of time we observe him. $$ P (\text{sleep}) = \lim_{t \to \infty} \frac{t(\text{sleep})}{t}  $$ <br> <br> </p> 
+    
+            <p> *Intuitively*, this is the same as *imagining* that all those states that we recorded are not the same Grogu in the same box at different points in time, but instead that each is actually just one of an infinite number of Grogus in boxes (or an infinite number of universes containing this Grogu in this box), and when we decide to open the box, one of these infinite systems of Grogus in boxes is chosen randomly from this ensemble of Grogus in boxes. So if there are N systems of Grogus-in-boxes in our ensemble, we can calculate $$ P (\text{sleep}) = \lim_{N \to \infty} \frac{N(\text{sleep})}{N}  $$ <br> <br> </p> 
+            
+            <img src = "ergodicity.png" style="width:800px;">
+            
+            <p> <br> <br> </p> 
+            
+            <p> <br> <br> </p> 
+            
+            
+        </div>
+            
+    </div>
+
+
+    <script type="text/javascript">
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if(e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
+        }
+    </script>
+    
+        
+        
+    </body>
+
+</html>
+    

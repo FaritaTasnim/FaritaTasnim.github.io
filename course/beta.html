@@ -1,0 +1,106 @@
+
+<html lang="en">
+	<head>
+
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="content-script-type" content="text/javascript" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<meta http-equiv="content-language" content="nl" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<meta name="author" content="Farita Tasnim" />
+		<meta name="description" content="I'm Farita Tasnim, a researcher in the theoretical physics of living systems." />
+		<meta name="keywords" content="physics, living systems, physics of living systems, hardware, solutions, software, integration, products, energy, farita, tasnim" />
+		<link rel="icon" href="favicon.ico"/>
+		<link rel="shortcut icon" href="http://farita.me/favicon.ico" />
+
+		<title>What is Beta</title>
+
+		<link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300'rel='stylesheet' type='text/css'>
+		<link href="/css/style.css" rel="stylesheet" />
+        <script src="https://kit.fontawesome.com/7c2f268794.js" crossorigin="anonymous"></script>
+        <script>
+            MathJax = {
+              tex: {
+                inlineMath: [['$', '$'], ['\\(~', '\\)']]
+              },
+              svg: {
+                fontCache: 'global'
+              }
+            };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+        
+	</head>
+    
+    
+	<body>
+        <div class="frontpage">
+            
+        <div class="container" style="font-size:16pt;line-height:16px;font-family:'Open Sans'"> 
+            
+        <br> <br>
+            
+        <br> <br>
+            
+        What is $\beta$? The consequences of entropy maximization
+
+        </div>
+            
+            
+        <div class="container" style="font-size:11pt;line-height:16px;font-family:'Open Sans'">
+            
+            <br> <br>
+            
+            <p> Let's examine again Grogu's probability distribution over energy states. $$P(E_j) = \frac{n^*_j}{N} = \frac{e^{-\beta E_j}}{\sum_j e^{-\beta E_j}}$$ We saw how the changing the energy levels with a fixed beta changes the probability that Grogu is in different energy states. Now, in order to understand what exactly $\beta$ is, let's see what happens to Grogu's probabilities when we keep the energy levels fixed but we change the value of $\beta$. <br> <br> </p> 
+            
+            <iframe src="https://www.wolframcloud.com/obj/a87a72f5-0609-4321-b01f-f7b48334bc43?_embed=iframe" width="800" height="600"></iframe>
+            
+            <p> If the above embedding doesn't work, try going to the following <a class="title" href="https://www.wolframcloud.com/obj/a87a72f5-0609-4321-b01f-f7b48334bc43" target = "_blank"><b>link</b></a>. You may have to log in to Wolfram. <br> <br> </p> 
+            
+            <p> We see that increasing $\beta$ towards infinity brings the system closer and closer to a delta distribution over the lowest energy state. We also see that decreasing $\beta$ towards $0$ brings the system closer and closer to a uniform distribution over all possible states. This is exactly the opposite of the effect of Grogu's irritability. From this we obtain an intuition that $\beta$ may be an inverse function of $I$. That is, $\beta \propto \frac{1}{I}$ <br> <br> </p> 
+    
+            <p> Let's see if this holds when we consider a more formal argument. Importantly, when a system is in a steady state that is at equilibrium with its surroundings, not only does it minimize its energy, but it also maximizes its entropy. What that essentially means is that we cannot assume we know any more than the minimum about a system. Said another way, we cannot assume that our uncertainty about a system is any less than the maximum it could possibly be. If we do, then we rely on hope, for which we currently have no quantification nor any theories :) And yet another way to say this is that at equilibrium, a system exists in a way that is consistent with the greatest number of possible microstates. That's exactly what we did when we performed our constrained optimization to get the Boltzmann distribution. Although then we looked at it in terms of the maximum term method, what we did also amounts to maximizing the entropy of our ensemble, $\ln \Omega(n)$, subject to constraints. $\beta$ was the multiplier for the constraint on the total energy $E$. So that means $\beta$ is what controls how the total ensemble entropy changes when there is an incremental change in the total ensemble energy. That is, $$\beta = \frac{d \ln \Omega(n)}{d E}$$  <br> <br> </p> 
+            
+            <p> Now remember that the entropy is actually $S = k \ln \Omega(n)$, where the multiplicative factor $k$ just allows us to adjust the units of our problem as appropriate. If we plug that into $\beta = \frac{d \ln \Omega(n)}{d E}$, we obtain that $$\beta = \frac{1}{k} \frac{dS}{dE}$$ From the lesson on conjugate variables, we learned that for this system, we can write $dE = d(IS)$. By the chain rule, this further breaks down into $$dE = IdS|_I + SdI|_S$$ that is the contribution from the change in the entropy if the irritability is fixed and the contribution from the change in the irritability if the entropy is fixed. In our scenario, the irritability is fixed. So $dI = 0$ and the second term is $0$. We can then rearrange terms to find that $\frac{dS}{dE}|_I = \frac{1}{I}$. That gives us that $$\beta = \frac{1}{k} \frac{dS}{dE} = \frac{1}{kI}$$ <br> <br> </p> 
+        
+            
+            <p> So our intuition held up to formal reasoning! It turns out that $\beta$ is, up to a positive constant, the inverse of the conjugate variable of the entropy. <br> <br> </p> 
+            
+    
+            <p> Now we have finished our derivation of the Boltzmann distribution for Grogu. We have found that the probability that Grogu is in energy state $E_j$ at steady state is $$P(E_j) = \frac{e^{- E_j / kI}}{\sum_j e^{-\beta E_j / kI}}$$ This holds no matter what the energy levels are, and results from the main principle that in equilibrium, a system will minimize its energy and maximize its entropy.  <br> <br> </p> 
+            
+            <img src = "energies.png" style="width:800px;">
+            
+            
+            <p> <br> <br> </p> 
+            
+            <p> <br> <br> </p> 
+            
+            
+        </div>
+            
+    </div>
+
+
+    <script type="text/javascript">
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if(e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
+        }
+    </script>
+    
+        
+        
+    </body>
+
+</html>
+    

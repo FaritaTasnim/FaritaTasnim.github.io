@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Networked Stochastic Thermodynamics Course</title>
+  <link href="course_style.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+  <!-- <script defer src="script.js"></script> -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</head>
+<body>
+
+  <svg class="centered" width="1000" height="800"></svg>
+
+  <script>
+    //initilize svg or grab svg
+    var svg = d3.select("svg");
+    var width = svg.attr("width");
+    var height = svg.attr("height");
+      
+      
+    //intialize data
+    var graph = {
+        
+      nodes: [
+          { tag: "beta", 
+            name: 'What is Beta?', 
+            content: "/course/beta.html" },
+          { tag: "conjugates", 
+            name: 'Conjugate Variables', 
+            content: "/course/conjugates.html" },
+          { tag: "energy", 
+            name: 'Energy is Fundamental', 
+            content: "/course/energy.html" },
+          { tag: "ensembles", 
+            name: 'Ensembles',
+            content: "/course/ensembles.html" },
+          { tag: "equalapriori", 
+            name: 'Equal a priori Probability',
+            content: "/course/equalapriori.html" },
+          { tag: "entropy", 
+            name: 'Entropy',
+            content: "/course/entropy.html" },
+          { tag: "ergodicity", 
+            name: 'Ergodicity',
+            content: "/course/ergodicity.html" },
+          { tag: "maxterm", 
+            name: 'Maximum Term Method',
+            content: "/course/maxterm.html" },
+          { tag: "phasetransitions", 
+            name: 'Phase Transitions',
+            content: "/course/phasetransitions.html" },
+          { tag: "probabilityenergy", 
+            name: 'Probability of Energy States',
+            content: "/course/probabilityenergy.html" },
+          { tag: "whynonequilibrium", 
+            name: 'Why Nonequilibrium?',
+            content: "/course/whynonequilibrium.html" }
+      ],
+        
+      links: [
+          { source: "energy", target: "equalapriori" },
+          { source: "energy", target: "ensembles" },
+          { source: "equalapriori", target: "ensembles" },
+          { source: "equalapriori", target: "probabilityenergy" },
+          { source: "ensembles", target: "equalapriori" },
+          { source: "equalapriori", target: "entropy" },
+          { source: "ensembles", target: "ergodicity" },
+          { source: "ergodicity", target: "probabilityenergy" },
+          { source: "entropy", target: "conjugates" },
+          { source: "maxterm", target: "probabilityenergy" },
+          { source: "entropy", target: "probabilityenergy" },
+          { source: "conjugates", target: "beta" },
+          { source: "beta", target: "probabilityenergy" },
+          { source: "probabilityenergy", target: "phasetransitions" },
+          { source: "phasetransitions", target: "whynonequilibrium" },
+      ]
+        
+    };
+      
+
+    var simulation = d3
+      .forceSimulation(graph.nodes)
+      .force(
+        "link",
+        d3
+          .forceLink()
+          .id(function(d) {
+            return d.tag;
+          })
+          .links(graph.links)
+      )
+
+      .force("charge", d3.forceManyBody().strength(-500))
+      .force("center", d3.forceCenter(width/2, height/2))
+      .on("tick", ticked);
+      
+
+    var link = svg
+      .append("g")
+      .attr("class", "links")
+      .selectAll("line")
+      .data(graph.links)
+      .enter()
+      .append("line")
+      .attr("stroke-width", function(d) {
+        return width*0.01;
+      });
+      
+
+    var node = svg
+      .append("g")
+      .attr("class", "nodes")
+      .selectAll("circle")
+      .data(graph.nodes)
+      .enter()
+      .append("circle")
+      .attr("r", width*0.015)
+      .attr("fill", "green")
+      .call(
+        d3
+          .drag()
+          .on("start", dragstarted)
+          .on("drag", dragged)
+          .on("end", dragended)
+      );
+
+//      graph.nodes.forEach(n => {console.log(n.tag)})
+      
+//      var div = d3.select("body").append("div")
+//         .attr("class", "tooltip")
+//         .style("opacity", 0);
+      
+      var popup;
+
+      node.on("mouseover", function(d) {
+        d3.select(this).style("fill", "brown");
+//        div.transition()
+//            .duration(50)
+//            .style("opacity", 1);
+//        div.html(d.tag)
+//            .attr("transform", "translate(" + 0.5*width  + "," + 0.5*height  + ")");
+        popup  = svg.append("g")
+          .attr("transform", "translate(" + 0.5*width  + "," + 0.5*height  + ")");
+
+          
+        var rect = popup.append("rect")
+          .attr("rx", 5)
+          .attr("ry", 5)
+          .attr("width", 0.15*width)
+          .attr("height", .1*height)
+          .attr("class", "shape")
+          .style("fill", "white")
+          .style("stroke", "green")
+          .style("stroke-width", 2);
+
+        popup.append("foreignObject")
+//          .attr("class", "scrollable")
+          .attr("transform", "translate(" + 7  + "," + 7  + ")")
+          .attr("width", 0.15*width - 14)
+          .attr("height", 0.1*height - 14)
+          .append("xhtml:body")
+          .style("font-family", "Open Sans")
+          .html(d.name);
+          
+        popup.attr("transform", "translate(" + .45*width  + "," + 0.8*height  + ")");
+        
+      })                  
+      .on("mouseout", function(d) {
+        d3.select(this).style("fill", "green");
+//        div.transition()
+//            .duration('50')
+//            .style("opacity", 0);
+          
+        if (popup) popup.remove();
+      })
+
+      
+      
+      link.on("mouseover", function(d) {
+        d3.select(this).style("stroke", "green");
+      })                  
+      .on("mouseout", function(d) {
+        d3.select(this).style("stroke", "gray");
+      })
+
+//      var popup;
+//      
+//      
+//      svg.on("click", function(){
+//        if (popup) popup.remove(); // removes popup when clicking svg background
+//      });
+//      
+//      
+      
+      node.on("click",function(d){
+          d3.event.stopPropagation(); 
+          window.open(d.content)
+      });
+      
+      
+//      node.on("click", function(d){
+//        d3.event.stopPropagation(); 
+//      
+//        if (popup) popup.remove();
+//        
+//        popup  = svg.append("g")
+//          .attr("transform", "translate(" + 0.5*width  + "," + 0.5*height  + ")");
+//
+//          
+//        var rect = popup.append("rect")
+//          .attr("rx", 20)
+//          .attr("ry", 20)
+//          .attr("width", 0.67*width)
+//          .attr("height", 0.67*height)
+//          .attr("class", "shape")
+//          .style("fill", "white")
+//          .style("stroke", "green")
+//          .style("stroke-width", 7.5);
+//
+//        popup.append("foreignObject")
+//          .attr("class", "scrollable")
+//          .attr("transform", "translate(" + 15  + "," + 15  + ")")
+//          .attr("width", 0.67*width - 40)
+//          .attr("height", 0.67*height - 40)
+//          .append("xhtml:body")
+//          .style("font-family", "Open Sans")
+//          .html("<b>" + d.name + "</b> <br>" + d.content);
+//
+//        popup.attr("transform", "translate(" + 0.166*width  + "," + 0.166*height  + ")");
+//      
+//       
+//      
+//      });
+
+//      link.on("click", function(d){
+//        d3.event.stopPropagation(); 
+//      
+//        if (popup) popup.remove();
+//        
+//        popup  = svg.append("g")
+//          .attr("transform", "translate(" + 0.5*width  + "," + 0.5*height  + ")");
+//
+//          
+//        var rect = popup.append("rect")
+//          .attr("rx", 20)
+//          .attr("ry", 20)
+//          .attr("width", 0.67*width)
+//          .attr("height", 0.67*height)
+//          .style("fill", "white")
+//          .style("stroke", "gray")
+//          .style("stroke-width", 7.5);
+//
+//        popup.append("foreignObject")
+//          .attr("class", "scrollable")
+//          .attr("transform", "translate(" + 15  + "," + 15  + ")")
+//          .attr("width", 0.67*width - 40)
+//          .attr("height", 0.67*height - 40)
+//          .append("xhtml:body")
+//          .style("font-family", "Open Sans")
+//          .html("<b> This link connects " + d.source.name + " to " + d.target.name + "</b> <br>" + d.content);
+//
+//        popup.attr("transform", "translate(" + 0.166*width  + "," + 0.166*height  + ")");
+//      
+//      });
+    
+    
+
+    function ticked() {
+      link
+        .attr("x1", function(d) {
+          return d.source.x;
+        })
+        .attr("y1", function(d) {
+          return d.source.y;
+        })
+        .attr("x2", function(d) {
+          return d.target.x;
+        })
+        .attr("y2", function(d) {
+          return d.target.y;
+        });
+
+      node
+        .attr("cx", function(d) {
+          return d.x;
+        })
+        .attr("cy", function(d) {
+          return d.y;
+        });
+    }
+
+    function dragstarted(d) {
+      if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+      d.fx = d.x;
+      d.fy = d.y;
+    }
+
+    function dragged(d) {
+      d.fx = d3.event.x;
+      d.fy = d3.event.y;
+    }
+
+    function dragended(d) {
+      if (!d3.event.active) simulation.alphaTarget(0);
+      d.fx = null;
+      d.fy = null;
+    }
+
+  </script>
+    
+<div class="container" style="font-size:12pt;line-height:24px;font-family:'Open Sans'">
+    <p>
+    Please note that this is a draft / work in progress prepared in the past week. <br> Also, it would be most fun if you start traversing the graph with the concept node 'Energy is Fundamental' <br> and end with 'Why Nonequilibrium?'. Enjoy! :)
+    </p>
+</div>
+
+
+</body>
+</html>
