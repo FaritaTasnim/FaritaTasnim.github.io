@@ -69,15 +69,29 @@
             
             <br>  
             
-            - What is Data, to a Computer? -
+            <h3>
+            - CHAPTER 1: What is Data, to a Computer? - 
+            </h3>
             
+            <br>
+                
             <p>
                 
-            <br> 
+            
 
             One of Leila's droids has exceptional auditory sensitivity, DB-90. This droid is able to pick up voices 1000 yards away in highly windy desert environments. 
-            Leila wants this droid to learn to use 10 second audio snippets of the voices it records and predict whether they are part of the Ampere or the Capacitance, and what ranking they hold within their group. [drawing of droid receiving audio signal] <br> <br>
-                
+            Leila wants this droid to learn to use 10 second audio snippets of the voices it records and predict whether they are part of the Ampere or the Capacitance, and what ranking they hold within their group. <br> <br> </p>
+            
+            <img src = "db-90.png" style="width:600px;"> <br> <br>
+            
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml1.5');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+            
+        </div>
+            
+        <div class="hidden_container" id = 'sml1.5'>
+            
+            <p>
             <b>To DB-90 (which is a computer), what is an audio snippet input? Remember it doesn't have human ears or a biological brain.</b> <br> <br>
                 
                 <input type="checkbox" value="A"> An ordered set of values of air pressure (caused by sounds) <br> <br>
@@ -121,8 +135,9 @@
         <div class="hidden_container" id = 'sml3'>
             
             <br>  
-            
-            - What is Learning, to a Machine? -
+            <h3>
+            - CHAPTER 2: What is Learning, to a Machine? -
+            </h3>
             
             <br> <br> 
             
@@ -147,16 +162,27 @@
         <div class="hidden_container" id = 'sml4'>
             
             <br>  
-            
-            - Flawed Data means Machine Learning is about Statistics and Approximation -
+            <h3>
+            - CHAPTER 3: Flawed Data means Machine Learning is about Statistics and Approximation -
+            </h3>
             
             <br> <br> 
             
             
             <p> Right, DB-90 essentially has to learn how audio snippets ($x$) relate to which side and ranking the source of the sound belongs ($y$). Mathematically, this kind of relationship is formalized as a <b>function</b>, $$y = f(x)$$
             That sentence literally translates to "y is a function of x" (we think). 
-            The good thing is, computing is all about implementing functions, or transformations, from one variable into another variable. [drawing showing computer taking input and making it into output] <br> <br>
+            The good thing is, computing is all about implementing functions, or transformations, from one variable into another variable. <br> <br> </p>
             
+            <img src = "input-output.png" style="width:600px;"> <br> <br>
+            
+        <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml4.5');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml4.5'>
+            
+            <p>
             If we knew the relationship beforehand, we could program it directly into the computer. 
             Unfortunately Leila doesn't know this relationship beforehand, so she cannot program the relationship directly into the droid.
             However, from radio transmissions and recordings, she has some data on audio snippets of people, and has their classification into side and ranking. 
@@ -189,12 +215,12 @@
             <br> <br>
                 
             In fact, in Leila's dataset, there are other imperfections we haven't discussed, too. 
-            Many of Leila's voice recordings in her dataset are noisy, and in some cases, she didn't know the speakers, so she had to make her best guess of the ranking of that person, especially on the Ampere side.
+            Many of Leila's voice recordings in her dataset are noisy, and in some cases, she didn't know the speakers because she intercepted radio transmissions that weren't being sent to her ship, so she had to make her best guess of the ranking of that person, especially on the Ampere side. Here are some examples of the sources of noise in Leila's data points.
                 <br> <br>
-
-            [drawing showing sources of imperfection in the data. from source, to the microphone, which noisily converts the sound to voltage values, send them through telecomm which sometimes incorrectly sends values, then picked up at receiver hwich sometimes incorrectly reads values, and then records them in Leila's computer (x side) and then on the yside sometimes she doesn't know the speaker so she guesses] <br> <br> 
             
             </p>
+            
+            <img src = "noise.png" style="width:600px;"> <br> <br>
             
                 
             <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml6');"> <i class="fa-solid fa-arrow-right"></i></a>
@@ -205,9 +231,9 @@
         <div class="hidden_container" id = 'sml6'>
             
             <br>  
-            
-            - Implicit Features -
-            
+            <h3>
+            - CHAPTER 4: Implicit Features -
+            </h3>
             <br> <br> 
             
             
@@ -247,9 +273,9 @@
         <div class="hidden_container" id = 'sml8'>
             
             <br>  
-            
-            - Recognizing the Underlying Probability Distribution -
-            
+            <h3>
+            - CHAPTER 5: Recognizing the Underlying Probability Distribution -
+            </h3>
             <br> <br>
             
             
@@ -296,10 +322,11 @@
             
             <p> 
             
-            That's right. The data that we have is sampled from some distribution of possible data points, $p(x,y)$. This probability distribution reflects which $(x, y)$ pairs are more likely to occur together, and so contains information about a possible relationship between the two variables. <br> <br>
-                
-            [illustration of the probability distributions gradient over space show as a second panel, px and py and pygivx as lorenzo does, actualy show such options] <br> <br>
-                
+            That's right. The data that we have is sampled from some distribution of possible data points, $p(x,y)$. This probability distribution reflects which $(x, y)$ pairs are more likely to occur together, and so contains information about a possible relationship between the two variables. <br> <br> </p>
+            
+            <img src = "p_xy.png" style="width:600px;"> <br> <br>
+            
+            <p>    
             <b>Looking at the distributions in the illustration above, which probability distribution represents how $y$ depends on the value of $x$?</b> <br> <br> 
                 
                 <input type="checkbox" value="A"> $p(x,y)$ <br> <br>
@@ -326,9 +353,29 @@
                 
             Right, this conditional distribution indicates the probability of different $y$ values, given an $x$ value. Recall from basic probability theory that the probability of an $x$ and a $y$ value to occur together equals the conditional probability of that $y$ value given the $x$ value, times the probability of seeing that $x$ value in the first place. That's how we obtain the joint distribution $p(x,y) = p(y | x) \times p(x)$.
                 
-            <br> <br>
+            <br> <br> </p>
                 
-            Leila recognizes that it's a pretty difficult problem to estimate an entire probability distribution, especially one over the space of possible time series of audio-indicating voltages jointly with the faction and seniority of the speaker. So right now she wants to do something that works well enough, and one that works with the dataset available to her. <br> <br> 
+            <p>    
+            <b>Which of the following statements is true?</b> <br> <br> 
+                
+                <input type="checkbox" value="A"> $p(y | x)$ is the same for every value of $x$. That is, no matter what the value of the input, the probability distribution of the output is the same. <br> <br>
+                
+                <input type="checkbox" value="B"> * $p(y | x)$ is different for different values of $x$. That is, not every input value leads to the same probability distribution over possible output values. <br> <br>
+                
+            
+            </p>
+            
+        <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml11.5');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+               
+        <div class="hidden_container" id = 'sml11.5'>
+            
+            <p> Right, it would be pretty silly for us to be looking for a relationship between the input and output if it were the case that every input value led to the same distribution over possible outputs given that value of the input. In fact, that's the definition of two variables being independent (having no relationship). <br> <br> </p>
+            
+            <p> 
+            Leila recognizes that it's a pretty difficult problem to estimate entire probability distributions $p(y|x)$ given every possible value of $x$. Especially given that $x$ is the space (set) of all possible time series of audio-indicating voltages. So right now she wants to do something that works well enough, and one that works with the dataset available to her. <br> <br> 
                 
             <b>What could she choose as a possible strategy for DB-90's learning process, rather than trying to estimate $p(y|x)$?</b> <br> <br> 
                 
@@ -348,9 +395,9 @@
         <div class="hidden_container" id = 'sml12'>
             
             <br>  
-            
-            - The Best Possible Functional Representation of a Probability Distribution -
-            
+            <h3>
+            - CHAPTER 6: The Best Possible Functional Representation of a Probability Distribution -
+            </h3>
             <br> <br>
             
             
@@ -381,14 +428,6 @@
             The theoretically best function that DB-90 <b>should</b> learn should minimize some quantitative (numerical) measure of the error in estimating the most likely $(x,y)$ pairs given by the underlying probability distribution representing the relationship between these two variables. <br> <br>
                 
             An error metric that captures how far off an $y_{\text{est}} = f(x)$ is from $y$, is often referred to as a <b>loss</b> or <b>risk</b>. It is often a measure related to the distance between the value of $y$ and the value of $f(x)$. We'll have a subsequent lesson on possible values of this loss, but for now we'll refer to it generically as a function $l(f(x), y)$.  <br> <br>
-                
-            A function is <b>deterministic</b>, meaning it assigns a single value $y$ to every value of $x$. 
-            <b>Because we're trying to collapse a probability distribution to a single-valued function, can the error ever equal exactly $0$? </b> <br> <br>
-                
-                <input type="checkbox" value="A"> Yes <br> <br>
-                
-                <input type="checkbox" value="B"> * No <br> <br>
-            
             
             </p>
             
@@ -401,17 +440,43 @@
         <div class="hidden_container" id = 'sml14'>
             
             
-            <p> Right, a deterministic description will never give a perfect picture of probability distribution, except in the case that the probability distribution is a <a href = "https://en.wikipedia.org/wiki/Dirac_delta_function" target = "_blank"><b>delta function distribution</b></a>, which never truly occurs in reality. <br> <br>
+            <p>
                 
-            Now, let's explore in more depth this concept of representing a fundamentally probabilistic relationship in terms of a deterministic functional relationship. 
+            A function is <b>deterministic</b>, meaning it assigns a single value $y$ to every value of $x$. 
+            However, our probability distribution is <b>non-deterministic</b>, which in this case means that it reflects how multiple values of $y$ could be observed for every given value of $x$.  <br> <br> 
+                
+            Now, let's explore in more depth what limitations arise from representing a fundamentally probabilistic relationship in terms of a deterministic functional relationship. 
             <br> <br>
+            
+            </p>
+            
+            <img src = "determinism.png" style="width:600px;"> <br> <br>
+            
+            <p>
+            
+            <b>Because we're trying to collapse a probability distribution to a single-valued function, can the error ever equal exactly $0$? </b> <br> <br>
                 
-            [interactive allowing play with different f(x) compared to the underlying probability distribution pxy, assuming grid of discrete x,y values. go through each one. how far off is this f(x) for each point.] <br> <br>
+                <input type="checkbox" value="A"> Yes <br> <br>
+                
+                <input type="checkbox" value="B"> * No <br> <br>
+            
             
             </p>
             
                 
-            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml15');"> <i class="fa-solid fa-arrow-right"></i></a>
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml14.5');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml14.5'>
+            
+            
+            <p> Right, a deterministic description will never give a perfect picture of probability distribution, except in the case that the probability distribution is a <a href = "https://en.wikipedia.org/wiki/Dirac_delta_function" target = "_blank"><b>delta function distribution</b></a>, which never truly occurs in reality. <br> <br>
+                
+            </p>
+            
+        <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml15');"> <i class="fa-solid fa-arrow-right"></i></a>
             
         
         </div>
@@ -419,7 +484,7 @@
         <div class="hidden_container" id = 'sml15'>
             
             
-            <p> <b> Based on your exploration above, for $(x,y)$ pairs with low probability of co-occurring, if the value of $f(x)$ is far from that $y$ value, is it a big deal for the total loss? </b>
+            <p> <b> Based on your exploration with the interactive above, for $(x,y)$ pairs with low probability of co-occurring, if the value of $f(x)$ is far from that $y$ value, is it a big deal for the total loss? </b>
             <br> <br>
                 
                 <input type="checkbox" value="A"> Yes <br> <br>
@@ -500,9 +565,9 @@
         <div class="hidden_container" id = 'sml19'>
             
             <br>  
-            
-            - The Point of Statistical Machine Learning <b>Theory</b> -
-            
+            <h3>
+            - CHAPTER 7: The Point of Statistical Machine Learning <b>Theory</b> -
+            </h3>
             <br> <br>
             
             
@@ -561,9 +626,9 @@
         <div class="hidden_container" id = 'sml22'>
             
             <br>  
-            
-            - Playing with Parameters: Data Representation with Features -
-            
+            <h3>
+            - CHAPTER 8: Playing with Parameters: Data Representation with Features -
+            </h3>
             <br> <br>
             
             <p> 
@@ -605,15 +670,18 @@
                 The average amplitude (average volume / loudness) <br>
                 The range of amplitudes (volume range) <br> <br> 
                 
-            These might be good choices, because as we discussed earlier, these kind of factors may correlate with the side and ranking of the speaker in the audio snippet. Each of these features is a function of $x$. Let us denote them as a set $\{ \theta(x) \}$
-                
-            [drawing of representing audio input as just a few numbers instead of thousands] <br> <br>
-                
-            If we use these numbers instead of the original audio snippet, then our input $x$ is a set of only 4 numbers! This greatly simplifies how complicated $f(x)$ will be. Now, DB-90 only has to come up with a function $f(x)$ that only has to convert a set of 4 numbers to a set of 1 or 2 numbers. <br> <br>  
+            These might be good choices, because as we discussed earlier, these kind of factors may correlate with the side and ranking of the speaker in the audio snippet. Each of these features is a function of $x$. Let us denote them as a set $\{ \theta(x) \}$<br> <br>
+            
+            </p>
+            
+            <img src = "features.png" style="width:600px;"> <br> <br>
+            
+            <p>
+            If we use these numbers instead of the original audio snippet, then our input $x$ is a set of only a few numbers! This greatly simplifies how complicated $f(x)$ will be. Now, DB-90 only has to come up with a function $f(x)$ that only has to convert a set of a few numbers to a set of 1 or 2 numbers (depending on how Leila chose to represent the output). <br> <br>  
                 
             <b>When we reduce the dimensionality of the inputs and outputs involved in our machine learning problem, we have a better chance of uncovering an underlying relationship between the them. Of course, we must take care to ensure that the features chosen do not eliminate the underlying relationship we seek. </b> <br> <br>  
                 
-            Later on in the course, we'll go more in depth regarding the theory of how to come up with features $\{ \theta(x) \}$ so that the new $p(\theta(x), y)$ map reliably to the underlying $p(x, y)$ that we were seeking. <br> <br>  
+            Later on in the course, we'll go more in depth regarding the theory of how to come up with features $\{ \theta(x) \}$ so that the new $p(\theta(x), y)$ map reliably to the underlying $p(x, y)$ that we were seeking. We'll also discuss some of the signal processing involved in coming up with those features. <br> <br>  
             
             </p>
             
@@ -661,9 +729,9 @@
         <div class="hidden_container" id = 'sml26'>
             
             <br>  
-            
-            - What's the Best a Machine Can Learn, Given that it Only Has Data Samples? -
-            
+            <h3>
+            - CHAPTER 9: What's the Best a Machine Can Learn, Given that it Only Has Data Samples? -
+            </h3>
             <br> <br>
             
             <p> We talked about improving our odds at machine learning by trying to make it so that the problem the machine is tasked with learning is easier.                
@@ -701,12 +769,12 @@
         <div class="hidden_container" id = 'sml28'>
             
             
-            <p> Right, we don't know the distribution $p$, remember, so we can only measure the loss on the data available. [interactive for how different fest(x) affects the loss]
+            <p> Right, we don't know the distribution $p$, remember, so we can only measure the loss on the data available. 
             <br> <br>
                 
-            
-            
             </p>
+            
+            <img src = "data_loss.png" style="width:600px;"> <br> <br>
             
                 
             <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml29');"> <i class="fa-solid fa-arrow-right"></i></a>
@@ -757,14 +825,11 @@
                 
             In other cases, the resultant $f_{\text{est}}(x)$ is too sensitive to small changes in the value of $x$. This is means the algorithm results in an <b>unstable</b> function. <br> <br>
                 
-            In both of these cases, the learned machine doesn't perform well on new, unseen data. See for yourself below. <br> <br>
-                
-            [Interactive of x,y points, f*(x) which is fixed, and f_est which changes with buttons, interactive with buttons - unstable, overfitted, better, show points in blue as already seen, red as new, and display on top the value of the loss  - show all three panels]
-                
-            <br> <br>
+            In both of these cases, the learned machine doesn't perform well on new, unseen data (called the <b>testing set</b>). See for yourself below. <br> <br>
             
             </p>
             
+            <img src = "overfit_unstable.png" style="width:600px;"> <br> <br>
                 
             <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml32');"> <i class="fa-solid fa-arrow-right"></i></a>
             
@@ -776,16 +841,26 @@
             
             <p> 
                 
+            In the upcoming lessons, we'll learn about different algorithms and strategies to make DB-90's error on new, unseen data low with a class of methods called <b>regularization</b>! <br> <br>
+            
+            </p>
+            
+        <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml33');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml33'>
+                
+            <p> 
             Congrats! You have the basic concepts required to take a deep dive into the theory of statistical (machine) learning! <br> <br>
                 
             Machine is in parentheses above because we note that natural systems learn roughly like this all the time! For example, consider the ways mammals identify objects based on smells. The chemical input of the smell translates to electrical signals in the brain that contain some representation of the relationship to the idea of what objects could be in the vicinity. 
             The relationship gets trained over time, from birth. Different people have different training sets so they sometimes react to / predict different smells differently! That's why, for example, some people like the smell of gasoline, because of the associations they have with it in their training sets. <br> <br>
                 
-            In the upcoming lessons, we'll learn about different algorithms and strategies to make DB-90's error on new, unseen data low with a class of methods called <b>regularization</b>!
-                
-            <br> <br>
-            
             </p>
+                
+            
             
         
         </div>
