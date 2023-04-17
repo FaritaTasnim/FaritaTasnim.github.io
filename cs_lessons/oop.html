@@ -220,7 +220,7 @@
             
         <div class="hidden_container" id = 'oop10'>
             
-            <p> Right, this concept of inheritance is pretty powerful because it can involve multiple levels! This allows us to reuse lots of code.  <br> <br> </p>
+            <p> Right, this concept of inheritance is pretty powerful because it can involve multiple levels! This allows us to reuse lots of code without having to rewrite that code over and over.  <br> <br> </p>
             
             <img src = "inher_3_levels.png" style="width:600px;"> <br> <br>
             
@@ -234,7 +234,7 @@
         <div class="hidden_container" id = 'oop11'>
             
             
-            <p> Now, let's help Leila figure out some of the functions and properties that to put in each of the classes. Drag and drop the functions below into this portion of the class hierarchy. <br> <br> </p>
+            <p> Now, let's help Leila figure out some of the functions and properties to put in each of the classes. Drag and drop the functions below into this section of the class hierarchy. <br> <br> </p>
             
             <img src = "fill_in_tree.png" style="width:600px;"> <br> <br>
             
@@ -250,7 +250,7 @@
             
             <p> Here you saw that the properties and function that are more common to more droids or types of droids should be placed in classes that are higher in the hierarchy.  <br> <br>
                 
-            Let's create (<b>instantiate</b>) a new droid now of the spaceship mechanic type. <br> <br> </p>
+            Now let's create (<b>instantiate</b>) a new droid of the spaceship mechanic type. <br> <br> </p>
             
                 
             <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop13');"> <i class="fa-solid fa-arrow-right"></i></a>
@@ -284,10 +284,10 @@
             <p> Great! Leila could have this droid do functions with single lines of code such as: <br> <br>
 
             Mechanic_012.check_fuel_efficiency() <br>
-            Mechanic_012.run_engine_check() <br>
-            Mechanic_012.calculate_horsepower(Engine_Object) <br> <br>
+            Mechanic_012.diagnose_engine() <br>
+            Mechanic_012.navigate_space() <br> <br>
                 
-            Remember, a class inherits everything from its parent class, the parent class of its parent class, and so on. <br> <br> </p>
+            Remember, a class inherits everything from its parent class, as well as the parent class of its parent class, and so on. <br> <br> </p>
             
                 
             <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop15');"> <i class="fa-solid fa-arrow-right"></i></a>
@@ -379,7 +379,7 @@
             
             <br>
             <h3>
-            - CHAPTER 3: Composition - 
+            - CHAPTER 3: Composition (Grouping) - 
             </h3>
             <br> <br> 
             
@@ -406,11 +406,11 @@
             Let's say all droids have one central processing unit, one visual processing unit, one audio processing unit, and one chemical processing unit. <br> <br> 
                 
             For movement, a droid could have any of three different types of movement units (limb, wheel, jetpack). 
-                Math/science droids have two limbs and two wheels. Engineer/mechanic droids have two limbs, two wheels. The space mechanic droids each have a jetpack. Human interaction/service droids have four limbs. Fighting droids have two wheels and a jetpack. <br> <br> 
+                Math/science droids have two limbs and two wheels. Engineer/mechanic droids have two limbs and two wheels. The space mechanic droids each have a jetpack and two wheels. Human interaction/service droids have four limbs. Fighting droids have two wheels and a jetpack. <br> <br> 
                 
-            There are many other types of components but for now let's sort these out. <br> <br>
+            There are many other types of components but for now let's sort out the above. <br> <br>
                 
-            Now you can help Leila by drawing arrows from each component to the droid class that has an instance of it. Draw multiple arrows if a droid has multiple of the same component. To draw an arrow, click on the two classes the arrow connects. The arrow should point toward the class that contains the component class. <br> <br> 
+            You can help Leila by drawing arrows from each component to the droid class that should contain an instance of it. Draw multiple arrows if a droid has multiple of the same component. To draw an arrow, click on the two classes the arrow connects. The arrow should point from one class toward the class that contains it. <br> <br> 
             </p>
             
             <img src = "composition.png" style="width:600px;"> <br> <br>
@@ -424,9 +424,9 @@
         <div class="hidden_container" id = 'oop21'>
             
             
-            <p> Nice! So you see that by allowing a class to consist of instances of other classes, composition allows for the relationship structure between shared features and properties more like an arbitrary <b>network</b> instead of a strict tree-like structure. <br> <br>
+            <p> Nice! So you see that by allowing a class to consist of instances of other classes, composition allows for the relationship structure among shared features and properties to be more like an arbitrary <b>network</b> instead of a strict tree-like structure. <br> <br>
                 
-            In programming lingo, this is commonly described in the way that inheritance provides relationships of the style <b>is-a</b>, whereas composition provides relationships of the style <b>has-a</b>.  
+            In programming lingo, this distinction between inheritance and composition is commonly described as: Inheritance provides relationships of the style <b>is-a</b>, whereas composition provides relationships of the style <b>has-a</b>.  
             <br> <br>
             </p>
             
@@ -440,15 +440,15 @@
             
             <br>
             <h3>
-            - CHAPTER 4: Aggregation - 
+            - CHAPTER 4: Aggregation (Abstract Groups) - 
             </h3>
             <br> <br> 
             
             
             <p> 
-            As the final feature in Leila's design of her large set of droids, she wants groups of droids to be able to work together. In particular, she wants to be able to define different groups of droids that have certain collective properties and functions. <br> <br> 
+            As the final feature in Leila's design of her large set of droids, she wants groups of droids to be able to work together. In particular, she wants to be able to define different groups of droids so that together, they have certain <b>collective</b> properties and functions. <br> <br> 
                 
-            For example, she wants to be able to create a group of fighter pilot droids for a battle mission so that they can collectively get into different formations for attack and defense during a space battle with the Ampere. <br> <br> 
+            For example, she wants to be able to create a group of fighter pilot droids for a battle mission so that they can collectively orient themselves into different formations for attack and defense during a space battle with the Ampere. <br> <br> 
                 
             <b>What is a strategy Leila could use in her code to make this possible in the most efficient way?</b> <br> <br> 
                 
@@ -484,7 +484,7 @@
             
             <p> Instead, we can do what's called <b>aggregation</b>. For abstract collections of entities, instead of instantiating droid objects inside the class for the group, we instantiate the droid objects separately, and refer to them when we instantiate a group class. <br> <br> 
                 
-            Here's what creating a new aggregation might look like: <br> <br> 
+            Here's what creating a new aggregation might look like, using a set of droid objects that have already been instantiated elsewhere: <br> <br> 
             
             New_Attack_Group = Attack_Group(attack_droids = {Fighter_Pilot_007, Fighter_Pilot_489, Fighter_Pilot_320, Fighter_Pilot_157, Fighter_Pilot_294, Fighter_Pilot_287, Fighter_Pilot_187}) <br> <br>
             
@@ -499,9 +499,9 @@
         <div class="hidden_container" id = 'oop25'>
             
             
-            <p> All of these ways of creating network-type relations between different pieces of code --- inheritance, composition, and aggregation --- makes object-oriented programming very powerful. <br> <br> 
+            <p> All of these practices of creating network-type relations between different pieces of code --- inheritance, composition, and aggregation --- makes object-oriented programming a very powerful paradigm. <br> <br> 
                 
-            In programming, this kind of power is referred to as <b>polymorphism</b> (poly = many, morph = form), which is just a fancy word saying that there's coherent network of code that creates many different types of things. <br> <br>
+            In programming, this kind of power is referred to as <b>polymorphism</b> (poly = many, morph = form), which is just a fancy word saying that there's coherent network of code that could create many different types (forms) of things. <br> <br>
                 
             Congrats! Now you understand the basic tenets of one of the most powerful and robust ways to write code. In doing so, you've helped Princess Leila efficiently create thousands of droids to contribute to the efforts of the Capacitance to fight the Ampere. <br> <br>
                 
