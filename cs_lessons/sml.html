@@ -351,7 +351,7 @@
             
             <p> 
                 
-            Right, this conditional distribution indicates the probability of different $y$ values, given an $x$ value. Recall from basic probability theory that the probability of an $x$ and a $y$ value to occur together equals the conditional probability of observing that $y$ value <b>given</b> the $x$ value, times the probability of seeing that $x$ value in the first place. That's how we obtain the joint distribution $p(x,y) = p(y | x) \times p(x)$.
+            Right, this conditional distribution indicates the probability of different $y$ values, given an $x$ value. Recall from basic probability theory that the probability of an $x$ and a $y$ value to occur together equals the conditional probability of observing that $y$ value <b>given</b> the $x$ value, times the probability of observing that $x$ value in the first place. That's how we obtain the joint distribution $p(x,y) = p(y | x) \times p(x)$.
                 
             <br> <br> </p>
                 
@@ -372,10 +372,10 @@
                
         <div class="hidden_container" id = 'sml11.5'>
             
-            <p> Right, it would be pretty silly for us to be looking for a relationship between the input and output if it were the case that every input value led to the same distribution over possible outputs given that value of the input. In fact, that's the definition of two variables being independent (having no relationship). <br> <br> </p>
+            <p> Right, it would be pretty silly for us to be looking for a relationship between the input and output if it were the case that every input value led to the same distribution over possible outputs given that value of the input. In fact, that's exactly the condition required for two variables to be independent (have no relationship). <br> <br> </p>
             
             <p> 
-            Leila recognizes that it's a pretty difficult problem to estimate entire probability distributions $p(y|x)$ given every possible value of $x$. Especially given that $x$ is the space (set) of all possible time series of audio-indicating voltages. So right now she wants to do something that works well enough, and one that works with the dataset available to her. <br> <br> 
+            Leila recognizes that it's a pretty difficult problem to estimate entire probability distributions $p(y|x)$ given every possible value of $x$... Especially since $x$ is the space (set) of all possible time series of audio-indicating voltages. So right now she wants to do something that works well enough, and one that works with the dataset available to her. <br> <br> 
                 
             <b>What could she choose as a possible strategy for DB-90's learning process, rather than trying to estimate $p(y|x)$?</b> <br> <br> 
                 
