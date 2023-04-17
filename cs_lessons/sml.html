@@ -260,7 +260,7 @@
             <br> <br>
                 
             For example, let's say we ask a computer to classify whether an image contains a dog or a cat. 
-            An image to a computer is just a large ordered set of subsets of 3 numbers (corresponding to the intensity of red, green, and blue (RGB) in each pixel). It doesn't see like we do. Even though we immediately recognize whether an animal is a dog or a cat, a computer does not have that intuition. Instead, it learns some hidden relationship between [features of the set of numbers representing the image] and [a binary value ($0$ if dog, $1$ if cat)]. It might have learned something very roughly along the lines of, "If there exists two sets of numbers with this range of RGB values that are in this order with respect to each other, then it's a $1$."
+            An image to a computer is just a large ordered set of subsets (each corresponding to a pixel) of 3 numbers (corresponding to the intensity of red, green, and blue (RGB) in that pixel). It doesn't see like we do. Even though we immediately recognize whether an animal is a dog or a cat, a computer does not have that intuition. Instead, it learns some hidden relationship between the [features of the set of numbers representing the image] and a [binary value ($0$ if dog, $1$ if cat)]. Very loosely speaking, it *might* have learned something very roughly along the lines of, "If there exists two sets of numbers with this range of RGB values that are in this order with respect to each other, then it's most likely a $1$."
             
             </p>
             
