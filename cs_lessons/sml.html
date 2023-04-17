@@ -406,7 +406,7 @@
                 
             <b>Which of the following is a good way to define this "best possible" $y = f(x)$, i.e., the one that gives the best "summary" of the underlying distribution relating $x$ and $y$?</b> <br> <br> 
                 
-                <input type="checkbox" value="A"> * Define some metric of error based on the probability distribution. That is, the error is of how far off $f(x)$ is from the actual most likely $y$ value in the distribution p(y | x). The "best possible" $f(x)$ is the one that minimizes this measure of error for all possible values of $x$. <br> <br>
+                <input type="checkbox" value="A"> * Define some metric of error based on the probability distribution. That is, the error is of how far off $f(x)$ is from the actual most likely $y$ value in the distribution $p(y | x)$. The "best possible" $f(x)$ is the one that minimizes this measure of error for all possible values of $x$. <br> <br>
                 
                 <input type="checkbox" value="B"> Define some metric of error based on data. That is, the error is of how far off $f(x)$ is from the $y$ value in each $(x,y)$ datapoint. The "best possible" $f(x)$ is the one that minimizes this measure of error for all points in the dataset. <br> <br>
             
@@ -423,7 +423,7 @@
             
             <p> 
                 
-            Right, the best possible function is <b>not</b> the one that best summarizes our dataset, which is what option B would suggest. <br> <br>
+            Right, the best possible function is <b>not</b> the one that best summarizes our dataset, which is what option B would suggest. As we saw before, the dataset is fundamentally flawed. We want the function that best summarizes the underlying joint probability distribution of the input and output. <br> <br>
                 
             The theoretically best function that DB-90 <b>should</b> learn should minimize some quantitative (numerical) measure of the error in estimating the most likely $(x,y)$ pairs given by the underlying probability distribution representing the relationship between these two variables. <br> <br>
                 
