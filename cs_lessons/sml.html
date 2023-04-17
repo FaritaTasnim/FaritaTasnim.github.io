@@ -737,7 +737,7 @@
             <p> We talked about improving our odds at machine learning by trying to simplify the problem the machine is tasked with learning.                
             <br> <br>
                 
-            Now, let's consider the other complication to the problem, which is that the machine has to learn based only on the data samples it is given. So the other half of statistical machine learning is to make progress on the question, <b>What's the best we can do, given that we only have access to data, which is a limited picture of the underlying relationship among the variables involved?</b>
+            Now, let's consider the other complication to the problem, which is that the machine has to learn based only on the data samples it is given. So the other half of statistical machine learning involves making progress on the question, <b>What's the best we can do, given that we only have access to data, which is a limited picture of the underlying relationship among the variables involved?</b>
             
             </p>
             
@@ -750,10 +750,10 @@
         <div class="hidden_container" id = 'sml27'>
             
             
-            <p> Let's say that Leila has trained DB-90, which now has an internal representation of $f_{\text{est}}(x)$. She wants to test how well the DB-90's $f_{\text{est}}(x)$ performs on a set of data $S = \{\hat{x}, \hat{x} \}$ <b>What is a good, and actually measurable metric to evaluate DB-90's efficacy on the dataset $S$?</b>
+            <p> Let's say that Leila has trained DB-90, which now has an internal representation of $f_{\text{est}}(x)$. She wants to test how well the DB-90's $f_{\text{est}}(x)$ performs on a set of data $S = \{\hat{x}, \hat{x} \}$ <b>What is a good, and actually measurable, metric to evaluate DB-90's efficacy on the dataset $S$?</b>
             <br> <br>
                 
-                <input type="checkbox" value="A"> An weighted average of the loss $l(f(\hat{x}, \hat{y}))$ evaluated over all data points in $S$ where the weights are given by the probabilities p(\hat{x}, \hat{y}): $$ \sum_{\hat{x}, \hat{y} \, \in \, S} l(f(\hat{x}, \hat{y})) p(\hat{x}, \hat{y}) $$ <br>
+                <input type="checkbox" value="A"> An weighted average of the loss $l(f(\hat{x}, \hat{y}))$ evaluated over all data points in $S$ where the weights are given by the probabilities $p(\hat{x}, \hat{y})$: $$ \frac{\sum_{\hat{x}, \hat{y} \, \in \, S} l(f(\hat{x}, \hat{y})) p(\hat{x}, \hat{y})}{\sum_{\hat{x}, \hat{y} \, \in \, S} p(\hat{x}, \hat{y})} $$ <br>
                 
                 <input type="checkbox" value="B"> * An unweighted sum of the loss $l(f(\hat{x}, \hat{y}))$ evaluated over all data points in $S$: $$\sum_{\hat{x}, \hat{y} \, \in \, S} l(f(\hat{x}, \hat{y})) $$ <br>
             
