@@ -1,0 +1,540 @@
+
+<html lang="en">
+	<head>
+
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="content-script-type" content="text/javascript" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<meta http-equiv="content-language" content="nl" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<meta name="author" content="Farita Tasnim" />
+		<meta name="description" content="I'm Farita Tasnim, a researcher in the theoretical physics of living systems." />
+		<meta name="keywords" content="physics, living systems, physics of living systems, hardware, solutions, software, integration, products, energy, farita, tasnim" />
+		<link rel="icon" href="favicon.ico"/>
+		<link rel="shortcut icon" href="http://farita.me/favicon.ico" />
+
+		<title>Object-Oriented Programming</title>
+
+		<link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300'rel='stylesheet' type='text/css'>
+		<link href="/css/cs_style.css" rel="stylesheet" />
+        <script src="https://kit.fontawesome.com/7c2f268794.js" crossorigin="anonymous"></script>
+        <script>
+            MathJax = {
+              tex: {
+                inlineMath: [['$', '$'], ['\\(~', '\\)']]
+              },
+              svg: {
+                fontCache: 'global'
+              }
+            };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+        
+	</head>
+    
+    
+	<body>
+        <div class="frontpage">
+            
+        <div class="container" style="font-size:16pt;line-height:16px;font-family:'Droid Sans'"> 
+            
+        <br> <br>
+            
+        <br> <br>
+            
+        Object-Oriented Programming
+
+            
+        <div class="container" style="font-size:12pt;line-height:16px;font-family:'Droid Sans'"> 
+            
+            <br>
+            
+        What's the most efficient way to write code meant to generate a lot of different objects that have overlapping sets of common properties and functions?
+            
+            <br> <br>
+            
+        <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop1');"> <i class="fa-solid fa-arrow-right"></i></a>
+
+        </div>
+            
+        </div>
+            
+        <div class="hidden_container" id = 'oop1'>
+            
+            <br>  
+            
+            - Templating Code -
+            
+            <p>
+                
+                <br> 
+
+                In the revolution to overthrow the tyranny of The Ampere, Princess Leila is designing a set of 5000 droids to help the efforts of the Capacitance to restore balance to the galaxy.
+                   
+                    <br> <br>
+                
+                
+            </p>
+            
+            <img src = "leila_coding.png" style="width:400px;"> <br> <br>
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop2');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'oop2'>
+            
+            <p> All of the droids have the same set of basic functions they must perform. Some examples include that they must be able to explore any planetary terrain, operate a spaceship, navigate space, and interpret human language. <br> <br> </p>
+            
+            <p> However, instead of making all of the droids the exact same, Leila wants to create different types of droids that can also do specific sets of tasks, which are more specialized functions than the basic ones. For example, she needs spaceship mechanic droids, medical droids, chef droids, and assassin droids. Let's say she has 20 different specific types of droids she wants to create.  <br> <br> </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop3');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'oop3'>
+            
+            <p> Leila is coding up the design for her robots, but she has many other things on her to do list. Accordingly, she needs to code the properties and functions for each of her droids in the most efficient way possible. <br> <br> </p>
+            
+            <p> <b>Which of the following strategies would be most efficient, so that Leila has to spend the least amount of time coding? </b> Hint: The goal is for her to write code so that she minimizes the number of lines of repeated code. </p> <br> <br>
+            
+                <p> <input type="checkbox" value="A"> A. Write a new chunk of code (~300 lines) specifying the properties and functions of every single droid in her droid set, and invoke (with a single line) one of those chunks of code to create each droid in her droid set  <br> <br> </p>
+                
+                <img src = "q1a.png" style="width:600px;"> <br> <br>
+
+                <p> <input type="checkbox" value="B"> B. Write a new chunk of code (~300 lines) specifying the properties and functions of every <b>type</b> of droid (mechanic, medic, chef, assassin, etc.), and invoke (with a single line) one of those chunks of code to create each droid in her droid set.  <br> <br> </p>
+                
+                <img src = "q1b.png" style="width:600px;"> <br> <br>
+
+                <p> <input type="checkbox" value="C"> * C.  Write a chunk of code specifying the droid with the very basic properties (~100 lines) and functions that all droids possess, extend that code into a new chunk of code (~200 lines) for each different <b>type</b> of droid (mechanic, medic, chef, assassin, etc.), and invoke (single line) one of those chunks of code to create each droid in her droid set <br> <br> </p>
+                
+                <img src = "q1c.png" style="width:600px;"> <br> <br>
+            
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop4');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'oop4'>
+            
+            <p> Why is the correct answer C and not B? Because in B, even though you're efficient in the sense that you only have large code chunks for each type of droid, you must repeat in each of those chunks the code for the basic properties and functions common to <b>all</b> droids, no matter their specific purpose. <br> <br> </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop5');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'oop5'>
+            
+            <p> This is a simple idea. Create templates (chunks of code) and reuse them multiple times when you need to create lots of computing objects with the same set of properties and functions! And this simple concept is at the heart of one of the most powerful programming practices, referred to as <b>object-oriented programming</b>. When certain properties and functions must be present in a large set of many computing objects, we create one of these templates, which is referred to as a <b>class</b>. <br> <br> </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop6');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'oop6'>
+            
+            <br>
+            
+            - Inheritance - 
+            
+            <br> <br>
+            
+            <p> Of course, as in Leila's droid situation above, computer scientists often want to create many different templates, and sometimes even the templates themselves share some common properties. In this case it is most efficient, as you answered above, to create one master template (called a <b>parent</b> class or <b>super</b> class) and then extend the template to more specific templates (called <b>child</b> classes or <b>subordinate</b> classes). Each child class that extends a parent class <b>inherits</b> the properties and functions of the parent class, so that those properties and functions don't have to be coded again. However in general, the parent class does not obtain any of the properties or functions of any of its child classes.  <br> <br> </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop7');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'oop7'>
+            
+            <p> This concept of inheritance can be drawn in terms of a tree diagram. Here's what Leila's code would look like as a tree diagram. We've only depicted 4 of the 20 "child" droid classes below. <br> <br> </p>
+            
+            <img src = "inher_2_levels.png" style="width:600px;"> <br> <br>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop8');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+            
+        
+        </div>
+            
+            
+        <div class="hidden_container" id = 'oop8'>
+            
+            
+            <p> With this kind of class hierarchy, each of the droids (each referred to as a separate <b>object</b>) can be created (<b>initialized</b>) with a single line of code invoking (<b>calling</b>) the class to which it belongs. In this single line, any properties specific to each droid, such as droid_id, will be provided. <br> <br>
+                
+                Medic_791 = Medic(droid_id = "medic_791") <br> <br> </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop9');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+            
+        
+        </div>
+            
+            
+        <div class="hidden_container" id = 'oop9'>
+            
+            <p> Leila thought a little more and realized that even some of these child classes would share some common properties and functions. She realized she has a set of math/science droids, a set of engineering/mechanic droids, a set of human interaction/service droids, and a set of fighting droids. <br> <br> 
+            
+            <b>Given this new realization, could Leila come up with a new strategy be in order to make her code even more efficient?</b> <br> <br> 
+                
+                <input type="checkbox" value="A"> * Yes, extend the original parent droid class into four child classes, and extend each of those classes further into their own child classes, corresponding to the subtypes of droids. <br> <br> 
+
+                <input type="checkbox" value="B"> No, don't change anything. Keep the original set of classes. <br> <br> 
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop10');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'oop10'>
+            
+            <p> Right, this concept of inheritance is pretty powerful because it can involve multiple levels! This allows us to reuse lots of code.  <br> <br> </p>
+            
+            <img src = "inher_3_levels.png" style="width:600px;"> <br> <br>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop11');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'oop11'>
+            
+            
+            <p> Now, let's help Leila figure out some of the functions and properties that to put in each of the classes. Drag and drop the functions below into this portion of the class hierarchy. <br> <br> </p>
+            
+            <img src = "fill_in_tree.png" style="width:600px;"> <br> <br>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop12');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'oop12'>
+            
+            
+            <p> Here you saw that the properties and function that are more common to more droids or types of droids should be placed in classes that are higher in the hierarchy.  <br> <br>
+                
+            Let's create (<b>instantiate</b>) a new droid now of the spaceship mechanic type. <br> <br> </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop13');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'oop13'>
+            
+            
+            <p> <b>Which of the following lines would Leila use to instantiate a valid spaceship mechanic droid? </b>  <br> <br> 
+                
+                <input type="checkbox" value="A"> Mechanic_012 = Spaceship_Mechanic(droid_id = "mechanic_012") <br> <br> 
+
+                <input type="checkbox" value="B"> * Mechanic_012 = Spaceship_Mechanic(droid_id = "mechanic_012", engineer_id = "fuel_droid_002", ship_expertise = "catalytic_converter") <br> <br> 
+                
+                <input type="checkbox" value="C"> Mechanic_012 = Spaceship_Mechanic(ship_expertise = "catalytic_converter") <br> <br> 
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop14');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'oop14'>
+            
+            
+            <p> Great! Leila could have this droid do functions with single lines of code such as: <br> <br>
+
+            Mechanic_012.check_fuel_efficiency() <br>
+            Mechanic_012.run_engine_check() <br>
+            Mechanic_012.calculate_horsepower(Engine_Object) <br> <br>
+                
+            Remember, a class inherits everything from its parent class, the parent class of its parent class, and so on. <br> <br> </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop15');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+            
+        <div class="hidden_container" id = 'oop15'>
+            
+            
+            <p> The modularity provided in the scheme of object-oriented programming allows Leila to fix issues more easily and efficiently, too! <br> <br> 
+                
+            <b>If she coded each of her 5000 droids separately, and then found out that there's an error (bug) in her code for the basic navigation functionality of all droids, how many different chunks of code would she have to fix (debug)</b>? <br> <br>
+                
+                <input type="checkbox" value="A"> 1 <br> <br> 
+
+                <input type="checkbox" value="B"> 25 <br> <br> 
+                
+                <input type="checkbox" value="C"> 1000 <br> <br> 
+                
+                <input type="checkbox" value="D"> * 5000 <br> <br> 
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop16');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'oop16'>
+            
+            
+            <p> <b>However, if she uses object-oriented programming according to the class hierarchy above, how many different chunks of code would she have to debug?</b> <br> <br> 
+                
+                <input type="checkbox" value="A"> * 1 <br> <br> 
+
+                <input type="checkbox" value="B"> 25 <br> <br> 
+                
+                <input type="checkbox" value="C"> 1000 <br> <br> 
+                
+                <input type="checkbox" value="C"> 5000 <br> <br> 
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop17');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'oop17'>
+            
+            
+            <p> <b>What if Leila found out there's an error in the check_fuel_efficiency function of her Space_Mechanic class? She has 25 space mechanic droids. If she uses object-oriented programming according to the class hierarchy above, how many different chunks of code would she have to debug?</b> <br> <br> 
+                
+                <input type="checkbox" value="A"> * 1 <br> <br> 
+
+                <input type="checkbox" value="B"> 25 <br> <br> 
+                
+                <input type="checkbox" value="C"> 1000 <br> <br> 
+                
+                <input type="checkbox" value="C"> 5000 <br> <br> 
+            
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop18');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'oop18'>
+            
+            
+            <p>  
+            Right, since she used inheritance properly in her object-oriented code, it doesn't matter how many space mechanic droids she has. She only has to fix the bug in the code for the one class Space_Mechanic. This will fix the problem in the code for all of her droids. <br> <br> 
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop19');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'oop19'>
+            
+            <br>
+            
+            - Composition - 
+            
+            <br> <br> 
+            
+            
+            <p>  
+            Leila thinks more and realizes she could make her code even more modular. She realizes that all of her droids have some set of the same core components, and that some of the more specific types of droids have more specific shared components, and so on. <br> <br>
+
+            She wants her code for droid components to be separate from the code for her droids. This is possible with object-oriented programming! She can create a separate class structure for droid components and code her droid classes to <b>have</b> instances (objects) of different classes specifying droid components. This is called <b>composition</b>. <br> <br>            
+    
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop20');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+    
+            
+        <div class="hidden_container" id = 'oop20'>
+            
+            
+            <p>                
+            Let's say all droids have one central processing unit, one visual processing unit, one audio processing unit, and one chemical processing unit. <br> <br> 
+                
+            For movement, a droid could have any of three different types of movement units (limb, wheel, jetpack). 
+                Math/science droids have two limbs and two wheels. Engineer/mechanic droids have two limbs, two wheels. The space mechanic droids each have a jetpack. Human interaction/service droids have four limbs. Fighting droids have two wheels and a jetpack. <br> <br> 
+                
+            There are many other types of components but for now let's sort these out. <br> <br>
+                
+            Now you can help Leila by drawing arrows from each component to the droid class that has an instance of it. Draw multiple arrows if a droid has multiple of the same component. To draw an arrow, click on the two classes the arrow connects. The arrow should point toward the class that contains the component class. <br> <br> 
+            </p>
+            
+            <img src = "composition.png" style="width:600px;"> <br> <br>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop21');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'oop21'>
+            
+            
+            <p> Nice! So you see that by allowing a class to consist of instances of other classes, composition allows for the relationship structure between shared features and properties more like an arbitrary <b>network</b> instead of a strict tree-like structure. <br> <br>
+                
+            In programming lingo, this is commonly described in the way that inheritance provides relationships of the style <b>is-a</b>, whereas composition provides relationships of the style <b>has-a</b>.  
+            <br> <br>
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop22');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'oop22'>
+            
+            <br>
+            
+            - Aggregation - 
+            
+            <br> <br> 
+            
+            
+            <p> 
+            As the final feature in Leila's design of her large set of droids, she wants groups of droids to be able to work together. In particular, she wants to be able to define different groups of droids that have certain collective properties and functions. <br> <br> 
+                
+            For example, she wants to be able to create a group of fighter pilot droids for a battle mission so that they can collectively get into different formations for attack and defense during a space battle with the Ampere. <br> <br> 
+                
+            <b>What is a strategy Leila could use in her code to make this possible in the most efficient way?</b> <br> <br> 
+                
+                <input type="checkbox" value="A"> Create instances of fighter pilot droids and write non object-oriented code for getting them to coordinate in different ways. <br> <br> 
+
+                <input type="checkbox" value="B"> * Create a new class, such as Attack_Group, that contains instances of fighter pilot droids, and contains functions that allow for different types of coordination. Then she can create an instance of an Attack_Group when she wants to go on a battle mission, and call the functions for that group as desired. <br> <br>           
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop23');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'oop23'>
+            
+            
+            <p> Right! So she can use object-oriented programming to make coding groups of things more efficient, just as we saw before with the droid components. <br> <br>
+                
+            However, there's one issue... Once the mission is over, Leila wants the group of fighter pilot droid to disband and go back to being used for other fighting tasks and potentially to be used in different groups. Composition doesn't allow for something like that. Deleting the a composition deletes all objects it contains. <br> <br> 
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop24');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'oop24'>
+            
+            
+            <p> Instead, we can do what's called <b>aggregation</b>. For abstract collections of entities, instead of instantiating droid objects inside the class for the group, we instantiate the droid objects separately, and refer to them when we instantiate a group class. <br> <br> 
+                
+            Here's what creating a new aggregation might look like: <br> <br> 
+            
+            New_Attack_Group = Attack_Group(attack_droids = {Fighter_Pilot_007, Fighter_Pilot_489, Fighter_Pilot_320, Fighter_Pilot_157, Fighter_Pilot_294, Fighter_Pilot_287, Fighter_Pilot_187}) <br> <br>
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('oop25');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'oop25'>
+            
+            
+            <p> All of these ways of creating network-type relations between different pieces of code --- inheritance, composition, and aggregation --- makes object-oriented programming very powerful. <br> <br> 
+                
+            In programming, this kind of power is referred to as <b>polymorphism</b> (poly = many, morph = form), which is just a fancy word saying that there's coherent network of code that creates many different types of things. <br> <br>
+                
+            Congrats! Now you understand the basic tenets of one of the most powerful and robust ways to write code. In doing so, you've helped Princess Leila efficiently create thousands of droids to contribute to the efforts of the Capacitance to fight the Ampere. <br> <br>
+                
+            In the upcoming lessons, you'll begin actually constructing the code for an object-oriented class structure.
+            
+            </p>
+            
+            
+        
+        </div>
+            
+            
+            
+    
+            
+            
+            
+        <br> <br> <br> <br> <br> <br>
+            
+    </div>
+
+
+    <script type="text/javascript">
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if(e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
+        }
+    </script>
+    
+        
+        
+    </body>
+
+</html>
+    

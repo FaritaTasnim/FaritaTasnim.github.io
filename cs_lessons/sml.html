@@ -1,0 +1,822 @@
+
+<html lang="en">
+	<head>
+
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="content-script-type" content="text/javascript" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<meta http-equiv="content-language" content="nl" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<meta name="author" content="Farita Tasnim" />
+		<meta name="description" content="I'm Farita Tasnim, a researcher in the theoretical physics of living systems." />
+		<meta name="keywords" content="physics, living systems, physics of living systems, hardware, solutions, software, integration, products, energy, farita, tasnim" />
+		<link rel="icon" href="favicon.ico"/>
+		<link rel="shortcut icon" href="http://farita.me/favicon.ico" />
+
+		<title>Introduction to Statistical Machine Learning Theory</title>
+
+		<link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300'rel='stylesheet' type='text/css'>
+		<link href="/css/cs_style.css" rel="stylesheet" />
+        <script src="https://kit.fontawesome.com/7c2f268794.js" crossorigin="anonymous"></script>
+        <script>
+            MathJax = {
+              tex: {
+                inlineMath: [['$', '$'], ['\\(~', '\\)']]
+              },
+              svg: {
+                fontCache: 'global'
+              }
+            };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+        
+	</head>
+    
+    
+	<body>
+        <div class="frontpage">
+            
+        <div class="container" style="font-size:16pt;line-height:16px;font-family:'Droid Sans'"> 
+            
+        <br> <br>
+            
+        <br> <br>
+            
+        Introduction to Statistical Machine Learning Theory
+
+            
+        <div class="container" style="font-size:12pt;line-height:16px;font-family:'Droid Sans'"> 
+            
+            <br>
+            
+        What relationships can a machine learn from limited data?
+            
+            <br> <br>
+            
+        <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml1');"> <i class="fa-solid fa-arrow-right"></i></a>
+
+        </div>
+            
+        </div>
+            
+        <div class="hidden_container" id = 'sml1'>
+            
+            <br>  
+            
+            - What is Data, to a Computer? -
+            
+            <p>
+                
+            <br> 
+
+            One of Leila's droids has exceptional auditory sensitivity, DB-90. This droid is able to pick up voices 1000 yards away in highly windy desert environments. 
+            Leila wants this droid to learn to use 10 second audio snippets of the voices it records and predict whether they are part of the Ampere or the Capacitance, and what ranking they hold within their group. [drawing of droid receiving audio signal] <br> <br>
+                
+            <b>To DB-90 (which is a computer), what is an audio snippet input? Remember it doesn't have human ears or a biological brain.</b> <br> <br>
+                
+                <input type="checkbox" value="A"> An ordered set of values of air pressure (caused by sounds) <br> <br>
+                
+                <input type="checkbox" value="B"> An ordered set of chemical signals (such as concentrations of different chemicals) that correspond to changes in air pressure  <br> <br>
+                
+                <input type="checkbox" value="C"> * An ordered set of electrical signals (such as voltage values of a conductor in a circuit) that correspond to changes in air pressure <br> <br>
+                
+            </p>
+            
+<!--            <img src = "/images/x.svg" style="width:600px;">-->
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml2');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+            
+        </div>
+            
+        <div class="hidden_container" id = 'sml2'>
+            
+            
+            <p> Right, a priori, a computer has no conception of sound in the way that we as their human programmers do. Its processor receives as input different voltages that correspond to that sound. These voltages will look like a <b>vector</b> of numbers indicating the voltage value at successive points in time. $$[x(t_0), x(t_1), x(t_2), \ldots]$$            
+            <br>
+                
+            And what about the output? <b>What are some options for the numerical representation of which side and ranking the originator of the sound belongs to? Let's say each side has 5 possible ranks. Select all that might apply. </b> <br> <br>
+                
+                <input type="checkbox" value="A"> * A vector of two numbers $[y_s, y_r]$: where $y_s = 0$ if they're on the Ampere side and $y_s = 1$ if they're on the Capacitance side; and $y_r$ is a number in the set $\{0,1,2,3,4\}$ <br> <br>
+                
+                <input type="checkbox" value="B"> * A single number $y$ that indicates both the side and the ranking. So that for example $y=0$ means they're Ampere, lowest rank and $y=9$ means they're Capacitance, highest rank. <br> <br>
+                
+                <input type="checkbox" value="C"> * A vector of 10 numbers $[y_0, y_1, \ldots, y_9]$ for which only one of the values $y_i = 1$ if $i$ corresponds to the side and ranking of the speaker, and the rest of the numbers in the vector equal $0$.<br> <br>
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml3');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml3'>
+            
+            <br>  
+            
+            - What is Learning, to a Machine? -
+            
+            <br> <br> 
+            
+            <p> <b>In order to solve Leila's desired side-and-ranking prediction problem, what *exactly* does DB-90 need to learn? </b> <br> <br>
+                
+                <input type="checkbox" value="A"> Whether or not the source of the sound is a droid or a human <br> <br>
+                
+                <input type="checkbox" value="B"> * The relationship between (10 second audio snippets - an ordered set of voltage values) and (the sound source's side and ranking)<br> <br>
+                
+                <input type="checkbox" value="C"> The relationship between (10 second changes in air pressure) and (the sound source's side and ranking) <br> <br>
+                
+                <input type="checkbox" value="D"> Whether or not the source of the sound is a Sith or a Jedi <br> <br>
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml4');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml4'>
+            
+            <br>  
+            
+            - Flawed Data means Machine Learning is about Statistics and Approximation -
+            
+            <br> <br> 
+            
+            
+            <p> Right, DB-90 essentially has to learn how audio snippets ($x$) relate to which side and ranking the source of the sound belongs ($y$). Mathematically, this kind of relationship is formalized as a <b>function</b>, $$y = f(x)$$
+            That sentence literally translates to "y is a function of x" (we think). 
+            The good thing is, computing is all about implementing functions, or transformations, from one variable into another variable. [drawing showing computer taking input and making it into output] <br> <br>
+            
+            If we knew the relationship beforehand, we could program it directly into the computer. 
+            Unfortunately Leila doesn't know this relationship beforehand, so she cannot program the relationship directly into the droid.
+            However, from radio transmissions and recordings, she has some data on audio snippets of people, and has their classification into side and ranking. 
+            Statistical machine learning is about figuring out - <b>"How well can we approximate the underlying relationship between two things using only *data*?"</b>
+                <br> <br>
+                
+            
+            To understand more deeply this concept of why the best we can do is to <b>approximate</b> the underlying function, let's ask: Why is the correct answer to the previous question B and not C? Because the input DB-90 receives is an ordered set of voltage values. Even though DB-90 has a very good auditory sensitivity, it does not have access to the original changes in air pressure that caused the voltages in its circuitry. Between the source of the sound  Why is this important? Because this tells us that there is a step that's not captured in the data that DB-90 has available to make predictions with. <br> <br>
+                
+                
+            <b>Do you think that the data is a perfect representation of the ground truth?</b> <br> <br>
+                
+                <input type="checkbox" value="A"> Yes, because that's all we have. <br> <br>
+                
+                <input type="checkbox" value="B"> * No. There are too many sources of randomness and error in how data is collected for it to ever be a perfect representation of any underlying state, phenomenon, or relationship. <br> <br>
+                
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml5');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml5'>
+            
+            
+            <p> Right, every entity in the universe has fundamental limitations regarding how well it can measure or know anything else in the universe. Therefore, no dataset can be absolutely perfect.
+                
+            <br> <br>
+                
+            In fact, in Leila's dataset, there are other imperfections we haven't discussed, too. 
+            Many of Leila's voice recordings in her dataset are noisy, and in some cases, she didn't know the speakers, so she had to make her best guess of the ranking of that person, especially on the Ampere side.
+                <br> <br>
+
+            [drawing showing sources of imperfection in the data. from source, to the microphone, which noisily converts the sound to voltage values, send them through telecomm which sometimes incorrectly sends values, then picked up at receiver hwich sometimes incorrectly reads values, and then records them in Leila's computer (x side) and then on the yside sometimes she doesn't know the speaker so she guesses] <br> <br> 
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml6');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml6'>
+            
+            <br>  
+            
+            - Implicit Features -
+            
+            <br> <br> 
+            
+            
+            <p> Given that there's all this noise in the data, why do we think we can actually uncover this relationship? 
+            <br> <br>
+                
+            Well, as long as the noise in the data is not so great that it fails to reflect the underlying <b>features</b> that are key to the relationship between $x$ and $y$, then it wouldn't be completely foolish to try.                
+            <br> <br>
+                
+            In this case, there may be different features of the voices belonging to different sides and ranking due to differences in their conditioning and their training. Since content, emotion, and other subtle cues are communicated by sounds from living organisms, Leila might observe some of these features in her dataset. People of different seniority levels in each group have different features in their voices. For example, the speed, punctuatedness, and pitch of a person's voice is often correlated with their seniority in a formal organization. <br> <br>
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml7');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml7'>
+            
+            
+            <p> When tasking a machine to learn an unclear relationship among variables, it uncovers implicit features of the dataset that we give to it. (Aside: In some cases, this can even uncover hidden biases in the way that we collect the data. For example, in many machine learning algorithms for facial recognition, if they are fed with racially biased data, they don't perform well on underrepresented groups.)
+                
+            <br> <br>
+                
+            For example, let's say we ask a computer to classify whether an image contains a dog or a cat. 
+            An image to a computer is just a large ordered set of subsets of 3 numbers (corresponding to the intensity of red, green, and blue (RGB) in each pixel). It doesn't see like we do. Even though we immediately recognize whether an animal is a dog or a cat, a computer does not have that intuition. Instead, it learns some hidden relationship between [features of the set of numbers representing the image] and [a binary value ($0$ if dog, $1$ if cat)]. It might have learned something very roughly along the lines of, "If there exists two sets of numbers with this range of RGB values that are in this order with respect to each other, then it's a $1$."
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml8');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml8'>
+            
+            <br>  
+            
+            - Recognizing the Underlying Probability Distribution -
+            
+            <br> <br>
+            
+            
+            <p> 
+                
+            Okay so we've accepted that there's going to be some uncertainty in the dataset, and it's not going to be a perfect representation of the truth of the relationship between two variables. Additionally, in some cases, there might not be a clear-cut relationship between the variables we are looking at. But we think we can still learn some sort of relationship between the two sets of variables Leila is considering. Let's proceed. 
+                
+            <br> <br>
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml9');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml9'>
+            
+            
+            <p> 
+                
+            <b>What could we say about the data? Choose all that apply</b>                 
+            <br> <br>
+                
+                <input type="checkbox" value="A"> Every time an $x$ is measured, it will result in the same value of $y$ <br> <br>
+                
+                <input type="checkbox" value="B"> * For the same $x$, it's possible that different $y$ values could be assigned (because Leila doesn't know everyone's side or ranking with perfect certainty) <br> <br>
+                
+                <input type="checkbox" value="C"> * If there's really a relationship between $x$ and $y$, even if there's some uncertainty, there are probably at least some $(x,y)$ pairs that are more likely than other $(x,y)$ pairs <br> <br>
+                
+                <input type="checkbox" value="D"> * The $(x,y)$ pairs are effectively sampled from some unknown probability distribution $p(x,y)$ <br> <br>
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml10');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml10'>
+            
+            
+            <p> 
+            
+            That's right. The data that we have is sampled from some distribution of possible data points, $p(x,y)$. This probability distribution reflects which $(x, y)$ pairs are more likely to occur together, and so contains information about a possible relationship between the two variables. <br> <br>
+                
+            [illustration of the probability distributions gradient over space show as a second panel, px and py and pygivx as lorenzo does, actualy show such options] <br> <br>
+                
+            <b>Looking at the distributions in the illustration above, which probability distribution represents how $y$ depends on the value of $x$?</b> <br> <br> 
+                
+                <input type="checkbox" value="A"> $p(x,y)$ <br> <br>
+                
+                <input type="checkbox" value="B"> * $p(y | x)$ <br> <br>
+                
+                <input type="checkbox" value="C"> $p(y)$ <br> <br>
+                
+                <input type="checkbox" value="D"> $p(x)$ <br> <br>
+                
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml11');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml11'>
+            
+            
+            <p> 
+                
+            Right, this conditional distribution indicates the probability of different $y$ values, given an $x$ value. Recall from basic probability theory that the probability of an $x$ and a $y$ value to occur together equals the conditional probability of that $y$ value given the $x$ value, times the probability of seeing that $x$ value in the first place. That's how we obtain the joint distribution $p(x,y) = p(y | x) \times p(x)$.
+                
+            <br> <br>
+                
+            Leila recognizes that it's a pretty difficult problem to estimate an entire probability distribution, especially one over the space of possible time series of audio-indicating voltages jointly with the faction and seniority of the speaker. So right now she wants to do something that works well enough, and one that works with the dataset available to her. <br> <br> 
+                
+            <b>What could she choose as a possible strategy for DB-90's learning process, rather than trying to estimate $p(y|x)$?</b> <br> <br> 
+                
+                <input type="checkbox" value="A"> * Estimate the $y_{\text{est}} = f(x)$ that gives the best "summary" of the most likely values of $p(y|x)$ using a process that uses the dataset to iteratively update the DB-90's internal model in a way that over time reduces its prediction error <br> <br>
+                
+                <input type="checkbox" value="B"> Try random possible choices for $y_{\text{est}} = f(x)$ until something works in classifying the points from her dataset above a certain threshold of accuracy <br> <br>
+                
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml12');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml12'>
+            
+            <br>  
+            
+            - The Best Possible Functional Representation of a Probability Distribution -
+            
+            <br> <br>
+            
+            
+            <p> Right, Leila can code DB-90 to update some internally stored representation of a function that tries to emulate the $y_{\text{est}} = f(x)$ that gives the best "summary" of the underlying distribution relating the two variables.      
+            <br> <br>
+                
+            <b>Which of the following is a good way to define this "best possible" $f(x)$?</b> <br> <br> 
+                
+                <input type="checkbox" value="A"> * Define some metric of error based on the probability distribution. That is, the error is of how far off $f(x)$ is from the actual most likely $y$ value in the distribution p(y | x). The "best possible" $f(x)$ is the one that minimizes this measure of error for all possible values of $x$. <br> <br>
+                
+                <input type="checkbox" value="B"> Define some metric of error based on data. That is, the error is of how far off $f(x)$ is from the $y$ value in each $(x,y)$ datapoint. The "best possible" $f(x)$ is the one that minimizes this measure of error for all points in the dataset. <br> <br>
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml13');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml13'>
+            
+            
+            <p> 
+                
+            Right, the best possible function is <b>not</b> the one that best summarizes our dataset, which is what option B would suggest. <br> <br>
+                
+            The theoretically best function that DB-90 <b>should</b> learn should minimize some quantitative (numerical) measure of the error in estimating the most likely $(x,y)$ pairs given by the underlying probability distribution representing the relationship between these two variables. <br> <br>
+                
+            An error metric that captures how far off an $y_{\text{est}} = f(x)$ is from $y$, is often referred to as a <b>loss</b> or <b>risk</b>. It is often a measure related to the distance between the value of $y$ and the value of $f(x)$. We'll have a subsequent lesson on possible values of this loss, but for now we'll refer to it generically as a function $l(f(x), y)$.  <br> <br>
+                
+            A function is <b>deterministic</b>, meaning it assigns a single value $y$ to every value of $x$. 
+            <b>Because we're trying to collapse a probability distribution to a single-valued function, can the error ever equal exactly $0$? </b> <br> <br>
+                
+                <input type="checkbox" value="A"> Yes <br> <br>
+                
+                <input type="checkbox" value="B"> * No <br> <br>
+            
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml14');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml14'>
+            
+            
+            <p> Right, a deterministic description will never give a perfect picture of probability distribution, except in the case that the probability distribution is a <a href = "https://en.wikipedia.org/wiki/Dirac_delta_function" target = "_blank"><b>delta function distribution</b></a>, which never truly occurs in reality. <br> <br>
+                
+            Now, let's explore in more depth this concept of representing a fundamentally probabilistic relationship in terms of a deterministic functional relationship. 
+            <br> <br>
+                
+            [interactive allowing play with different f(x) compared to the underlying probability distribution pxy, assuming grid of discrete x,y values. go through each one. how far off is this f(x) for each point.] <br> <br>
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml15');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml15'>
+            
+            
+            <p> <b> Based on your exploration above, for $(x,y)$ pairs with low probability of co-occurring, if the value of $f(x)$ is far from that $y$ value, is it a big deal for the total loss? </b>
+            <br> <br>
+                
+                <input type="checkbox" value="A"> Yes <br> <br>
+                
+                <input type="checkbox" value="B"> * No <br> <br>
+                
+            <b> For $(x,y)$ pairs with high probability of co-occurring, if the value of $f(x)$ is far from that $y$ value, is it a big deal for the total loss? </b>
+            <br> <br>
+                
+                <input type="checkbox" value="A"> * Yes <br> <br>
+                
+                <input type="checkbox" value="B"> No <br> <br>
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml16');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml16'>
+            
+            
+            <p> Right, so the best $f(x)$ stays close to where probability is concentrated in $p(x, y)$ and avoids areas where probability is not concentrated. It's like providing support at the heaviest parts of an uneven weight distribution.                
+            <br> <br>
+                
+            <b> Given this intuition, what's a good candidate for evaluating how far off a function $f(x)$ is from the underlying probability distribution $p(x,y)$? </b>
+            <br> <br>
+                
+                <input type="checkbox" value="A"> * A weighted average of the loss $l(f(x), y)$, where the weights are given by the probability p(x,y): $$\sum_{x,y} l(f(x), y) \, p(x,y) $$ <br>
+                
+                <input type="checkbox" value="B"> An unweighted sum of the loss $l(f(x), y)$ evaluated over all $(x,y)$ pairs: $$\sum_{x,y} l(f(x), y) $$ <br>
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml17');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml17'>
+            
+            
+            <p> So the best possible function (let's call it $f^*(x)$) is the one that minimizes this <b>expected error</b>. <br> <br>
+                
+            <b>Do you think we can we actually calculate this $f^*(x)$ explicitly?</b>
+            <br> <br>
+                
+                <input type="checkbox" value="A"> Yes <br> <br>
+                
+                <input type="checkbox" value="B"> * No <br> <br>
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml18');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml18'>
+            
+            
+            <p> Right, we can't actually calculate this $f^*(x)$ explicitly because we don't know $p(x,y)$. 
+            <br> <br>
+                
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml19');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml19'>
+            
+            <br>  
+            
+            - The Point of Statistical Machine Learning <b>Theory</b> -
+            
+            <br> <br>
+            
+            
+            <p> Leila realizes that despite this, she can code up an algorithm by which DB-90 iteratively modifies its estimate of the best function. Let's call DB-90's estimate $f_{\text{est}}(x)$. At a very high level, this algorithm takes each data point one by one and uses it to update $f_{\text{est}}(x)$. This iterative process is called training. Some examples of algorithms that can do this were discussed in the course on neural networks. The core of almost all machine learning tasks is about obtaining the best estimate, $f_{\text{est}}(x)$, of $f^*(x)$. <br> <br>
+
+            The crux of the <b>theory of statistical machine learning</b> is to understand <b>how well</b> we can actually achieve this goal, and how we can <b>modify the parameters of our estimation problem so that machine learning algorithms can obtain $f_{\text{est}}(x)$ closer and closer to $f^*(x)$. </b> 
+            <br> <br>
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml20');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml20'>
+            
+            
+            <p> <b>How easy do you think it would be to come up with an algorithm by which DB-90 iteratively modifies $f_{\text{est}}(x)$ to get pretty close to $f^*(x)$? Can it ever reach the exact best $f^*(x)$? </b>
+            <br> <br>
+                
+                <input type="checkbox" value="A"> easy but never reaches <br> <br>
+                
+                <input type="checkbox" value="B"> easy and reaches <br> <br> 
+                
+                <input type="checkbox" value="C"> hard and never reaches <br> <br>
+                
+                <input type="checkbox" value="D"> hard but reaches <br> <br>
+                
+                <input type="checkbox" value="E"> * depends on $f^*(x)$ and $p(x,y)$ <br> <br>
+                
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml21');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml21'>
+            
+            
+            <p> Right, the difficulty and reachability depend on how complicated of a function $f^*(x)$ is, how complicated the algorithm is, how close to a single-valued function $p(x,y)$ is, etc.             
+            <br> <br>
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml22');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml22'>
+            
+            <br>  
+            
+            - Playing with Parameters: Data Representation with Features -
+            
+            <br> <br>
+            
+            <p> 
+                
+            What parameters can we play around with in order to reduce the complexity of the function $f^*(x)$?
+            <br> <br>
+                
+            One thing we can do is reduce the complexity of the form of the input itself. <br> <br> 
+                
+            <b>Right now, let's say the audio snippets sample sound at $10000$ / second and they are each $10$ seconds long. So how many numbers does each possible $x$ consist of?</b>
+                
+                <input type="checkbox" value="A"> 1 <br> <br>
+                
+                <input type="checkbox" value="B"> 1000 <br> <br> 
+                
+                <input type="checkbox" value="C"> 10000 <br> <br>
+                
+                <input type="checkbox" value="D"> 100000 <br> <br>
+                
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml23');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml23'>
+            
+            
+            <p> Wow that's a lot!! If each $x$ is one hundred thousand numbers, $f(x)$ is going to be really complicated, right? Think about it, DB-90 would need to find a function that converts 100000 numbers into just one or two numbers (based on our choice of $y$). Each of the numbers is essentially its own degree of freedom, so it is a dimenson. When a variable consists of a set of many numbers, we say it has <b>high dimensionality</b>.
+            <br> <br>
+                
+            Instead of using this kind of high-dimensional input, what are some <b>features</b> we could extract from the audio inputs that we think might relate to the desired output? <br> <br>
+                
+                The dominant frequencies, up to 5 of them (pitch) <br>
+                The range of frequencies (vocal range) <br>
+                The average amplitude (average volume / loudness) <br>
+                The range of amplitudes (volume range) <br> <br> 
+                
+            These might be good choices, because as we discussed earlier, these kind of factors may correlate with the side and ranking of the speaker in the audio snippet. Each of these features is a function of $x$. Let us denote them as a set $\{ \theta(x) \}$
+                
+            [drawing of representing audio input as just a few numbers instead of thousands] <br> <br>
+                
+            If we use these numbers instead of the original audio snippet, then our input $x$ is a set of only 4 numbers! This greatly simplifies how complicated $f(x)$ will be. Now, DB-90 only has to come up with a function $f(x)$ that only has to convert a set of 4 numbers to a set of 1 or 2 numbers. <br> <br>  
+                
+            <b>When we reduce the dimensionality of the inputs and outputs involved in our machine learning problem, we have a better chance of uncovering an underlying relationship between the them. Of course, we must take care to ensure that the features chosen do not eliminate the underlying relationship we seek. </b> <br> <br>  
+                
+            Later on in the course, we'll go more in depth regarding the theory of how to come up with features $\{ \theta(x) \}$ so that the new $p(\theta(x), y)$ map reliably to the underlying $p(x, y)$ that we were seeking. <br> <br>  
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml24');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml24'>
+            
+            
+            <p> <b>What are some other things we can play with to reduce the hardness of the learning problem? Select all that apply. </b>
+            <br> <br>
+                
+                <input type="checkbox" value="A"> * the exact loss function that is used, $l(f(x), y)$ <br> <br>
+                
+                <input type="checkbox" value="B"> * the chosen representation of the output (for example, as discussed in an earlier question, whether we choose a vector of 2 numbers, 10 numbers, or 1 number to represent the side and ranking of the speaker) <br> <br> 
+                
+                <input type="checkbox" value="C"> * the chosen representation of the features of the input <br> <br>
+                
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml25');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml25'>
+            
+            
+            <p> Right, we can play with all of these factors to try to reduce the difficulty of the learning problem. Later on in the course, we will explore the issues of loss functions and representations in more detail.               
+            <br> <br>
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml26');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml26'>
+            
+            <br>  
+            
+            - What's the Best a Machine Can Learn, Given that it Only Has Data Samples? -
+            
+            <br> <br>
+            
+            <p> We talked about improving our odds at machine learning by trying to make it so that the problem the machine is tasked with learning is easier.                
+            <br> <br>
+                
+            Now, let's consider the other complication to the problem, which is that the machine has to learn based only on the data samples it is given. So the other half of statistical machine learning is to make progress on the question, <b>What's the best we can do, given that we only have access to data, which is a limited picture of the underlying relationship among the variables involved?</b>
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml27');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml27'>
+            
+            
+            <p> Let's say that Leila has trained DB-90, which now has an internal representation of $f_{\text{est}}(x)$. She wants to test how well the DB-90's $f_{\text{est}}(x)$ performs on a set of data $S = \{\hat{x}, \hat{x} \}$ <b>What is a good, and actually measurable metric to evaluate DB-90's efficacy on the dataset $S$?</b>
+            <br> <br>
+                
+                <input type="checkbox" value="A"> An weighted average of the loss $l(f(\hat{x}, \hat{y}))$ evaluated over all data points in $S$ where the weights are given by the probabilities p(\hat{x}, \hat{y}): $$ \sum_{\hat{x}, \hat{y} \, \in \, S} l(f(\hat{x}, \hat{y})) p(\hat{x}, \hat{y}) $$ <br>
+                
+                <input type="checkbox" value="B"> * An unweighted sum of the loss $l(f(\hat{x}, \hat{y}))$ evaluated over all data points in $S$: $$\sum_{\hat{x}, \hat{y} \, \in \, S} l(f(\hat{x}, \hat{y})) $$ <br>
+            
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml28');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml28'>
+            
+            
+            <p> Right, we don't know the distribution $p$, remember, so we can only measure the loss on the data available. [interactive for how different fest(x) affects the loss]
+            <br> <br>
+                
+            
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml29');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+        
+        
+        <div class="hidden_container" id = 'sml29'>
+            
+            
+            <p> <b>Will the same $f_{\text{est}}(x)$ evaluated on different sets $S$ have the same value of the error?</b>
+            <br> <br>
+                
+                <input type="checkbox" value="A"> Yes <br> <br>
+                
+                <input type="checkbox" value="B"> * No <br> <br>
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml30');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml30'>
+            
+            
+            <p> <b>For different training sets, but the same learning algorithm that Leila coded for DB-90's training process, will DB-90 come up with the exact same function $f_{\text{est}}(x)$?</b>
+            <br> <br>
+                
+                <input type="checkbox" value="A"> Yes <br> <br>
+                
+                <input type="checkbox" value="B"> * No <br> <br>
+            
+            </p>
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml31');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml31'>
+            
+            
+            <p> Sometimes a (bad) learning algorithm makes the resultant $f_{\text{est}}(x)$ way too descriptive of the data it's been trained on. This means the algorithm <b>overfits</b> to the training dataset. <br> <br> 
+                
+            In other cases, the resultant $f_{\text{est}}(x)$ is too sensitive to small changes in the value of $x$. This is means the algorithm results in an <b>unstable</b> function. <br> <br>
+                
+            In both of these cases, the learned machine doesn't perform well on new, unseen data. See for yourself below. <br> <br>
+                
+            [Interactive of x,y points, f*(x) which is fixed, and f_est which changes with buttons, interactive with buttons - unstable, overfitted, better, show points in blue as already seen, red as new, and display on top the value of the loss  - show all three panels]
+                
+            <br> <br>
+            
+            </p>
+            
+                
+            <a class="title" style="cursor: pointer;" onclick="toggle_visibility('sml32');"> <i class="fa-solid fa-arrow-right"></i></a>
+            
+        
+        </div>
+            
+        <div class="hidden_container" id = 'sml32'>
+            
+            
+            <p> 
+                
+            Congrats! You have the basic concepts required to take a deep dive into the theory of statistical (machine) learning! <br> <br>
+                
+            Machine is in parentheses above because we note that natural systems learn roughly like this all the time! For example, consider the ways mammals identify objects based on smells. The chemical input of the smell translates to electrical signals in the brain that contain some representation of the relationship to the idea of what objects could be in the vicinity. 
+            The relationship gets trained over time, from birth. Different people have different training sets so they sometimes react to / predict different smells differently! That's why, for example, some people like the smell of gasoline, because of the associations they have with it in their training sets. <br> <br>
+                
+            In the upcoming lessons, we'll learn about different algorithms and strategies to make DB-90's error on new, unseen data low with a class of methods called <b>regularization</b>!
+                
+            <br> <br>
+            
+            </p>
+            
+        
+        </div>
+            
+            
+        
+            
+            
+            
+    
+            
+            
+            
+        <br> <br> <br> <br> <br> <br>
+            
+    </div>
+
+
+    <script type="text/javascript">
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if(e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
+        }
+    </script>
+    
+        
+        
+    </body>
+
+</html>
+    
