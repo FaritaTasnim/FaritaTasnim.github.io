@@ -113,7 +113,7 @@
         <div class="hidden_container" id = 'sml2'>
             
             
-            <p> Right, a priori, a computer has no conception of sound in the way that we as their human programmers do. Its processor receives as input different voltages that correspond to that sound. These voltages will look like a <b>vector</b> of numbers indicating the voltage value at successive points in time. $$[x(t_0), x(t_1), x(t_2), \ldots]$$            
+            <p> A priori, a computer has no conception of sound in the way that we as their human programmers do. Its processor receives as input different voltages that correspond to that sound. These voltages will look like a <b>vector</b> of numbers indicating the voltage value at successive points in time. $$[x(t_0), x(t_1), x(t_2), \ldots]$$            
             <br>
                 
             And what about the output? <b>What are some options for the numerical representation of which side and ranking the originator of the sound belongs to? Let's say each side has 5 possible ranks. Select all that might apply. </b> <br> <br>
@@ -134,7 +134,7 @@
             
         <div class="hidden_container" id = 'sml2.5'>
             
-            <p> Right, all of the above are valid representations of the output. Later on in the course, we'll learn how to choose among them.         
+            <p> All of the above are valid representations of the output. Later on in the course, we'll learn how to choose among them.         
             <br> <br>
             </p>
             
@@ -173,7 +173,7 @@
         <div class="hidden_container" id = 'sml4'>
             
             
-            <p> Right, DB-90 essentially has to learn how audio snippets ($x$) relate to which side and ranking the source of the sound belongs ($y$). Mathematically, this kind of relationship is formalized as a <b>function</b>, $$y = f(x)$$
+            <p> To solve Leila's problem, DB-90 essentially has to learn how audio snippets ($x$) relate to which side and ranking the source of the sound belongs ($y$). Mathematically, this kind of relationship is formalized as a <b>function</b>, $$y = f(x)$$
             That sentence literally translates to "y is a function of x" (we think). 
             The good thing is, computing is all about implementing functions, or transformations, from one variable into another variable. <br> <br> </p>
             
@@ -221,7 +221,7 @@
         <div class="hidden_container" id = 'sml5'>
             
             
-            <p> Right, every entity in the universe has fundamental limitations regarding how well it can measure or know anything else in the universe. Therefore, no dataset can be an absolutely perfect representation of anything.
+            <p> Every entity in the universe has fundamental limitations regarding how well it can measure or know anything else in the universe. Therefore, no dataset can be an absolutely perfect representation of anything.
                 
             <br> <br>
                 
@@ -271,7 +271,7 @@
             <br> <br>
                 
             For example, let's say we ask a computer to classify whether an image contains a dog or a cat. 
-            An image to a computer is just a large ordered set of subsets (each corresponding to a pixel) of 3 numbers (corresponding to the intensity of red, green, and blue (RGB) in that pixel). It doesn't see like we do. Even though we immediately recognize whether an animal is a dog or a cat, a computer does not have that intuition. Instead, it learns some hidden relationship between the [features of the set of numbers representing the image] and a [binary value ($0$ if dog, $1$ if cat)]. Very loosely speaking, it *might* have learned something very roughly along the lines of, "If there exists two sets of numbers with this range of RGB values that are in this order with respect to each other, then it's most likely a $1$."
+            An image to a computer is just a large ordered set of subsets (each corresponding to a pixel) of 3 numbers (corresponding to the intensity of red, green, and blue (RGB) in that pixel). It doesn't see like we do. Even though we immediately recognize whether an animal is a dog or a cat, a computer does not have that intuition. Instead, it learns some hidden relationship between the [features of the set of numbers representing the image] and a [binary value ($0$ if dog, $1$ if cat)]. Very loosely speaking, it *might* have learned something very roughly along the lines of, "If there exists two sets of numbers with this range of RGB values that are in this order with respect to each other, then it's most likely a $1$." <br> <br>
             
             </p>
             
@@ -362,7 +362,7 @@
             
             <p> 
                 
-            Right, this conditional distribution indicates the probability of different $y$ values, given an $x$ value. Recall from basic probability theory that the probability of an $x$ and a $y$ value to occur together equals the conditional probability of observing that $y$ value <b>given</b> the $x$ value, times the probability of observing that $x$ value in the first place. That's how we obtain the joint distribution $p(x,y) = p(y | x) \times p(x)$.
+            This conditional distribution indicates the probability of different $y$ values, given an $x$ value. Recall from basic probability theory that the probability of an $x$ and a $y$ value to occur together equals the conditional probability of observing that $y$ value <b>given</b> the $x$ value, times the probability of observing that $x$ value in the first place. That's how we obtain the joint distribution $p(x,y) = p(y | x) \times p(x)$.
                 
             <br> <br> </p>
                 
@@ -383,7 +383,7 @@
                
         <div class="hidden_container" id = 'sml11.5'>
             
-            <p> Right, it would be pretty silly for us to be looking for a relationship between the input and output if it were the case that every input value led to the same distribution over possible outputs given that value of the input. In fact, that's exactly the condition required for two variables to be independent (have no relationship). <br> <br> </p>
+            <p> It would be pretty silly for us to be looking for a relationship between the input and output if it were the case that every input value led to the same distribution over possible outputs given that value of the input. In fact, that's exactly the condition required for two variables to be independent (have no relationship). <br> <br> </p>
             
             <p> 
             Leila recognizes that it's a pretty difficult problem to estimate entire probability distributions $p(y|x)$ given every possible value of $x$... Especially since $x$ is the space (set) of all possible time series of audio-indicating voltages. So right now she wants to do something that works well enough, and one that works with the dataset available to her. <br> <br> 
@@ -434,7 +434,7 @@
             
             <p> 
                 
-            Right, the <b>best possible</b> function is <b>not</b> the one that best summarizes our dataset, which is what option B would suggest. As we saw before, the dataset is fundamentally flawed. We want the function that best summarizes the underlying joint probability distribution of the input and output. <br> <br>
+            The <b>best possible</b> function is <b>not</b> the one that best summarizes our dataset, which is what option B would suggest. As we saw before, the dataset is fundamentally flawed. We want the function that best summarizes the underlying joint probability distribution of the input and output. <br> <br>
                 
             The theoretically best function that DB-90 <b>should</b> learn should minimize some quantitative (numerical) measure of the error in estimating the most likely $(x,y)$ pairs given by the underlying probability distribution representing the relationship between these two variables. <br> <br>
                 
@@ -483,7 +483,7 @@
         <div class="hidden_container" id = 'sml14.5'>
             
             
-            <p> Right, a deterministic description will never give a perfect picture of probability distribution, except in the case that the probability distribution is a <a href = "https://en.wikipedia.org/wiki/Dirac_delta_function" target = "_blank"><b>delta function distribution</b></a>, which never truly occurs in reality. <br> <br>
+            <p> A deterministic description will never give a perfect picture of probability distribution, except in the case that the probability distribution is a <a href = "https://en.wikipedia.org/wiki/Dirac_delta_function" target = "_blank"><b>delta function distribution</b></a>, which never truly occurs in reality. <br> <br>
                 
             </p>
             
@@ -520,7 +520,7 @@
         <div class="hidden_container" id = 'sml16'>
             
             
-            <p> Right, so the best $f(x)$ stays close to where probability is concentrated in $p(x, y)$ and avoids areas where probability is not concentrated. It's like providing support at the heaviest parts of an uneven weight distribution.                
+            <p> So the best $f(x)$ stays close to where probability is concentrated in $p(x, y)$ and avoids areas where probability is not concentrated. It's like providing support at the heaviest parts of an uneven weight distribution.                
             <br> <br>
                 
             <b> Given this intuition, what's a good candidate for evaluating how far off a function $f(x)$ is from the underlying probability distribution $p(x,y)$? </b>
@@ -561,7 +561,7 @@
         <div class="hidden_container" id = 'sml18'>
             
             
-            <p> Right, we can't actually calculate this $f^*(x)$ explicitly because we don't know $p(x,y)$. 
+            <p> We can't actually calculate this $f^*(x)$ explicitly because we don't know $p(x,y)$. 
             <br> <br>
                 
             
@@ -623,7 +623,7 @@
         <div class="hidden_container" id = 'sml21'>
             
             
-            <p> Right, the difficulty and reachability depend on how complicated of a function $f^*(x)$ is, how complicated the algorithm is, how close to a single-valued function $p(x,y)$ is, etc. Ideally, we'd be able to come up with an algorithm that leads to an $f_{\text{est}}(x)$ that equals $f^*(x)$. But this is almost impossible in practice.            
+            <p> The difficulty and reachability of this problem will depend on how complicated of a function $f^*(x)$ is, how complicated the algorithm is, how close to a single-valued function $p(x,y)$ is, etc. Ideally, we'd be able to come up with an algorithm that leads to an $f_{\text{est}}(x)$ that equals $f^*(x)$. But this is almost impossible in practice.            
             <br> <br>
             
             </p>
@@ -726,7 +726,7 @@
         <div class="hidden_container" id = 'sml25'>
             
             
-            <p> Right, we can play with all of these factors to try to reduce the difficulty of the learning problem. Later on in the course, we will explore the issues of loss functions and representations in more detail.               
+            <p> We can play with all of these factors to try to reduce the difficulty of the learning problem. Later on in the course, we will explore the issues of loss functions and representations in more detail.               
             <br> <br>
             
             </p>
@@ -780,7 +780,7 @@
         <div class="hidden_container" id = 'sml28'>
             
             
-            <p> Right, we don't know the distribution $p$. So we can only measure the loss on the data available. 
+            <p> We don't know the distribution $p$. So we can only measure the loss on the data available. 
             <br> <br>
                 
             </p>
