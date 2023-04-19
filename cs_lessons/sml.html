@@ -523,7 +523,12 @@
             <p> So the best $f(x)$ stays close to where probability is concentrated in $p(x, y)$ and avoids areas where probability is not concentrated. It's like providing support at the heaviest parts of an uneven weight distribution.                
             <br> <br>
                 
-            <b> Given this intuition, what's a good candidate for evaluating how far off a function $f(x)$ is from the underlying probability distribution $p(x,y)$? </b>
+            As a note, the joint distribution $p(x,y)$ indicates which values of the pair of variables (x,y) are most likely to occur. And the conditional distribution $p(y|x)$ indicates how the likelihood of different $y$ values changes when $x$ changes. <br> <br> 
+                
+            $f(x)$ is attempts to model the distribution $p(y|x)$. In the explorations for this lesson, we implicitly assume that all $x$ values are equally likely, so that the joint distribution $p(x,y) = p(y|x) \times p(x)$ is just a scaling of $p(y|x)$. However, in real applications, $p(x)$ is often not a uniform distributoin over all possible values of $x$. So, in some cases, machine learning algorithms can also attempt to learn the distribution of inputs $p(x)$ in order to have an even more accurate picture of the full joint distribution $p(x,y)$. We will cover this in more detail later on in the course. <br> <br>
+                
+                
+            <b> Given the intuition from the interactive above, what's a good candidate for evaluating how far off a function $f(x)$ is from the underlying probability distribution $p(x,y)$? </b>
             <br> <br>
                 
                 <input type="checkbox" value="A"> * A weighted average of the loss $l(f(x), y)$, where the weights are given by the probability p(x,y): $$\sum_{x,y} l(f(x), y) \, p(x,y) $$ <br>
@@ -748,7 +753,7 @@
             <p> We talked about improving our odds at machine learning by trying to simplify the problem the machine is tasked with learning.                
             <br> <br>
                 
-            Now, let's consider the other complication to the problem, which is that the machine has to learn based only on the data samples it is given. So the other half of statistical machine learning involves making progress on the question, <b>What's the best we can do, given that we only have access to data, which is a limited picture of the underlying relationship among the variables involved?</b>
+            Now, let's consider the other complication to the problem, which is that the machine has to learn based only on the data samples it is given. So the other half of statistical machine learning involves making progress on the question, <b>What's the best we can do, given that we only have access to data, which is a limited picture of the underlying relationship among the variables involved?</b> <br> <br>
             
             </p>
             
