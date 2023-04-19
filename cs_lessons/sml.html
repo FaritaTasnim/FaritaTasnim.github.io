@@ -456,6 +456,10 @@
             A function is <b>deterministic</b>, meaning it assigns a single value $y$ to every value of $x$. 
             However, our probability distribution is <b>non-deterministic</b>, which in this case means that it reflects how multiple values of $y$ could be observed for every given value of $x$.  <br> <br> 
                 
+            As a note, the joint distribution $p(x,y)$ indicates which co-occurring values of the variables $(x,y)$ are most likely to occur. And the conditional distribution $p(y|x)$ indicates how the likelihood of different $y$ values changes when $x$ changes. <br> <br> 
+                
+            $f(x)$ attempts to model the distribution $p(y|x)$. In the explorations for this lesson, we implicitly assume that all $x$ values are equally likely, so that the joint distribution $p(x,y) = p(y|x) \times p(x)$ is just a scaling of $p(y|x)$. However, in real applications, $p(x)$ is often not a uniform distribution over all possible values of $x$. So, in some cases, machine learning algorithms can be coded to attempt to learn the distribution of inputs $p(x)$ in order to have an even more accurate picture of the full joint distribution $p(x,y)$. We will cover this in more detail later on in the course. <br> <br>
+                
             Now, let's explore in more depth what limitations arise from representing a fundamentally probabilistic relationship in terms of a deterministic functional relationship. 
             <br> <br>
             
@@ -522,10 +526,6 @@
             
             <p> So the best $f(x)$ stays close to where probability is concentrated in $p(x, y)$ and avoids areas where probability is not concentrated. It's like providing support at the heaviest parts of an uneven weight distribution.                
             <br> <br>
-                
-            As a note, the joint distribution $p(x,y)$ indicates which values of the pair of variables (x,y) are most likely to occur. And the conditional distribution $p(y|x)$ indicates how the likelihood of different $y$ values changes when $x$ changes. <br> <br> 
-                
-            $f(x)$ is attempts to model the distribution $p(y|x)$. In the explorations for this lesson, we implicitly assume that all $x$ values are equally likely, so that the joint distribution $p(x,y) = p(y|x) \times p(x)$ is just a scaling of $p(y|x)$. However, in real applications, $p(x)$ is often not a uniform distributoin over all possible values of $x$. So, in some cases, machine learning algorithms can also attempt to learn the distribution of inputs $p(x)$ in order to have an even more accurate picture of the full joint distribution $p(x,y)$. We will cover this in more detail later on in the course. <br> <br>
                 
                 
             <b> Given the intuition from the interactive above, what's a good candidate for evaluating how far off a function $f(x)$ is from the underlying probability distribution $p(x,y)$? </b>
